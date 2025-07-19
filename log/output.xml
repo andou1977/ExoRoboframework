@@ -1,56 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-07-18T12:27:40.240946" rpa="false" schemaversion="5">
-<suite id="s1" name="Product" source="C:\Users\GENIUS\IdeaProjects\ExoRobotframework\Product.robot">
-<test id="s1-t1" name="Login" line="21">
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-07-19T13:54:05.644888" rpa="false" schemaversion="5">
+<suite id="s1" name="Product" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Product.robot">
+<test id="s1-t1" name="Login" line="26">
 <kw name="Login to website">
 <kw name="Open Browser" owner="RPA.Browser">
-<msg time="2025-07-18T12:27:40.594956" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
+<msg time="2025-07-19T13:54:06.004778" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
 <arg>${url}</arg>
 <arg>firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-07-18T12:27:40.594956" elapsed="6.069417"/>
+<status status="PASS" start="2025-07-19T13:54:06.003778" elapsed="5.970238"/>
 </kw>
 <kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-07-18T12:27:46.665369" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<msg time="2025-07-19T13:54:11.975024" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
 <arg>id=user-name</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-18T12:27:46.665369" elapsed="0.058370"/>
+<status status="PASS" start="2025-07-19T13:54:11.975024" elapsed="0.074670"/>
 </kw>
 <kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-07-18T12:27:46.723739" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<msg time="2025-07-19T13:54:12.049694" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
 <arg>id=password</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-18T12:27:46.723739" elapsed="0.020030"/>
+<status status="PASS" start="2025-07-19T13:54:12.049694" elapsed="0.018117"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${username}</arg>
 <arg>standard_user</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-07-18T12:27:46.743769" elapsed="0.000000"/>
+<status status="PASS" start="2025-07-19T13:54:12.067811" elapsed="0.001206"/>
 </kw>
 <kw name="Click Button" owner="RPA.Browser">
-<msg time="2025-07-18T12:27:46.744808" level="INFO">Clicking button 'id=login-button'.</msg>
+<msg time="2025-07-19T13:54:12.069017" level="INFO">Clicking button 'id=login-button'.</msg>
 <arg>id=login-button</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-18T12:27:46.743769" elapsed="0.243713"/>
+<status status="PASS" start="2025-07-19T13:54:12.069017" elapsed="0.242176"/>
+</kw>
+<kw name="verify">
+<kw name="Get Text" owner="RPA.Browser">
+<msg time="2025-07-19T13:54:12.321379" level="INFO">${verifyname} = Sauce Labs Backpack</msg>
+<var>${verifyname}</var>
+<arg>xpath=//div[@class="inventory_item_name "]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-19T13:54:12.312195" elapsed="0.009184"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${verifyname}</arg>
+<arg>Sauce Labs Backpack</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-07-19T13:54:12.321379" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2025-07-19T13:54:12.311193" elapsed="0.011187"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-07-18T12:27:51.987805" level="INFO">Slept 5 seconds.</msg>
+<msg time="2025-07-19T13:54:17.322543" level="INFO">Slept 5 seconds.</msg>
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-07-18T12:27:46.987482" elapsed="5.000323"/>
+<status status="PASS" start="2025-07-19T13:54:12.322380" elapsed="5.000163"/>
 </kw>
 <kw name="Close Browser" owner="RPA.Browser">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-07-18T12:27:51.987805" elapsed="2.635504"/>
+<status status="PASS" start="2025-07-19T13:54:17.322543" elapsed="2.628335"/>
 </kw>
-<status status="PASS" start="2025-07-18T12:27:40.593956" elapsed="14.029353"/>
+<status status="PASS" start="2025-07-19T13:54:06.003778" elapsed="13.947100"/>
 </kw>
-<status status="PASS" start="2025-07-18T12:27:40.592955" elapsed="14.031338"/>
+<status status="PASS" start="2025-07-19T13:54:06.002773" elapsed="13.949106"/>
 </test>
-<status status="PASS" start="2025-07-18T12:27:40.243032" elapsed="14.381261"/>
+<status status="PASS" start="2025-07-19T13:54:05.647892" elapsed="14.303987"/>
 </suite>
 <statistics>
 <total>
@@ -63,6 +79,6 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2025-07-18T12:27:40.548948" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
+<msg time="2025-07-19T13:54:05.957956" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>

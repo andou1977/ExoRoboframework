@@ -8,8 +8,13 @@ Login to website
    Input Text  id=password  ${password}
    Should Be Equal    ${username}  standard_user
    Click Button  id=login-button
+   verify
    Sleep    5
    Close Browser
+
+verify
+   ${verifyname}=  Get Text    xpath=//div[@class="inventory_item_name "]
+   Should Be Equal As Strings    ${verifyname}    Sauce Labs Backpack
 
 *** Variables ***
 ${url}   https://www.saucedemo.com/
