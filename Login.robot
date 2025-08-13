@@ -8,7 +8,7 @@ Library    RPA.Browser
 ${url}   https://www.saucedemo.com/
 ${username}    standard_user
 ${password}    secret_sauce
-
+    
 
 *** Keywords ***
 Saudecemo Website
@@ -18,6 +18,7 @@ Saudecemo Website
 
 
 Login to website
+   [Tags]  NEW-32
    Open Browser   ${url}   firefox
    Input Text  id=user-name  ${username}
    Input Text  id=password  ${password}
@@ -26,7 +27,7 @@ Login to website
    addproduct
    modifyquantity
    verify
-   Sleep    5
+   Sleep    15
    Close Browser
 
 

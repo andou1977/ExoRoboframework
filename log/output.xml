@@ -1,54 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-03T12:28:50.736624" rpa="false" schemaversion="5">
-<suite id="s1" name="Tableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Tableau.robot">
-<test id="s1-t1" name="Tableau" line="12">
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-12T14:26:45.842816" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Login.robot">
+<test id="s1-t1" name="Login" line="50">
+<kw name="Login to website">
 <kw name="Open Browser" owner="RPA.Browser">
-<msg time="2025-08-03T12:28:51.105400" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html'.</msg>
-<arg>file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html</arg>
+<msg time="2025-08-12T14:26:46.218206" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${url}</arg>
 <arg>firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-03T12:28:51.105400" elapsed="5.620838"/>
+<status status="PASS" start="2025-08-12T14:26:46.218206" elapsed="6.089069"/>
 </kw>
-<kw name="Element Should Be Visible" owner="RPA.Browser">
-<msg time="2025-08-03T12:28:56.758403" level="INFO">Element '//table' is displayed.</msg>
-<arg>${table}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-03T12:28:56.727236" elapsed="0.031167"/>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-12T14:26:52.308708" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.308708" elapsed="0.082630"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="RPA.Browser">
-<arg>${table}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-03T12:28:56.759404" elapsed="0.009526"/>
-</kw>
-<kw name="Get Text" owner="RPA.Browser">
-<msg time="2025-08-03T12:28:56.778618" level="INFO">${myvalue} = Product 1</msg>
-<var>${myvalue}</var>
-<arg>xpath=//table/thead/tr/th[2]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-03T12:28:56.768930" elapsed="0.009688"/>
-</kw>
-<kw name="Get Text" owner="RPA.Browser">
-<msg time="2025-08-03T12:28:56.786703" level="INFO">${myvalue2} = Price</msg>
-<var>${myvalue2}</var>
-<arg>xpath=//table/tbody/tr/td[1]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-03T12:28:56.779618" elapsed="0.007085"/>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-12T14:26:52.392344" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.392344" elapsed="0.021094"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
-<arg>${myvalue}</arg>
-<arg>Product 1</arg>
+<arg>${username}</arg>
+<arg>standard_user</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-03T12:28:56.786703" elapsed="0.001001"/>
+<status status="PASS" start="2025-08-12T14:26:52.413438" elapsed="0.000000"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${myvalue2}</arg>
-<arg>Price</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-03T12:28:56.787704" elapsed="0.000000"/>
+<kw name="Click Button" owner="RPA.Browser">
+<msg time="2025-08-12T14:26:52.414569" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.413438" elapsed="0.098285"/>
 </kw>
-<status status="PASS" start="2025-08-03T12:28:51.104398" elapsed="5.683306"/>
+<kw name="addproduct">
+<kw name="Click Element" owner="RPA.Browser">
+<msg time="2025-08-12T14:26:52.512846" level="INFO">Clicking element 'id=add-to-cart-sauce-labs-backpack'.</msg>
+<arg>id=add-to-cart-sauce-labs-backpack</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.512846" elapsed="0.067826"/>
+</kw>
+<status status="PASS" start="2025-08-12T14:26:52.511723" elapsed="0.068949"/>
+</kw>
+<kw name="modifyquantity">
+<kw name="Click Element" owner="RPA.Browser">
+<msg time="2025-08-12T14:26:52.581672" level="INFO">Clicking element 'class=shopping_cart_link'.</msg>
+<arg>class=shopping_cart_link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.581672" elapsed="0.064386"/>
+</kw>
+<status status="PASS" start="2025-08-12T14:26:52.580672" elapsed="0.065386"/>
+</kw>
+<kw name="verify">
+<kw name="Get Text" owner="RPA.Browser">
+<msg time="2025-08-12T14:26:52.655091" level="INFO">${verifyvalue} = 1</msg>
+<var>${verifyvalue}</var>
+<arg>xpath=//div[@class="cart_quantity"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.646058" elapsed="0.009033"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${verifyvalue}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.655091" elapsed="0.000997"/>
+</kw>
+<kw name="Should Not Be Equal As Numbers" owner="BuiltIn">
+<arg>${verifyvalue}</arg>
+<arg>-1</arg>
+<doc>Fails if objects are equal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.656088" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-12T14:26:52.646058" elapsed="0.010030"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-12T14:27:07.656393" level="INFO">Slept 15 seconds.</msg>
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-12T14:26:52.656088" elapsed="15.000305"/>
+</kw>
+<kw name="Close Browser" owner="RPA.Browser">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-12T14:27:07.656393" elapsed="2.091349"/>
+</kw>
+<tag>NEW-32</tag>
+<status status="PASS" start="2025-08-12T14:26:46.216684" elapsed="23.531058"/>
+</kw>
+<status status="PASS" start="2025-08-12T14:26:46.216684" elapsed="23.531058"/>
 </test>
-<status status="PASS" start="2025-08-03T12:28:50.739627" elapsed="6.049078"/>
+<status status="PASS" start="2025-08-12T14:26:45.843815" elapsed="23.904935"/>
 </suite>
 <statistics>
 <total>
@@ -57,10 +100,10 @@
 <tag>
 </tag>
 <suite>
-<stat name="Tableau" id="s1" pass="1" fail="0" skip="0">Tableau</stat>
+<stat name="Login" id="s1" pass="1" fail="0" skip="0">Login</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-03T12:28:51.059635" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
+<msg time="2025-08-12T14:26:46.173226" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>
