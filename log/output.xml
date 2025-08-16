@@ -1,109 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-12T14:26:45.842816" rpa="false" schemaversion="5">
-<suite id="s1" name="Login" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Login.robot">
-<test id="s1-t1" name="Login" line="50">
-<kw name="Login to website">
-<kw name="Open Browser" owner="RPA.Browser">
-<msg time="2025-08-12T14:26:46.218206" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
-<arg>${url}</arg>
-<arg>firefox</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-12T14:26:46.218206" elapsed="6.089069"/>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-15T21:46:45.370827" rpa="false" schemaversion="5">
+<suite id="s1" name="UIAPIDB" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\UIAPIDB.robot">
+<test id="s1-t1" name="ADDValue" line="15">
+<kw name="Create Session" owner="RPA.HTTP">
+<msg time="2025-08-15T21:46:47.109797" level="INFO">Creating Session using : alias=jsonfolder, url=http://localhost:8090, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>jsonfolder</arg>
+<arg>http://localhost:8090</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-15T21:46:47.108789" elapsed="0.003459"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-08-12T14:26:52.308708" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
-<arg>id=user-name</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.308708" elapsed="0.082630"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-15T21:46:47.112248" level="INFO">${addvalue} = {'nomClient': 'peter', 'age': '67', 'compte': '900'}</msg>
+<var>${addvalue}</var>
+<arg>nomClient=peter</arg>
+<arg>age=67</arg>
+<arg>compte=900</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-15T21:46:47.112248" elapsed="0.000000"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-08-12T14:26:52.392344" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
-<arg>id=password</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.392344" elapsed="0.021094"/>
+<kw name="Post Request" owner="RPA.HTTP">
+<msg time="2025-08-15T21:46:47.112248" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-15T21:46:47.153059" level="INFO">${addgrande} = &lt;Response [200]&gt;</msg>
+<var>${addgrande}</var>
+<arg>jsonfolder</arg>
+<arg>/save</arg>
+<arg>json= ${addvalue}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2025-08-15T21:46:47.112248" elapsed="0.040811"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${username}</arg>
-<arg>standard_user</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.413438" elapsed="0.000000"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-15T21:46:47.154058" level="INFO">&lt;Response [200]&gt;</msg>
+<arg>${addgrande}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-15T21:46:47.153059" elapsed="0.000999"/>
 </kw>
-<kw name="Click Button" owner="RPA.Browser">
-<msg time="2025-08-12T14:26:52.414569" level="INFO">Clicking button 'id=login-button'.</msg>
-<arg>id=login-button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.413438" elapsed="0.098285"/>
-</kw>
-<kw name="addproduct">
-<kw name="Click Element" owner="RPA.Browser">
-<msg time="2025-08-12T14:26:52.512846" level="INFO">Clicking element 'id=add-to-cart-sauce-labs-backpack'.</msg>
-<arg>id=add-to-cart-sauce-labs-backpack</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.512846" elapsed="0.067826"/>
-</kw>
-<status status="PASS" start="2025-08-12T14:26:52.511723" elapsed="0.068949"/>
-</kw>
-<kw name="modifyquantity">
-<kw name="Click Element" owner="RPA.Browser">
-<msg time="2025-08-12T14:26:52.581672" level="INFO">Clicking element 'class=shopping_cart_link'.</msg>
-<arg>class=shopping_cart_link</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.581672" elapsed="0.064386"/>
-</kw>
-<status status="PASS" start="2025-08-12T14:26:52.580672" elapsed="0.065386"/>
-</kw>
-<kw name="verify">
-<kw name="Get Text" owner="RPA.Browser">
-<msg time="2025-08-12T14:26:52.655091" level="INFO">${verifyvalue} = 1</msg>
-<var>${verifyvalue}</var>
-<arg>xpath=//div[@class="cart_quantity"]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.646058" elapsed="0.009033"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${verifyvalue}</arg>
-<arg>1</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.655091" elapsed="0.000997"/>
-</kw>
-<kw name="Should Not Be Equal As Numbers" owner="BuiltIn">
-<arg>${verifyvalue}</arg>
-<arg>-1</arg>
-<doc>Fails if objects are equal after converting them to real numbers.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.656088" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-08-12T14:26:52.646058" elapsed="0.010030"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-12T14:27:07.656393" level="INFO">Slept 15 seconds.</msg>
-<arg>15</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-12T14:26:52.656088" elapsed="15.000305"/>
-</kw>
-<kw name="Close Browser" owner="RPA.Browser">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-12T14:27:07.656393" elapsed="2.091349"/>
-</kw>
-<tag>NEW-32</tag>
-<status status="PASS" start="2025-08-12T14:26:46.216684" elapsed="23.531058"/>
-</kw>
-<status status="PASS" start="2025-08-12T14:26:46.216684" elapsed="23.531058"/>
+<status status="PASS" start="2025-08-15T21:46:47.108789" elapsed="0.045269"/>
 </test>
-<status status="PASS" start="2025-08-12T14:26:45.843815" elapsed="23.904935"/>
+<test id="s1-t2" name="verify" line="20">
+<kw name="Connect To Database" owner="DatabaseLibrary" type="SETUP">
+<msg time="2025-08-15T21:46:47.155059" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2025-08-15T21:46:47.155059" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-08-15T21:46:47.172141" level="INFO">Connect to DB using : pymysql.connect(db='try', user='root', passwd=***, host='localhost', port=3306, charset='utf8mb4')</msg>
+<arg>pymysql</arg>
+<arg>try</arg>
+<arg>root</arg>
+<arg>${password}</arg>
+<arg>localhost</arg>
+<arg>3306</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2025-08-15T21:46:47.155059" elapsed="0.020088"/>
+</kw>
+<kw name="Query" owner="DatabaseLibrary">
+<msg time="2025-08-15T21:46:47.175147" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;select * from client where nom_client='andou'&lt;/code&gt;</msg>
+<msg time="2025-08-15T21:46:47.176148" level="INFO">Commit the transaction</msg>
+<msg time="2025-08-15T21:46:47.176148" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;idclient&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;age&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;compte&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;date&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;nom_client&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;35&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;450.0&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;2025-07-20 11:46:05&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;andou&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-08-15T21:46:47.177651" level="INFO">${testerrequette} = ((1, 35, 450.0, datetime.datetime(2025, 7, 20, 11, 46, 5), 'andou'),)</msg>
+<var>${testerrequette}</var>
+<arg>select * from client where nom_client='andou'</arg>
+<doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
+The type of row values depends on the database module -
+usually they are tuples or tuple-like objects.</doc>
+<status status="PASS" start="2025-08-15T21:46:47.175147" elapsed="0.002504"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-08-15T21:46:47.177651" level="INFO">Length is 1.</msg>
+<arg>${testerrequette}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-08-15T21:46:47.177651" elapsed="0.000000"/>
+</kw>
+<kw name="Disconnect From Database" owner="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-08-15T21:46:47.177651" elapsed="0.001007"/>
+</kw>
+<status status="PASS" start="2025-08-15T21:46:47.154058" elapsed="0.024600"/>
+</test>
+<status status="PASS" start="2025-08-15T21:46:45.373837" elapsed="1.804821"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Login" id="s1" pass="1" fail="0" skip="0">Login</stat>
+<stat name="UIAPIDB" id="s1" pass="2" fail="0" skip="0">UIAPIDB</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-12T14:26:46.173226" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
+<msg time="2025-08-15T21:46:47.112248" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
 </errors>
 </robot>
