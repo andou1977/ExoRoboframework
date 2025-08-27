@@ -1,94 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-15T21:46:45.370827" rpa="false" schemaversion="5">
-<suite id="s1" name="UIAPIDB" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\UIAPIDB.robot">
-<test id="s1-t1" name="ADDValue" line="15">
-<kw name="Create Session" owner="RPA.HTTP">
-<msg time="2025-08-15T21:46:47.109797" level="INFO">Creating Session using : alias=jsonfolder, url=http://localhost:8090, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>jsonfolder</arg>
-<arg>http://localhost:8090</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-08-15T21:46:47.108789" elapsed="0.003459"/>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-24T11:43:33.198617" rpa="false" schemaversion="5">
+<suite id="s1" name="Excelmanipulation" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Excelmanipulation.robot">
+<test id="s1-t1" name="Lire Mot De Passe Seulement" line="14">
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2025-08-24T11:43:33.916481" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000001D931BB3310&gt;</msg>
+<arg>${FICHIER}</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2025-08-24T11:43:33.910524" elapsed="0.006961"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-15T21:46:47.112248" level="INFO">${addvalue} = {'nomClient': 'peter', 'age': '67', 'compte': '900'}</msg>
-<var>${addvalue}</var>
-<arg>nomClient=peter</arg>
-<arg>age=67</arg>
-<arg>compte=900</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-15T21:46:47.112248" elapsed="0.000000"/>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-08-24T11:43:33.917485" level="INFO">Created table: Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
+<msg time="2025-08-24T11:43:33.918481" level="INFO">${lire} = Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
+<var>${lire}</var>
+<arg>header=true</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="PASS" start="2025-08-24T11:43:33.917485" elapsed="0.000996"/>
 </kw>
-<kw name="Post Request" owner="RPA.HTTP">
-<msg time="2025-08-15T21:46:47.112248" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-08-15T21:46:47.153059" level="INFO">${addgrande} = &lt;Response [200]&gt;</msg>
-<var>${addgrande}</var>
-<arg>jsonfolder</arg>
-<arg>/save</arg>
-<arg>json= ${addvalue}</arg>
-<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<status status="PASS" start="2025-08-15T21:46:47.112248" elapsed="0.040811"/>
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-24T11:43:33.918481" elapsed="0.001000"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-08-15T21:46:47.154058" level="INFO">&lt;Response [200]&gt;</msg>
-<arg>${addgrande}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-15T21:46:47.153059" elapsed="0.000999"/>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-24T11:43:33.919481" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-08-15T21:46:47.108789" elapsed="0.045269"/>
+<status status="NOT RUN" start="2025-08-24T11:43:33.918481" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2025-08-24T11:43:33.918481" elapsed="0.001000"/>
+</if>
+<var name="${element}">{'NOM': 'Alice', 'EMAIL': 'alice@test.com', 'MOTDEPASSE': 'pass123', 'username': 'alexandra'}</var>
+<status status="PASS" start="2025-08-24T11:43:33.918481" elapsed="0.001000"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-24T11:43:33.920480" level="INFO">${USERNAME} = standard_user</msg>
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-24T11:43:33.919481" elapsed="0.000999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-24T11:43:33.920480" level="INFO">${PASSWORD} = secret_sauce</msg>
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-24T11:43:33.920480" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-24T11:43:33.919481" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2025-08-24T11:43:33.919481" elapsed="0.000999"/>
+</if>
+<var name="${element}">{'NOM': 'Bob', 'EMAIL': 'bob@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'standard_user'}</var>
+<status status="PASS" start="2025-08-24T11:43:33.919481" elapsed="0.000999"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-24T11:43:33.920480" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-24T11:43:33.921480" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-24T11:43:33.920480" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2025-08-24T11:43:33.920480" elapsed="0.001000"/>
+</if>
+<var name="${element}">{'NOM': 'Charlie', 'EMAIL': 'charlie@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'coucou'}</var>
+<status status="PASS" start="2025-08-24T11:43:33.920480" elapsed="0.001000"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-24T11:43:33.921480" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-24T11:43:33.921480" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-24T11:43:33.921480" elapsed="0.001004"/>
+</branch>
+<status status="PASS" start="2025-08-24T11:43:33.921480" elapsed="0.001004"/>
+</if>
+<var name="${element}">{'NOM': 'David', 'EMAIL': 'david@test.com', 'MOTDEPASSE': 'pass321', 'username': 'holly'}</var>
+<status status="PASS" start="2025-08-24T11:43:33.921480" elapsed="0.001004"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
+</if>
+<var name="${element}">{'NOM': 'Emma', 'EMAIL': 'emma@test.com', 'MOTDEPASSE': 'pass654', 'username': None}</var>
+<status status="PASS" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
+</iter>
+<var>${element}</var>
+<value>@{lire}</value>
+<status status="PASS" start="2025-08-24T11:43:33.918481" elapsed="0.004003"/>
+</for>
+<status status="PASS" start="2025-08-24T11:43:33.910012" elapsed="0.013469"/>
 </test>
-<test id="s1-t2" name="verify" line="20">
-<kw name="Connect To Database" owner="DatabaseLibrary" type="SETUP">
-<msg time="2025-08-15T21:46:47.155059" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
-<msg time="2025-08-15T21:46:47.155059" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2025-08-15T21:46:47.172141" level="INFO">Connect to DB using : pymysql.connect(db='try', user='root', passwd=***, host='localhost', port=3306, charset='utf8mb4')</msg>
-<arg>pymysql</arg>
-<arg>try</arg>
-<arg>root</arg>
-<arg>${password}</arg>
-<arg>localhost</arg>
-<arg>3306</arg>
-<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
-Along with listed commonly used arguments (`db_name`, `db_host` etc.)
-you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2025-08-15T21:46:47.155059" elapsed="0.020088"/>
-</kw>
-<kw name="Query" owner="DatabaseLibrary">
-<msg time="2025-08-15T21:46:47.175147" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;select * from client where nom_client='andou'&lt;/code&gt;</msg>
-<msg time="2025-08-15T21:46:47.176148" level="INFO">Commit the transaction</msg>
-<msg time="2025-08-15T21:46:47.176148" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;idclient&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;age&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;compte&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;date&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;nom_client&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;35&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;450.0&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;2025-07-20 11:46:05&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;andou&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2025-08-15T21:46:47.177651" level="INFO">${testerrequette} = ((1, 35, 450.0, datetime.datetime(2025, 7, 20, 11, 46, 5), 'andou'),)</msg>
-<var>${testerrequette}</var>
-<arg>select * from client where nom_client='andou'</arg>
-<doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
-The type of row values depends on the database module -
-usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2025-08-15T21:46:47.175147" elapsed="0.002504"/>
-</kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2025-08-15T21:46:47.177651" level="INFO">Length is 1.</msg>
-<arg>${testerrequette}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2025-08-15T21:46:47.177651" elapsed="0.000000"/>
-</kw>
-<kw name="Disconnect From Database" owner="DatabaseLibrary" type="TEARDOWN">
-<doc>Disconnects from the database.</doc>
-<status status="PASS" start="2025-08-15T21:46:47.177651" elapsed="0.001007"/>
-</kw>
-<status status="PASS" start="2025-08-15T21:46:47.154058" elapsed="0.024600"/>
-</test>
-<status status="PASS" start="2025-08-15T21:46:45.373837" elapsed="1.804821"/>
+<status status="PASS" start="2025-08-24T11:43:33.200615" elapsed="0.722866"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="UIAPIDB" id="s1" pass="2" fail="0" skip="0">UIAPIDB</stat>
+<stat name="Excelmanipulation" id="s1" pass="1" fail="0" skip="0">Excelmanipulation</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-15T21:46:47.112248" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-24T11:43:33.866314" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>
