@@ -22,29 +22,3 @@ Lire Mot De Passe Seulement
 
        END
 
-
-
-
-
-
-#    ${lire}=   Read Worksheet As Table
-#    ${leslires}=   Get From List  ${lire}  2
-#    Log    ${leslires}   MOTDEPASSE
-#    Log    ${leslires}
-#   Open Browser   https://www.saucedemo.com/  firefox
-#   Input Text    id=user-name    ${leslires[1]}
-#   Input Text    id=password     ${leslires[0]}
-#   Click Button  id=login-button
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,154 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-24T11:43:33.198617" rpa="false" schemaversion="5">
-<suite id="s1" name="Excelmanipulation" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Excelmanipulation.robot">
-<test id="s1-t1" name="Lire Mot De Passe Seulement" line="14">
-<kw name="Open Workbook" owner="RPA.Excel.Files">
-<msg time="2025-08-24T11:43:33.916481" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000001D931BB3310&gt;</msg>
-<arg>${FICHIER}</arg>
-<doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2025-08-24T11:43:33.910524" elapsed="0.006961"/>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-29T09:47:07.816491" rpa="false" schemaversion="5">
+<suite id="s1" name="Data-Driven Testing" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Data-Driven Testing.robot">
+<test id="s1-t1" name="Télécharger le fichier CSV1" line="15">
+<kw name="Download" owner="RPA.HTTP">
+<msg time="2025-08-29T09:47:08.363619" level="INFO">Creating a new HTTP session</msg>
+<msg time="2025-08-29T09:47:08.365129" level="INFO">Creating Session using : alias=rpasession_alias.httpsdrive.google.com, url=https://drive.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>${URL}</arg>
+<arg>${DEST}</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<status status="PASS" start="2025-08-29T09:47:08.363619" elapsed="2.061245"/>
 </kw>
-<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2025-08-24T11:43:33.917485" level="INFO">Created table: Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
-<msg time="2025-08-24T11:43:33.918481" level="INFO">${lire} = Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
-<var>${lire}</var>
-<arg>header=true</arg>
-<doc>Read the contents of a worksheet into a Table container. Allows
-sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2025-08-24T11:43:33.917485" elapsed="0.000996"/>
+<kw name="Read table from CSV" owner="RPA.Tables">
+<msg time="2025-08-29T09:47:10.427463" level="INFO">${fre} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
+<var>${fre}</var>
+<arg>${DEST}</arg>
+<doc>Read a CSV file as a table.</doc>
+<status status="PASS" start="2025-08-29T09:47:10.424864" elapsed="0.002599"/>
 </kw>
-<for flavor="IN">
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-24T11:43:33.918481" elapsed="0.001000"/>
+<kw name="Download" owner="RPA.HTTP">
+<msg time="2025-08-29T09:47:10.428818" level="INFO">Using already existing HTTP session</msg>
+<arg>${url2}</arg>
+<arg>${destin2}</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<status status="PASS" start="2025-08-29T09:47:10.427463" elapsed="1.801233"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-24T11:43:33.919481" elapsed="0.000000"/>
+<kw name="Read table from CSV" owner="RPA.Tables">
+<msg time="2025-08-29T09:47:12.237324" level="INFO">${de2} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=1000)</msg>
+<var>${de2}</var>
+<arg>${destin2}</arg>
+<doc>Read a CSV file as a table.</doc>
+<status status="PASS" start="2025-08-29T09:47:12.228696" elapsed="0.008628"/>
 </kw>
-<status status="NOT RUN" start="2025-08-24T11:43:33.918481" elapsed="0.001000"/>
-</branch>
-<status status="PASS" start="2025-08-24T11:43:33.918481" elapsed="0.001000"/>
-</if>
-<var name="${element}">{'NOM': 'Alice', 'EMAIL': 'alice@test.com', 'MOTDEPASSE': 'pass123', 'username': 'alexandra'}</var>
-<status status="PASS" start="2025-08-24T11:43:33.918481" elapsed="0.001000"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-24T11:43:33.920480" level="INFO">${USERNAME} = standard_user</msg>
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-24T11:43:33.919481" elapsed="0.000999"/>
+<kw name="Sort List" owner="Collections">
+<msg time="2025-08-29T09:47:12.238328" level="FAIL">AttributeError: 'Table' object has no attribute 'sort'</msg>
+<var>${sorted1}</var>
+<arg>${fre}</arg>
+<doc>Sorts the given list in place.</doc>
+<status status="FAIL" start="2025-08-29T09:47:12.237324" elapsed="0.001004">AttributeError: 'Table' object has no attribute 'sort'</status>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-24T11:43:33.920480" level="INFO">${PASSWORD} = secret_sauce</msg>
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-24T11:43:33.920480" elapsed="0.000000"/>
+<kw name="Sort List" owner="Collections">
+<var>${sorted2}</var>
+<arg>${de2}</arg>
+<doc>Sorts the given list in place.</doc>
+<status status="NOT RUN" start="2025-08-29T09:47:12.238328" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-08-24T11:43:33.919481" elapsed="0.000999"/>
-</branch>
-<status status="PASS" start="2025-08-24T11:43:33.919481" elapsed="0.000999"/>
-</if>
-<var name="${element}">{'NOM': 'Bob', 'EMAIL': 'bob@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'standard_user'}</var>
-<status status="PASS" start="2025-08-24T11:43:33.919481" elapsed="0.000999"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-24T11:43:33.920480" elapsed="0.000000"/>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${sorted1}</arg>
+<arg>${sorted2}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-08-29T09:47:12.238328" elapsed="0.000000"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-24T11:43:33.921480" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-08-24T11:43:33.920480" elapsed="0.001000"/>
-</branch>
-<status status="PASS" start="2025-08-24T11:43:33.920480" elapsed="0.001000"/>
-</if>
-<var name="${element}">{'NOM': 'Charlie', 'EMAIL': 'charlie@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'coucou'}</var>
-<status status="PASS" start="2025-08-24T11:43:33.920480" elapsed="0.001000"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-24T11:43:33.921480" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-24T11:43:33.921480" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-08-24T11:43:33.921480" elapsed="0.001004"/>
-</branch>
-<status status="PASS" start="2025-08-24T11:43:33.921480" elapsed="0.001004"/>
-</if>
-<var name="${element}">{'NOM': 'David', 'EMAIL': 'david@test.com', 'MOTDEPASSE': 'pass321', 'username': 'holly'}</var>
-<status status="PASS" start="2025-08-24T11:43:33.921480" elapsed="0.001004"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
-</if>
-<var name="${element}">{'NOM': 'Emma', 'EMAIL': 'emma@test.com', 'MOTDEPASSE': 'pass654', 'username': None}</var>
-<status status="PASS" start="2025-08-24T11:43:33.922484" elapsed="0.000000"/>
-</iter>
-<var>${element}</var>
-<value>@{lire}</value>
-<status status="PASS" start="2025-08-24T11:43:33.918481" elapsed="0.004003"/>
-</for>
-<status status="PASS" start="2025-08-24T11:43:33.910012" elapsed="0.013469"/>
+<status status="FAIL" start="2025-08-29T09:47:08.362615" elapsed="3.875713">AttributeError: 'Table' object has no attribute 'sort'</status>
 </test>
-<status status="PASS" start="2025-08-24T11:43:33.200615" elapsed="0.722866"/>
+<status status="FAIL" start="2025-08-29T09:47:07.819848" elapsed="4.419482"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Excelmanipulation" id="s1" pass="1" fail="0" skip="0">Excelmanipulation</stat>
+<stat name="Data-Driven Testing" id="s1" pass="0" fail="1" skip="0">Data-Driven Testing</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-24T11:43:33.866314" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>

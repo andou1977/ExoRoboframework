@@ -15,12 +15,6 @@ Login to website
         Log    ${text}
     END
 
-
-
-
-
-
-
 *** Test Cases ***
 Launch
   Login to website
