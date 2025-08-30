@@ -10,7 +10,7 @@ ${table}    //table
 
 *** Test Cases ***
 Tableau
-    Open Browser   file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html   firefox
+    Open Browser   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/index.html   firefox
     Element Should Be Visible   ${table}
     wait until element is visible   ${table}
     ${myvalue}=   Get Text    xpath=//table/thead/tr/th[2]

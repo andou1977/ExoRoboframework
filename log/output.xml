@@ -1,69 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-29T09:47:07.816491" rpa="false" schemaversion="5">
-<suite id="s1" name="Data-Driven Testing" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Data-Driven Testing.robot">
-<test id="s1-t1" name="Télécharger le fichier CSV1" line="15">
-<kw name="Download" owner="RPA.HTTP">
-<msg time="2025-08-29T09:47:08.363619" level="INFO">Creating a new HTTP session</msg>
-<msg time="2025-08-29T09:47:08.365129" level="INFO">Creating Session using : alias=rpasession_alias.httpsdrive.google.com, url=https://drive.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<arg>${URL}</arg>
-<arg>${DEST}</arg>
-<doc>An alias for the ``HTTP Get`` keyword.</doc>
-<status status="PASS" start="2025-08-29T09:47:08.363619" elapsed="2.061245"/>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-30T11:04:55.634895" rpa="false" schemaversion="5">
+<suite id="s1" name="VerifyTableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\VerifyTableau.robot">
+<test id="s1-t1" name="Launch" line="19">
+<kw name="Login to website">
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-08-30T11:04:55.991428" level="INFO">Opening browser 'firefox' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/index.html'.</msg>
+<arg>${url}</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-30T11:04:55.990427" elapsed="5.653683"/>
 </kw>
-<kw name="Read table from CSV" owner="RPA.Tables">
-<msg time="2025-08-29T09:47:10.427463" level="INFO">${fre} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
-<var>${fre}</var>
-<arg>${DEST}</arg>
-<doc>Read a CSV file as a table.</doc>
-<status status="PASS" start="2025-08-29T09:47:10.424864" elapsed="0.002599"/>
+<kw name="Get WebElements" owner="RPA.Browser">
+<msg time="2025-08-30T11:05:01.672187" level="INFO">@{elements} = [ ]</msg>
+<var>@{elements}</var>
+<arg>xpath=//h2[@class="dolor_text"]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:05:01.644110" elapsed="0.028077"/>
 </kw>
-<kw name="Download" owner="RPA.HTTP">
-<msg time="2025-08-29T09:47:10.428818" level="INFO">Using already existing HTTP session</msg>
-<arg>${url2}</arg>
-<arg>${destin2}</arg>
-<doc>An alias for the ``HTTP Get`` keyword.</doc>
-<status status="PASS" start="2025-08-29T09:47:10.427463" elapsed="1.801233"/>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="RPA.Browser">
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-30T11:05:01.673188" elapsed="0.000000"/>
 </kw>
-<kw name="Read table from CSV" owner="RPA.Tables">
-<msg time="2025-08-29T09:47:12.237324" level="INFO">${de2} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=1000)</msg>
-<var>${de2}</var>
-<arg>${destin2}</arg>
-<doc>Read a CSV file as a table.</doc>
-<status status="PASS" start="2025-08-29T09:47:12.228696" elapsed="0.008628"/>
+<kw name="Log" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-30T11:05:01.673188" elapsed="0.000000"/>
 </kw>
-<kw name="Sort List" owner="Collections">
-<msg time="2025-08-29T09:47:12.238328" level="FAIL">AttributeError: 'Table' object has no attribute 'sort'</msg>
-<var>${sorted1}</var>
-<arg>${fre}</arg>
-<doc>Sorts the given list in place.</doc>
-<status status="FAIL" start="2025-08-29T09:47:12.237324" elapsed="0.001004">AttributeError: 'Table' object has no attribute 'sort'</status>
+<var name="${element}"/>
+<status status="NOT RUN" start="2025-08-30T11:05:01.673188" elapsed="0.000000"/>
+</iter>
+<var>${element}</var>
+<value>@{elements}</value>
+<status status="NOT RUN" start="2025-08-30T11:05:01.673188" elapsed="0.000000"/>
+</for>
+<status status="PASS" start="2025-08-30T11:04:55.990427" elapsed="5.683760"/>
 </kw>
-<kw name="Sort List" owner="Collections">
-<var>${sorted2}</var>
-<arg>${de2}</arg>
-<doc>Sorts the given list in place.</doc>
-<status status="NOT RUN" start="2025-08-29T09:47:12.238328" elapsed="0.000000"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${sorted1}</arg>
-<arg>${sorted2}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="NOT RUN" start="2025-08-29T09:47:12.238328" elapsed="0.000000"/>
-</kw>
-<status status="FAIL" start="2025-08-29T09:47:08.362615" elapsed="3.875713">AttributeError: 'Table' object has no attribute 'sort'</status>
+<status status="PASS" start="2025-08-30T11:04:55.989428" elapsed="5.684759"/>
 </test>
-<status status="FAIL" start="2025-08-29T09:47:07.819848" elapsed="4.419482"/>
+<status status="PASS" start="2025-08-30T11:04:55.637896" elapsed="6.036799"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Data-Driven Testing" id="s1" pass="0" fail="1" skip="0">Data-Driven Testing</stat>
+<stat name="VerifyTableau" id="s1" pass="1" fail="0" skip="0">VerifyTableau</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-08-30T11:04:55.945989" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>

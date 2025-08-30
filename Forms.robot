@@ -13,7 +13,7 @@ ${position}    Testeur Auto et Fonctionnelle
 ${adress}      47 Boulevard Trouin
 *** Keywords ***
 forms
-     Open Browser   file:///C:/Users/GENIUS/Downloads/html-application-form.html   firefox
+     Open Browser   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/html-application-form.html  firefox
      Input Text     id=firstname   ${firstname}
      Input Text     id=lastname    ${lastname}
      Input Text     id=email     ${email}

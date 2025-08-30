@@ -4,7 +4,7 @@ Library    RPA.Browser
 
 *** Variables ***
 
-${url}   file:///C:/Users/GENIUS/Downloads/picked/index.html
+${url}   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/index.html
 
 *** Keywords ***
 Login to website

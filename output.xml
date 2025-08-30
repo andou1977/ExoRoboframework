@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-30T11:06:55.638411" rpa="false" schemaversion="5">
+<suite id="s1" name="ExoRoboframework" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework">
+<suite id="s1-s1" name="Data-Driven Testing" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Data-Driven Testing.robot">
+<test id="s1-s1-t1" name="Télécharger le fichier CSV1" line="15">
+<kw name="Download" owner="RPA.HTTP" type="SETUP">
+<msg time="2025-08-30T11:06:56.120854" level="INFO">Creating a new HTTP session</msg>
+<msg time="2025-08-30T11:06:56.120854" level="INFO">Creating Session using : alias=rpasession_alias.httpsdrive.google.com, url=https://drive.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>${URL}</arg>
+<arg>${DEST}</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<status status="PASS" start="2025-08-30T11:06:56.119403" elapsed="1.455860"/>
+</kw>
+<kw name="Read table from CSV" owner="RPA.Tables">
+<msg time="2025-08-30T11:06:57.577770" level="INFO">${fre} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
+<var>${fre}</var>
+<arg>${DEST}</arg>
+<doc>Read a CSV file as a table.</doc>
+<status status="PASS" start="2025-08-30T11:06:57.575263" elapsed="0.002507"/>
+</kw>
+<kw name="Download" owner="RPA.HTTP">
+<msg time="2025-08-30T11:06:57.578776" level="INFO">Using already existing HTTP session</msg>
+<arg>${url2}</arg>
+<arg>${destin2}</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<status status="PASS" start="2025-08-30T11:06:57.577770" elapsed="1.533637"/>
+</kw>
+<kw name="Read table from CSV" owner="RPA.Tables">
+<msg time="2025-08-30T11:06:59.120437" level="INFO">${de2} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=1000)</msg>
+<var>${de2}</var>
+<arg>${destin2}</arg>
+<doc>Read a CSV file as a table.</doc>
+<status status="PASS" start="2025-08-30T11:06:59.112420" elapsed="0.008017"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:06:56.119403" elapsed="3.001034"/>
+</test>
+<status status="PASS" start="2025-08-30T11:06:55.657955" elapsed="3.463485"/>
+</suite>
+<suite id="s1-s2" name="Excelmanipulation" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Excelmanipulation.robot">
+<test id="s1-s2-t1" name="Lire Mot De Passe Seulement" line="14">
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2025-08-30T11:06:59.304085" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000001FBDB618990&gt;</msg>
+<arg>${FICHIER}</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2025-08-30T11:06:59.299087" elapsed="0.004998"/>
+</kw>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-08-30T11:06:59.305090" level="INFO">Created table: Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
+<msg time="2025-08-30T11:06:59.305090" level="INFO">${lire} = Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
+<var>${lire}</var>
+<arg>header=true</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="PASS" start="2025-08-30T11:06:59.304085" elapsed="0.001005"/>
+</kw>
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-30T11:06:59.305090" elapsed="0.000998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-30T11:06:59.305090" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-08-30T11:06:59.305090" elapsed="0.000998"/>
+</if>
+<var name="${element}">{'NOM': 'Alice', 'EMAIL': 'alice@test.com', 'MOTDEPASSE': 'pass123', 'username': 'alexandra'}</var>
+<status status="PASS" start="2025-08-30T11:06:59.305090" elapsed="0.000998"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-30T11:06:59.306088" level="INFO">${USERNAME} = standard_user</msg>
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-30T11:06:59.306088" level="INFO">${PASSWORD} = secret_sauce</msg>
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</if>
+<var name="${element}">{'NOM': 'Bob', 'EMAIL': 'bob@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'standard_user'}</var>
+<status status="PASS" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</if>
+<var name="${element}">{'NOM': 'Charlie', 'EMAIL': 'charlie@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'coucou'}</var>
+<status status="PASS" start="2025-08-30T11:06:59.306088" elapsed="0.000000"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</if>
+<var name="${element}">{'NOM': 'David', 'EMAIL': 'david@test.com', 'MOTDEPASSE': 'pass321', 'username': 'holly'}</var>
+<status status="PASS" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${element}[username]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${PASSWORD}</var>
+<arg>${element}[MOTDEPASSE]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</if>
+<var name="${element}">{'NOM': 'Emma', 'EMAIL': 'emma@test.com', 'MOTDEPASSE': 'pass654', 'username': None}</var>
+<status status="PASS" start="2025-08-30T11:06:59.307593" elapsed="0.000000"/>
+</iter>
+<var>${element}</var>
+<value>@{lire}</value>
+<status status="PASS" start="2025-08-30T11:06:59.305090" elapsed="0.003508"/>
+</for>
+<status status="PASS" start="2025-08-30T11:06:59.299087" elapsed="0.009511"/>
+</test>
+<status status="PASS" start="2025-08-30T11:06:59.122464" elapsed="0.186568"/>
+</suite>
+<suite id="s1-s3" name="Forms" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Forms.robot">
+<test id="s1-s3-t1" name="Full forms" line="30">
+<kw name="forms">
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-08-30T11:06:59.312998" level="INFO">Opening browser 'firefox' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/html-application-form.html'.</msg>
+<arg>C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/html-application-form.html</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-30T11:06:59.312998" elapsed="6.098622"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.412636" level="INFO">Typing text 'andou' into text field 'id=firstname'.</msg>
+<arg>id=firstname</arg>
+<arg>${firstname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.411620" elapsed="0.094060"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.505680" level="INFO">Typing text 'emmanuel' into text field 'id=lastname'.</msg>
+<arg>id=lastname</arg>
+<arg>${lastname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.505680" elapsed="0.020188"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.525868" level="INFO">Typing text 'andouemmanuel@gmail.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.525868" elapsed="0.019340"/>
+</kw>
+<kw name="Select From List By Value" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.545208" level="INFO">Selecting options from selection list 'id=occupation' by value others.</msg>
+<arg>id=occupation</arg>
+<arg>others</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.545208" elapsed="0.071316"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.617031" level="INFO">Typing text '33' into text field 'id=areacode'.</msg>
+<arg>id=areacode</arg>
+<arg>${area}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.617031" elapsed="0.017028"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.634059" level="INFO">Typing text '0678967887' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.634059" elapsed="0.018808"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.653881" level="INFO">Typing text 'Testeur Auto et Fonctionnelle' into text field 'id=age'.</msg>
+<arg>id=age</arg>
+<arg>${position}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.653881" elapsed="0.019218"/>
+</kw>
+<kw name="Press Keys" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.674244" level="INFO">Sending key(s) ('22/09/1967',) to id=dob element.</msg>
+<msg time="2025-08-30T11:07:05.957680" level="INFO">Sending keys 22/09/1967</msg>
+<arg>id=dob</arg>
+<arg>22/09/1967</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.673099" elapsed="0.302136"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:05.975235" level="INFO">Typing text '47 Boulevard Trouin' into text field 'id=address'.</msg>
+<arg>id=address</arg>
+<arg>${adress}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.975235" elapsed="0.017163"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-30T11:07:10.992896" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-30T11:07:05.992398" elapsed="5.000498"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:06:59.312998" elapsed="11.679898"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:06:59.312006" elapsed="11.681397"/>
+</test>
+<status status="PASS" start="2025-08-30T11:06:59.309982" elapsed="11.683421"/>
+</suite>
+<suite id="s1-s4" name="Login" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Login.robot">
+<test id="s1-s4-t1" name="Login" line="50">
+<kw name="Login to website">
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:10.998878" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${url}</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-30T11:07:10.997816" elapsed="6.432729"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:17.430545" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.430545" elapsed="0.103667"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:17.534212" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.534212" elapsed="0.027817"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${username}</arg>
+<arg>standard_user</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.562029" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:17.563506" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.563506" elapsed="0.106514"/>
+</kw>
+<kw name="addproduct">
+<kw name="Click Element" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:17.670020" level="INFO">Clicking element 'id=add-to-cart-sauce-labs-backpack'.</msg>
+<arg>id=add-to-cart-sauce-labs-backpack</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.670020" elapsed="0.066869"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:17.670020" elapsed="0.066869"/>
+</kw>
+<kw name="modifyquantity">
+<kw name="Click Element" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:17.737898" level="INFO">Clicking element 'class=shopping_cart_link'.</msg>
+<arg>class=shopping_cart_link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.737898" elapsed="0.068017"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:17.736889" elapsed="0.070035"/>
+</kw>
+<kw name="verify">
+<kw name="Get Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:17.817886" level="INFO">${verifyvalue} = 1</msg>
+<var>${verifyvalue}</var>
+<arg>xpath=//div[@class="cart_quantity"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.806924" elapsed="0.010962"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${verifyvalue}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.817886" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Equal As Numbers" owner="BuiltIn">
+<arg>${verifyvalue}</arg>
+<arg>-1</arg>
+<doc>Fails if objects are equal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.817886" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:17.806924" elapsed="0.011970"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-30T11:07:32.819018" level="INFO">Slept 15 seconds.</msg>
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-30T11:07:17.818894" elapsed="15.000124"/>
+</kw>
+<kw name="Close Browser" owner="RPA.Browser">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-30T11:07:32.819018" elapsed="2.645457"/>
+</kw>
+<tag>NEW-32</tag>
+<status status="PASS" start="2025-08-30T11:07:10.997816" elapsed="24.466659"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:10.996811" elapsed="24.467664"/>
+</test>
+<status status="PASS" start="2025-08-30T11:07:10.994802" elapsed="24.470679"/>
+</suite>
+<suite id="s1-s5" name="Product" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Product.robot">
+<test id="s1-s5-t1" name="Login" line="26">
+<kw name="Login to website">
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:35.470151" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${url}</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-30T11:07:35.469149" elapsed="5.858120"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:41.328774" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:41.328268" elapsed="0.109958"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:41.438226" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:41.438226" elapsed="0.022275"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${username}</arg>
+<arg>standard_user</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-30T11:07:41.460501" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:41.460501" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:41.460501" elapsed="0.104445"/>
+</kw>
+<kw name="verify">
+<kw name="Get Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:41.573900" level="INFO">${verifyname} = Sauce Labs Backpack</msg>
+<var>${verifyname}</var>
+<arg>xpath=//div[@class="inventory_item_name "]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:41.565955" elapsed="0.007945"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${verifyname}</arg>
+<arg>Sauce Labs Backpack</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-08-30T11:07:41.573900" elapsed="0.001481"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:41.565955" elapsed="0.009426"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-30T11:07:46.575436" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-30T11:07:41.575381" elapsed="5.000055"/>
+</kw>
+<kw name="Close Browser" owner="RPA.Browser">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-30T11:07:46.575436" elapsed="2.647224"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:35.469149" elapsed="13.753511"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:35.469149" elapsed="13.753511"/>
+</test>
+<status status="PASS" start="2025-08-30T11:07:35.465481" elapsed="13.757179"/>
+</suite>
+<suite id="s1-s6" name="Tableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Tableau.robot">
+<test id="s1-s6-t1" name="Tableau" line="12">
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:49.227012" level="INFO">Opening browser 'firefox' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/index.html'.</msg>
+<arg>C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/index.html</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-30T11:07:49.227012" elapsed="5.648186"/>
+</kw>
+<kw name="Element Should Be Visible" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:54.926110" level="INFO">Element '//table' is displayed.</msg>
+<arg>${table}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-30T11:07:54.876212" elapsed="0.049898"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="RPA.Browser">
+<arg>${table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-30T11:07:54.926110" elapsed="0.020721"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:55.002730" level="INFO">${myvalue} = Product 1</msg>
+<var>${myvalue}</var>
+<arg>xpath=//table/thead/tr/th[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:54.947832" elapsed="0.054898"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:55.013104" level="INFO">${myvalue2} = Price</msg>
+<var>${myvalue2}</var>
+<arg>xpath=//table/tbody/tr/td[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:07:55.002730" elapsed="0.010374"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${myvalue}</arg>
+<arg>Product 1</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-30T11:07:55.013104" elapsed="0.001062"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${myvalue2}</arg>
+<arg>Price</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-30T11:07:55.014166" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:49.227012" elapsed="5.787154"/>
+</test>
+<status status="PASS" start="2025-08-30T11:07:49.224004" elapsed="5.791168"/>
+</suite>
+<suite id="s1-s7" name="VerifyTableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\VerifyTableau.robot">
+<test id="s1-s7-t1" name="Launch" line="19">
+<kw name="Login to website">
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-08-30T11:07:55.021016" level="INFO">Opening browser 'firefox' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/index.html'.</msg>
+<arg>${url}</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-30T11:07:55.021016" elapsed="5.958154"/>
+</kw>
+<kw name="Get WebElements" owner="RPA.Browser">
+<msg time="2025-08-30T11:08:00.992439" level="INFO">@{elements} = [ ]</msg>
+<var>@{elements}</var>
+<arg>xpath=//h2[@class="dolor_text"]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-08-30T11:08:00.979170" elapsed="0.013269"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="RPA.Browser">
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-30T11:08:00.993431" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-30T11:08:00.993431" elapsed="0.000000"/>
+</kw>
+<var name="${element}"/>
+<status status="NOT RUN" start="2025-08-30T11:08:00.992439" elapsed="0.000992"/>
+</iter>
+<var>${element}</var>
+<value>@{elements}</value>
+<status status="NOT RUN" start="2025-08-30T11:08:00.992439" elapsed="0.000992"/>
+</for>
+<status status="PASS" start="2025-08-30T11:07:55.019726" elapsed="5.973705"/>
+</kw>
+<status status="PASS" start="2025-08-30T11:07:55.019726" elapsed="5.973705"/>
+</test>
+<status status="PASS" start="2025-08-30T11:07:55.016179" elapsed="5.978255"/>
+</suite>
+<status status="PASS" start="2025-08-30T11:06:55.639565" elapsed="65.355870"/>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="ExoRoboframework" id="s1" pass="7" fail="0" skip="0">ExoRoboframework</stat>
+<stat name="Data-Driven Testing" id="s1-s1" pass="1" fail="0" skip="0">ExoRoboframework.Data-Driven Testing</stat>
+<stat name="Excelmanipulation" id="s1-s2" pass="1" fail="0" skip="0">ExoRoboframework.Excelmanipulation</stat>
+<stat name="Forms" id="s1-s3" pass="1" fail="0" skip="0">ExoRoboframework.Forms</stat>
+<stat name="Login" id="s1-s4" pass="1" fail="0" skip="0">ExoRoboframework.Login</stat>
+<stat name="Product" id="s1-s5" pass="1" fail="0" skip="0">ExoRoboframework.Product</stat>
+<stat name="Tableau" id="s1-s6" pass="1" fail="0" skip="0">ExoRoboframework.Tableau</stat>
+<stat name="VerifyTableau" id="s1-s7" pass="1" fail="0" skip="0">ExoRoboframework.VerifyTableau</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-08-30T11:06:59.258518" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
+</errors>
+</robot>
