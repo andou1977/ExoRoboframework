@@ -12,6 +12,7 @@ ${FICHIER}    C://Users//GENIUS//IdeaProjects//ExoRoboframework//users.xlsx
 
 *** Test Cases ***
 Lire Mot De Passe Seulement
+    [Tags]    EN-21
     Open Workbook    ${FICHIER}
     ${lire}=  Read Worksheet As Table  header=true
     FOR    ${element}    IN    @{lire}

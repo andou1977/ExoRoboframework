@@ -24,5 +24,6 @@ ${password}    secret_sauce
 
 *** Test Cases ***
 Login
+   [Tags]    EN-21
    Login to website
 

@@ -17,4 +17,5 @@ Login to website
 
 *** Test Cases ***
 Launch
+  [Tags]    EN-21
   Login to website

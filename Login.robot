@@ -18,7 +18,6 @@ Saudecemo Website
 
 
 Login to website
-   [Tags]  NEW-32
    Open Browser   ${url}   firefox
    Input Text  id=user-name  ${username}
    Input Text  id=password  ${password}
@@ -48,5 +47,6 @@ verify
 
 *** Test Cases ***
 Login
+    [Tags]    EN-21
     Login to website
 

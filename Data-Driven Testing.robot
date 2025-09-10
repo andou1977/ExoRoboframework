@@ -13,6 +13,7 @@ ${destin2}  C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/andou2.csv
 
 *** Test Cases ***
 Télécharger le fichier CSV1
+    [Tags]    EN-21
     [Setup]  Download    ${URL}    ${DEST}
     ${fre}=   Read table from CSV   ${DEST}
     Download   ${url2}   ${destin2}

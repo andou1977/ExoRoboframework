@@ -28,5 +28,6 @@ forms
 
 *** Test Cases ***
 Full forms
+   [Tags]    EN-21
    forms
 

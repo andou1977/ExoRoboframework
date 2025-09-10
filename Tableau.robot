@@ -10,6 +10,7 @@ ${table}    //table
 
 *** Test Cases ***
 Tableau
+    [Tags]    EN-21
     Open Browser   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/index.html   firefox
     Element Should Be Visible   ${table}
     wait until element is visible   ${table}

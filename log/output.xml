@@ -1,59 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-30T11:04:55.634895" rpa="false" schemaversion="5">
-<suite id="s1" name="VerifyTableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\VerifyTableau.robot">
-<test id="s1-t1" name="Launch" line="19">
-<kw name="Login to website">
-<kw name="Open Browser" owner="RPA.Browser">
-<msg time="2025-08-30T11:04:55.991428" level="INFO">Opening browser 'firefox' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/FileHTML/index.html'.</msg>
-<arg>${url}</arg>
-<arg>firefox</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-30T11:04:55.990427" elapsed="5.653683"/>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-09-10T13:55:52.622223" rpa="false" schemaversion="5">
+<suite id="s1" name="Data-Driven Testing" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Data-Driven Testing.robot">
+<test id="s1-t1" name="Télécharger le fichier CSV1" line="15">
+<kw name="Download" owner="RPA.HTTP" type="SETUP">
+<msg time="2025-09-10T13:55:53.745265" level="INFO">Creating a new HTTP session</msg>
+<msg time="2025-09-10T13:55:53.747324" level="INFO">Creating Session using : alias=rpasession_alias.httpsdrive.google.com, url=https://drive.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>${URL}</arg>
+<arg>${DEST}</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<status status="PASS" start="2025-09-10T13:55:53.745265" elapsed="1.347656"/>
 </kw>
-<kw name="Get WebElements" owner="RPA.Browser">
-<msg time="2025-08-30T11:05:01.672187" level="INFO">@{elements} = [ ]</msg>
-<var>@{elements}</var>
-<arg>xpath=//h2[@class="dolor_text"]</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-08-30T11:05:01.644110" elapsed="0.028077"/>
+<kw name="Read table from CSV" owner="RPA.Tables">
+<msg time="2025-09-10T13:55:55.109350" level="INFO">${fre} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
+<var>${fre}</var>
+<arg>${DEST}</arg>
+<doc>Read a CSV file as a table.</doc>
+<status status="PASS" start="2025-09-10T13:55:55.092921" elapsed="0.016429"/>
 </kw>
-<for flavor="IN">
-<iter>
-<kw name="Get Text" owner="RPA.Browser">
-<var>${text}</var>
-<arg>${element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-30T11:05:01.673188" elapsed="0.000000"/>
+<kw name="Download" owner="RPA.HTTP">
+<msg time="2025-09-10T13:55:55.109350" level="INFO">Using already existing HTTP session</msg>
+<arg>${url2}</arg>
+<arg>${destin2}</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<status status="PASS" start="2025-09-10T13:55:55.109350" elapsed="1.832036"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<arg>${text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-08-30T11:05:01.673188" elapsed="0.000000"/>
+<kw name="Read table from CSV" owner="RPA.Tables">
+<msg time="2025-09-10T13:55:56.952562" level="INFO">${de2} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=1000)</msg>
+<var>${de2}</var>
+<arg>${destin2}</arg>
+<doc>Read a CSV file as a table.</doc>
+<status status="PASS" start="2025-09-10T13:55:56.941386" elapsed="0.011176"/>
 </kw>
-<var name="${element}"/>
-<status status="NOT RUN" start="2025-08-30T11:05:01.673188" elapsed="0.000000"/>
-</iter>
-<var>${element}</var>
-<value>@{elements}</value>
-<status status="NOT RUN" start="2025-08-30T11:05:01.673188" elapsed="0.000000"/>
-</for>
-<status status="PASS" start="2025-08-30T11:04:55.990427" elapsed="5.683760"/>
-</kw>
-<status status="PASS" start="2025-08-30T11:04:55.989428" elapsed="5.684759"/>
+<tag>EN-21</tag>
+<status status="PASS" start="2025-09-10T13:55:53.744187" elapsed="3.208375"/>
 </test>
-<status status="PASS" start="2025-08-30T11:04:55.637896" elapsed="6.036799"/>
+<status status="PASS" start="2025-09-10T13:55:52.624652" elapsed="4.327910"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">EN-21</stat>
 </tag>
 <suite>
-<stat name="VerifyTableau" id="s1" pass="1" fail="0" skip="0">VerifyTableau</stat>
+<stat name="Data-Driven Testing" id="s1" pass="1" fail="0" skip="0">Data-Driven Testing</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-30T11:04:55.945989" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>
