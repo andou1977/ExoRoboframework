@@ -1,52 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-09-10T13:55:52.622223" rpa="false" schemaversion="5">
-<suite id="s1" name="Data-Driven Testing" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\Data-Driven Testing.robot">
-<test id="s1-t1" name="Télécharger le fichier CSV1" line="15">
-<kw name="Download" owner="RPA.HTTP" type="SETUP">
-<msg time="2025-09-10T13:55:53.745265" level="INFO">Creating a new HTTP session</msg>
-<msg time="2025-09-10T13:55:53.747324" level="INFO">Creating Session using : alias=rpasession_alias.httpsdrive.google.com, url=https://drive.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<arg>${URL}</arg>
-<arg>${DEST}</arg>
-<doc>An alias for the ``HTTP Get`` keyword.</doc>
-<status status="PASS" start="2025-09-10T13:55:53.745265" elapsed="1.347656"/>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-09-12T21:14:23.026950" rpa="false" schemaversion="5">
+<suite id="s1" name="LoginExcel" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\LoginExcel.robot">
+<test id="s1-t1" name="Login with Excel" line="17">
+<kw name="Open Workbook" owner="RPA.Excel.Files" type="SETUP">
+<msg time="2025-09-12T21:14:24.135812" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000001B1046039D0&gt;</msg>
+<arg>C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\FileHTML\\login.xlsx</arg>
+<arg>firefox</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2025-09-12T21:14:24.128087" elapsed="0.010001"/>
 </kw>
-<kw name="Read table from CSV" owner="RPA.Tables">
-<msg time="2025-09-10T13:55:55.109350" level="INFO">${fre} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
-<var>${fre}</var>
-<arg>${DEST}</arg>
-<doc>Read a CSV file as a table.</doc>
-<status status="PASS" start="2025-09-10T13:55:55.092921" elapsed="0.016429"/>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-09-12T21:14:24.139109" level="INFO">Created table: Table(columns=['A', 'B', 'C'], rows=3)</msg>
+<msg time="2025-09-12T21:14:24.139109" level="INFO">${fileexcel} = Table(columns=['A', 'B', 'C'], rows=3)</msg>
+<var>${fileexcel}</var>
+<arg>header=false</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="PASS" start="2025-09-12T21:14:24.138088" elapsed="0.001021"/>
 </kw>
-<kw name="Download" owner="RPA.HTTP">
-<msg time="2025-09-10T13:55:55.109350" level="INFO">Using already existing HTTP session</msg>
-<arg>${url2}</arg>
-<arg>${destin2}</arg>
-<doc>An alias for the ``HTTP Get`` keyword.</doc>
-<status status="PASS" start="2025-09-10T13:55:55.109350" elapsed="1.832036"/>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-09-12T21:14:24.140132" level="INFO">${read} = ['Admin', 'standard_user', 'secret_sauce']</msg>
+<var>${read}</var>
+<arg>${fileexcel}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-09-12T21:14:24.139109" elapsed="0.001023"/>
 </kw>
-<kw name="Read table from CSV" owner="RPA.Tables">
-<msg time="2025-09-10T13:55:56.952562" level="INFO">${de2} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=1000)</msg>
-<var>${de2}</var>
-<arg>${destin2}</arg>
-<doc>Read a CSV file as a table.</doc>
-<status status="PASS" start="2025-09-10T13:55:56.941386" elapsed="0.011176"/>
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-09-12T21:14:24.141298" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>https://www.saucedemo.com/</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-12T21:14:24.140132" elapsed="8.562058"/>
 </kw>
-<tag>EN-21</tag>
-<status status="PASS" start="2025-09-10T13:55:53.744187" elapsed="3.208375"/>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-09-12T21:14:32.704190" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${read[1]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-12T21:14:32.702190" elapsed="0.150365"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-09-12T21:14:32.853971" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${read[2]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-12T21:14:32.853971" elapsed="0.031916"/>
+</kw>
+<kw name="Click Button" owner="RPA.Browser">
+<msg time="2025-09-12T21:14:32.887287" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-12T21:14:32.885887" elapsed="0.152897"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="RPA.Browser">
+<arg>Sauce Labs Backpack</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-09-12T21:14:33.039864" elapsed="0.009435"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="RPA.Browser" type="TEARDOWN">
+<arg>Sauce Labs Bike Light</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-09-12T21:14:33.049299" elapsed="0.007410"/>
+</kw>
+<status status="PASS" start="2025-09-12T21:14:24.126028" elapsed="8.930681"/>
 </test>
-<status status="PASS" start="2025-09-10T13:55:52.624652" elapsed="4.327910"/>
+<status status="PASS" start="2025-09-12T21:14:23.032285" elapsed="10.025464"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">EN-21</stat>
 </tag>
 <suite>
-<stat name="Data-Driven Testing" id="s1" pass="1" fail="0" skip="0">Data-Driven Testing</stat>
+<stat name="LoginExcel" id="s1" pass="1" fail="0" skip="0">LoginExcel</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-09-12T21:14:23.624766" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>
