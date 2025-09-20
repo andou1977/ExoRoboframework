@@ -1,0 +1,21 @@
+1758281578330	geckodriver	INFO	Listening on 127.0.0.1:62409
+1758281581387	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62410" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GENIUS\\AppData\\Local\\Temp\\rust_mozprofileDTMdyb"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1758281581672	Marionette	INFO	Marionette enabled
+1758281581752	Marionette	INFO	Listening on port 62417
+WebDriver BiDi listening on ws://127.0.0.1:62410
+Read port: 62417
+1758281581872	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
+JavaScript warning: https://www.saucedemo.com/static/js/2.84a5cbf3.chunk.js, line 2: Script terminated by timeout at:
+get@https://www.saucedemo.com/static/js/2.84a5cbf3.chunk.js:2:123438
+r/936/n/7429/value/<@https://www.saucedemo.com/static/js/2.84a5cbf3.chunk.js:2:56726
+
+1758281628560	Marionette	INFO	Stopped listening on port 62417
+Dynamically enable window occlusion 1
+console.error: "Failed to fetch https://ads.mozilla.org/v1/delete_user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://services-settings/RemoteSettingsClient.sys.mjs, line 102: Error: Unknown callback

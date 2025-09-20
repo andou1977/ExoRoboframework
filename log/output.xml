@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-09-19T14:08:45.660456" rpa="false" schemaversion="5">
+<suite id="s1" name="VerifyTableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\VerifyTableau.robot">
+<test id="s1-t1" name="Launch" line="19">
+<kw name="Login to website">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:08:45.870824" level="INFO">Opening browser 'firefox' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html'.</msg>
+<arg>${url}</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-19T14:08:45.869825" elapsed="5.607951"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:08:51.500568" level="INFO">@{elements} = [ ]</msg>
+<var>@{elements}</var>
+<arg>xpath=//h2[@class="dolor_text"]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:08:51.479217" elapsed="0.021351"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-19T14:08:51.501569" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-19T14:08:51.502570" elapsed="0.000000"/>
+</kw>
+<var name="${element}"/>
+<status status="NOT RUN" start="2025-09-19T14:08:51.501569" elapsed="0.001001"/>
+</iter>
+<var>${element}</var>
+<value>@{elements}</value>
+<status status="NOT RUN" start="2025-09-19T14:08:51.500568" elapsed="0.002002"/>
+</for>
+<status status="PASS" start="2025-09-19T14:08:45.869825" elapsed="5.632745"/>
+</kw>
+<tag>EN-21</tag>
+<status status="PASS" start="2025-09-19T14:08:45.868822" elapsed="5.633748"/>
+</test>
+<status status="PASS" start="2025-09-19T14:08:45.663166" elapsed="5.840540"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">EN-21</stat>
+</tag>
+<suite>
+<stat name="VerifyTableau" id="s1" pass="1" fail="0" skip="0">VerifyTableau</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

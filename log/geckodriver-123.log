@@ -1,0 +1,28 @@
+1754129606266	geckodriver	INFO	Listening on 127.0.0.1:56764
+1754129609313	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56765" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GENIUS\\AppData\\Local\\Temp\\rust_mozprofileDLW8zr"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1754129609559	Marionette	INFO	Marionette enabled
+1754129609664	Marionette	INFO	Listening on port 56773
+WebDriver BiDi listening on ws://127.0.0.1:56765
+Read port: 56773
+1754129609758	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+JavaScript error: , line 0: NotFoundError: Could not move `C:\Users\GENIUS\AppData\Local\Temp\rust_mozprofileDLW8zr\bookmarkbackups\bookmarks-2025-08-02.jsonlz4' to `C:\Users\GENIUS\AppData\Local\Temp\rust_mozprofileDLW8zr\bookmarkbackups\bookmarks-2025-08-02_10_mw8Ww0V6FlA88UUUmdnpqaUS9W5w1CgtvsuaOiham-o=.jsonlz4': source file does not exist (NS_ERROR_FILE_NOT_FOUND)
+JavaScript error: , line 0: NotFoundError: Could not move `C:\Users\GENIUS\AppData\Local\Temp\rust_mozprofileDLW8zr\bookmarkbackups\bookmarks-2025-08-02.jsonlz4' to `C:\Users\GENIUS\AppData\Local\Temp\rust_mozprofileDLW8zr\bookmarkbackups\bookmarks-2025-08-02_10_mw8Ww0V6FlA88UUUmdnpqaUS9W5w1CgtvsuaOiham-o=.jsonlz4': source file does not exist (NS_ERROR_FILE_NOT_FOUND)
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+1754132802139	Marionette	INFO	Stopped listening on port 56773
+Dynamically enable window occlusion 1
+console.error: "Failed to fetch https://ads.mozilla.org/v1/delete_user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://services-settings/RemoteSettingsClient.sys.mjs, line 101: Error: Unknown callback
