@@ -1,5 +1,3 @@
-
-
 *** Settings ***
 Library    RPA.Browser
 
@@ -20,4 +18,3 @@ Tableau
     Should Be Equal    ${myvalue2}    Price
 
 
-#C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html

@@ -1,4 +1,3 @@
-
 *** Settings ***
 Library    RPA.Browser
 *** Keywords ***

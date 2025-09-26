@@ -1,8 +1,5 @@
-
 *** Settings ***
 Library    RPA.Browser
-
-
 
 
 *** Variables ***
@@ -39,11 +36,6 @@ verify
    ${verifyvalue}=  Get Text    xpath=//div[@class="cart_quantity"]
    Should Be Equal As Strings    ${verifyvalue}    1
    Should Not Be Equal As Numbers   ${verifyvalue}    -1
-
-
-
-
-
 
 
 *** Test Cases ***

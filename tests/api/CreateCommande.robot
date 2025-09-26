@@ -3,13 +3,6 @@ Resource   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/ressources/keywords.rob
 
 
 
-
-
-
-
-
-
-
 *** Test Cases ***
 po
      Créer le command

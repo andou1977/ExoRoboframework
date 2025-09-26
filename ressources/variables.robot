@@ -1,6 +1,3 @@
-
-
-
 *** Variables ***
 ${URL}      https://drive.google.com/uc?id=1zO8ekHWx9U7mrbx_0Hoxxu6od7uxJqWw&export=download
 ${DEST}     C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/andou.csv

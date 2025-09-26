@@ -1,5 +1,3 @@
-
-
 *** Settings ***
 Library    RPA.Browser
 
