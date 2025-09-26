@@ -1,60 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-09-19T14:08:45.660456" rpa="false" schemaversion="5">
-<suite id="s1" name="VerifyTableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\VerifyTableau.robot">
-<test id="s1-t1" name="Launch" line="19">
-<kw name="Login to website">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-09-19T14:08:45.870824" level="INFO">Opening browser 'firefox' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html'.</msg>
-<arg>${url}</arg>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-09-26T16:23:13.037993" rpa="false" schemaversion="5">
+<suite id="s1" name="CreateCommande" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api\CreateCommande.robot">
+<test id="s1-t1" name="po" line="14">
+<kw name="Créer le command" owner="keywords">
+<kw name="Create Session" owner="RPA.HTTP">
+<msg time="2025-09-26T16:23:14.423645" level="INFO">Creating Session using : alias=placejsonholder, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>placejsonholder</arg>
+<arg>${navigateur}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-26T16:23:14.423645" elapsed="0.003094"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-26T16:23:14.426739" level="INFO">${addcommande} = {'name': 'Hp victus 15', 'year': '2020', 'price': '4098.34', 'CPU model': 'intel core i9'}</msg>
+<var>${addcommande}</var>
+<arg>name=Hp victus 15</arg>
+<arg>year=2020</arg>
+<arg>price=4098.34</arg>
+<arg>CPU model=intel core i9</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-26T16:23:14.426739" elapsed="0.000000"/>
+</kw>
+<kw name="Post Request" owner="RPA.HTTP">
+<msg time="2025-09-26T16:23:14.426739" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-09-26T16:23:15.767902" level="INFO">C:\Users\GENIUS\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-26T16:23:15.767902" level="INFO">${thecommande2} = &lt;Response [200]&gt;</msg>
+<var>${thecommande2}</var>
+<arg>placejsonholder</arg>
+<arg>/objects</arg>
+<arg>json=${addcommande}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2025-09-26T16:23:14.426739" elapsed="1.341163"/>
+</kw>
+<kw name="Status Should Be" owner="RPA.HTTP">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-09-26T16:23:15.767902" elapsed="0.000000"/>
+</kw>
+<kw name="To Json" owner="RPA.HTTP">
+<msg time="2025-09-26T16:23:15.767902" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-09-26T16:23:15.767902" level="INFO">To JSON using : content={"id":"ff8081819782e69e01998668207a4b12","name":"Hp victus 15","createdAt":"2025-09-26T14:23:15.066+00:00","data":null} </msg>
+<msg time="2025-09-26T16:23:15.767902" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-09-26T16:23:15.767902" level="INFO">${verify} = {'id': 'ff8081819782e69e01998668207a4b12', 'name': 'Hp victus 15', 'createdAt': '2025-09-26T14:23:15.066+00:00', 'data': None}</msg>
+<var>${verify}</var>
+<arg>${thecommande2.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-09-26T16:23:15.767902" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${verify['name']}</arg>
+<arg>Hp victus 15</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-09-26T16:23:15.767902" elapsed="0.013052"/>
+</kw>
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-09-26T16:23:15.780954" level="INFO">Opening browser 'firefox' to base url 'https://api.restful-api.dev/objects'.</msg>
+<arg>https://api.restful-api.dev/objects</arg>
 <arg>firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-19T14:08:45.869825" elapsed="5.607951"/>
+<status status="PASS" start="2025-09-26T16:23:15.780954" elapsed="8.773955"/>
 </kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-09-19T14:08:51.500568" level="INFO">@{elements} = [ ]</msg>
-<var>@{elements}</var>
-<arg>xpath=//h2[@class="dolor_text"]</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-09-19T14:08:51.479217" elapsed="0.021351"/>
+<kw name="Page Should Contain" owner="RPA.Browser">
+<msg time="2025-09-26T16:23:24.612201" level="INFO">Current page contains text 'Apple AirPods'.</msg>
+<arg>${verifyvariable}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-09-26T16:23:24.554909" elapsed="0.063236"/>
 </kw>
-<for flavor="IN">
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${text}</var>
-<arg>${element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-09-19T14:08:51.501569" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-26T16:23:14.421636" elapsed="10.196509"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<arg>${text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-09-19T14:08:51.502570" elapsed="0.000000"/>
-</kw>
-<var name="${element}"/>
-<status status="NOT RUN" start="2025-09-19T14:08:51.501569" elapsed="0.001001"/>
-</iter>
-<var>${element}</var>
-<value>@{elements}</value>
-<status status="NOT RUN" start="2025-09-19T14:08:51.500568" elapsed="0.002002"/>
-</for>
-<status status="PASS" start="2025-09-19T14:08:45.869825" elapsed="5.632745"/>
-</kw>
-<tag>EN-21</tag>
-<status status="PASS" start="2025-09-19T14:08:45.868822" elapsed="5.633748"/>
+<status status="PASS" start="2025-09-26T16:23:14.419627" elapsed="10.198518"/>
 </test>
-<status status="PASS" start="2025-09-19T14:08:45.663166" elapsed="5.840540"/>
+<status status="PASS" start="2025-09-26T16:23:13.041992" elapsed="11.576153"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">EN-21</stat>
 </tag>
 <suite>
-<stat name="VerifyTableau" id="s1" pass="1" fail="0" skip="0">VerifyTableau</stat>
+<stat name="CreateCommande" id="s1" pass="1" fail="0" skip="0">CreateCommande</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-09-26T16:23:14.344871" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
+<msg time="2025-09-26T16:23:14.426739" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-09-26T16:23:15.767902" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>
