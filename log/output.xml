@@ -1,90 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-09-26T16:23:13.037993" rpa="false" schemaversion="5">
-<suite id="s1" name="CreateCommande" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api\CreateCommande.robot">
-<test id="s1-t1" name="po" line="14">
-<kw name="Créer le command" owner="keywords">
-<kw name="Create Session" owner="RPA.HTTP">
-<msg time="2025-09-26T16:23:14.423645" level="INFO">Creating Session using : alias=placejsonholder, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>placejsonholder</arg>
-<arg>${navigateur}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-26T16:23:14.423645" elapsed="0.003094"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-26T16:23:14.426739" level="INFO">${addcommande} = {'name': 'Hp victus 15', 'year': '2020', 'price': '4098.34', 'CPU model': 'intel core i9'}</msg>
-<var>${addcommande}</var>
-<arg>name=Hp victus 15</arg>
-<arg>year=2020</arg>
-<arg>price=4098.34</arg>
-<arg>CPU model=intel core i9</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-26T16:23:14.426739" elapsed="0.000000"/>
-</kw>
-<kw name="Post Request" owner="RPA.HTTP">
-<msg time="2025-09-26T16:23:14.426739" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-09-26T16:23:15.767902" level="INFO">C:\Users\GENIUS\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-09-26T16:23:15.767902" level="INFO">${thecommande2} = &lt;Response [200]&gt;</msg>
-<var>${thecommande2}</var>
-<arg>placejsonholder</arg>
-<arg>/objects</arg>
-<arg>json=${addcommande}</arg>
-<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<status status="PASS" start="2025-09-26T16:23:14.426739" elapsed="1.341163"/>
-</kw>
-<kw name="Status Should Be" owner="RPA.HTTP">
-<arg>200</arg>
-<doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2025-09-26T16:23:15.767902" elapsed="0.000000"/>
-</kw>
-<kw name="To Json" owner="RPA.HTTP">
-<msg time="2025-09-26T16:23:15.767902" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-09-26T16:23:15.767902" level="INFO">To JSON using : content={"id":"ff8081819782e69e01998668207a4b12","name":"Hp victus 15","createdAt":"2025-09-26T14:23:15.066+00:00","data":null} </msg>
-<msg time="2025-09-26T16:23:15.767902" level="INFO">To JSON using : pretty_print=False </msg>
-<msg time="2025-09-26T16:23:15.767902" level="INFO">${verify} = {'id': 'ff8081819782e69e01998668207a4b12', 'name': 'Hp victus 15', 'createdAt': '2025-09-26T14:23:15.066+00:00', 'data': None}</msg>
-<var>${verify}</var>
-<arg>${thecommande2.content}</arg>
-<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<status status="PASS" start="2025-09-26T16:23:15.767902" elapsed="0.000000"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${verify['name']}</arg>
-<arg>Hp victus 15</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-09-26T16:23:15.767902" elapsed="0.013052"/>
-</kw>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-10-02T11:19:15.200352" rpa="false" schemaversion="5">
+<suite id="s1" name="Forms" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Forms.robot">
+<test id="s1-t1" name="Full forms" line="28">
+<kw name="forms">
 <kw name="Open Browser" owner="RPA.Browser">
-<msg time="2025-09-26T16:23:15.780954" level="INFO">Opening browser 'firefox' to base url 'https://api.restful-api.dev/objects'.</msg>
-<arg>https://api.restful-api.dev/objects</arg>
+<msg time="2025-10-02T11:19:15.588862" level="INFO">Opening browser 'firefox' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html'.</msg>
+<arg>C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html</arg>
 <arg>firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-26T16:23:15.780954" elapsed="8.773955"/>
+<status status="PASS" start="2025-10-02T11:19:15.587873" elapsed="5.896761"/>
 </kw>
-<kw name="Page Should Contain" owner="RPA.Browser">
-<msg time="2025-09-26T16:23:24.612201" level="INFO">Current page contains text 'Apple AirPods'.</msg>
-<arg>${verifyvariable}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-09-26T16:23:24.554909" elapsed="0.063236"/>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:21.485987" level="INFO">Typing text 'andou' into text field 'id=firstname'.</msg>
+<arg>id=firstname</arg>
+<arg>${firstname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-02T11:19:21.484634" elapsed="0.125885"/>
 </kw>
-<status status="PASS" start="2025-09-26T16:23:14.421636" elapsed="10.196509"/>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:21.610519" level="INFO">Typing text 'emmanuel' into text field 'id=lastname'.</msg>
+<arg>id=lastname</arg>
+<arg>${lastname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-02T11:19:21.610519" elapsed="0.024877"/>
 </kw>
-<status status="PASS" start="2025-09-26T16:23:14.419627" elapsed="10.198518"/>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:21.636536" level="INFO">Typing text 'andouemmanuel@gmail.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-02T11:19:21.635396" elapsed="0.028876"/>
+</kw>
+<kw name="Select From List By Value" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:21.665272" level="INFO">Selecting options from selection list 'id=occupation' by value others.</msg>
+<arg>id=occupation</arg>
+<arg>others</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-10-02T11:19:21.665272" elapsed="0.086311"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:21.752584" level="INFO">Typing text '33' into text field 'id=areacode'.</msg>
+<arg>id=areacode</arg>
+<arg>${area}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-02T11:19:21.752584" elapsed="0.016969"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:21.771049" level="INFO">Typing text '0678967887' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-02T11:19:21.769553" elapsed="0.020219"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:21.789772" level="INFO">Typing text 'Testeur Auto et Fonctionnelle' into text field 'id=age'.</msg>
+<arg>id=age</arg>
+<arg>${position}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-02T11:19:21.789772" elapsed="0.024651"/>
+</kw>
+<kw name="Press Keys" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:21.814423" level="INFO">Sending key(s) ('22/09/1967',) to id=dob element.</msg>
+<msg time="2025-10-02T11:19:22.096375" level="INFO">Sending keys 22/09/1967</msg>
+<arg>id=dob</arg>
+<arg>22/09/1967</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-10-02T11:19:21.814423" elapsed="0.299785"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-10-02T11:19:22.114208" level="INFO">Typing text '47 Boulevard Trouin' into text field 'id=address'.</msg>
+<arg>id=address</arg>
+<arg>${adress}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-02T11:19:22.114208" elapsed="0.016764"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-02T11:19:27.131227" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-02T11:19:22.130972" elapsed="5.000255"/>
+</kw>
+<status status="PASS" start="2025-10-02T11:19:15.586832" elapsed="11.544395"/>
+</kw>
+<tag>EN-21</tag>
+<status status="PASS" start="2025-10-02T11:19:15.586832" elapsed="11.544395"/>
 </test>
-<status status="PASS" start="2025-09-26T16:23:13.041992" elapsed="11.576153"/>
+<status status="PASS" start="2025-10-02T11:19:15.201462" elapsed="11.930789"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">EN-21</stat>
 </tag>
 <suite>
-<stat name="CreateCommande" id="s1" pass="1" fail="0" skip="0">CreateCommande</stat>
+<stat name="Forms" id="s1" pass="1" fail="0" skip="0">Forms</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-09-26T16:23:14.344871" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
-<msg time="2025-09-26T16:23:14.426739" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-09-26T16:23:15.767902" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-10-02T11:19:15.539537" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>

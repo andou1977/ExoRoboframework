@@ -3,7 +3,7 @@ Library    RPA.HTTP
 Library    RPA.Excel.Files
 Library    RPA.Tables
 Library    Collections
-Resource   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/ressources/variables.robot
+Resource   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/resources/variables.robot
 Library    SeleniumLibrary    run_on_failure=Capture Screenshot and Embed
 
 

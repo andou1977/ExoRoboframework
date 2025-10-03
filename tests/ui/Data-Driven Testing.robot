@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary    run_on_failure=Capture Page Screenshot
-Resource   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/ressources/keywords.robot
+Resource   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/resources/keywords.robot
 
 
 
