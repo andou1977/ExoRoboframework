@@ -1,5 +1,7 @@
 *** Settings ***
 Library    RPA.Browser
+Documentation  Remmplir Le Formulaire
+
 
 *** Variables ***
 ${firstname}   andou
@@ -10,22 +12,30 @@ ${phone}       0678967887
 ${position}    Testeur Auto et Fonctionnelle
 ${adress}      47 Boulevard Trouin
 *** Keywords ***
-forms
+Open the Browser
+     [Documentation]  Remplir
+     ...             Lancer le navigateur
      Open Browser   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html  firefox
+Envoyer les données
+     [Documentation]   Le formulaire
+     ...   remplir avec des informations
      Input Text     id=firstname   ${firstname}
      Input Text     id=lastname    ${lastname}
      Input Text     id=email     ${email}
+     Wait Until Element Is Visible    id=lastname
      Select From List By Value   id=occupation      others
      Input Text     id=areacode    ${area}
      Input Text     id=phone       ${phone}
      Input Text     id=age         ${position}
      Press Keys     id=dob    22/09/1967
      Input Text     id=address     ${adress}
+
      Sleep           5
+
 
 
 *** Test Cases ***
 Full forms
-   [Tags]    EN-21
-   forms
+   Open the Browser
+   Envoyer les données
 
