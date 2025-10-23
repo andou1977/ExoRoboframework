@@ -1,5 +1,6 @@
 *** Settings ***
-Library    RPA.Browser
+Library    SeleniumLibrary
+
 *** Keywords ***
 Login to website
    Open Browser   ${url}   firefox
@@ -10,6 +11,7 @@ Login to website
    verify
    Sleep    5
    Close Browser
+
 
 verify
    ${verifyname}=  Get Text    xpath=//div[@class="inventory_item_name "]

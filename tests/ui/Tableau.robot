@@ -1,5 +1,6 @@
 *** Settings ***
-Library    RPA.Browser
+
+Library    SeleniumLibrary
 
 *** Keywords ***
 
@@ -16,5 +17,6 @@ Tableau
     ${myvalue2}=   Get Text    xpath=//table/tbody/tr/td[1]
     Should Be Equal    ${myvalue}    Product 1
     Should Be Equal    ${myvalue2}    Price
+    Open Browser
 
 

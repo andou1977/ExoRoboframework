@@ -1,5 +1,6 @@
 *** Settings ***
-Library    RPA.Browser
+
+Library    SeleniumLibrary
 
 
 *** Variables ***
@@ -26,6 +27,7 @@ Login to website
    verify
    Sleep    15
    Close Browser
+
 
 
 addproduct

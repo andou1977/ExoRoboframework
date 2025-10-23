@@ -1,8 +1,8 @@
 *** Settings ***
 Library    RPA.Excel.Files
 Library    Collections
-Library    RPA.JSON
-Library    RPA.Browser
+
+
 
 *** Variables ***
 ${FICHIER}    C://Users//GENIUS//IdeaProjects//ExoRoboframework//users.xlsx
@@ -19,4 +19,7 @@ Lire Mot De Passe Seulement
             END
 
        END
+       
+
+
 

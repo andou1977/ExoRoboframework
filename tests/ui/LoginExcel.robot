@@ -1,7 +1,9 @@
 *** Settings ***
-Library    RPA.Browser
-Library    RPA.Excel.Files
+
 Library    Collections
+Library    SeleniumLibrary
+Library    RPA.Excel.Files
+
 
 *** Variables ***
 
@@ -21,5 +23,7 @@ Login with Excel
     Click Button    id=login-button
     Wait Until Page Contains    Sauce Labs Backpack
     [Teardown]  Wait Until Page Contains    Sauce Labs Bike Light
+
+
 
 

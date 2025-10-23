@@ -17,6 +17,7 @@ Télécharger le fichier CSV1
     Download   ${url2}   ${destin2}
     ${de2}=   Read table from CSV   ${destin2}
     [Teardown]
+    
 
 Créer le command
     Create Session   placejsonholder    ${navigateur}
