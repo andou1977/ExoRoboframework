@@ -1,155 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-10-23T07:28:14.204292" rpa="false" schemaversion="5">
-<suite id="s1" name="Excelmanipulation" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Excelmanipulation.robot">
-<test id="s1-t1" name="Lire Mot De Passe Seulement" line="11">
-<kw name="Open Workbook" owner="RPA.Excel.Files">
-<msg time="2025-10-23T07:28:14.561422" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002714657DC50&gt;</msg>
-<arg>${FICHIER}</arg>
-<doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2025-10-23T07:28:14.549416" elapsed="0.022145"/>
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-11-07T16:46:31.305994" rpa="false" schemaversion="5">
+<suite id="s1" name="Token" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\Intermediaire\token.robot">
+<test id="s1-t1" name="Connexion avec token" line="22">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-07T16:46:31.565902" level="INFO">Creating Session using : alias=api, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-07T16:46:31.564896" elapsed="0.002006"/>
 </kw>
-<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2025-10-23T07:28:14.572561" level="INFO">Created table: Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
-<msg time="2025-10-23T07:28:14.572561" level="INFO">${lire} = Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
-<var>${lire}</var>
-<arg>header=true</arg>
-<doc>Read the contents of a worksheet into a Table container. Allows
-sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2025-10-23T07:28:14.571561" elapsed="0.001000"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-07T16:46:31.566902" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}</msg>
+<var>${body}</var>
+<arg>email=eve.holt@reqres.in</arg>
+<arg>password=cityslicka</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-11-07T16:46:31.566902" elapsed="0.000000"/>
 </kw>
-<for flavor="IN">
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-10-23T07:28:14.573561" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-10-23T07:28:14.573561" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-10-23T07:28:14.572561" elapsed="0.001000"/>
-</branch>
-<status status="PASS" start="2025-10-23T07:28:14.572561" elapsed="0.001000"/>
-</if>
-<var name="${element}">{'NOM': 'Alice', 'EMAIL': 'alice@test.com', 'MOTDEPASSE': 'pass123', 'username': 'alexandra'}</var>
-<status status="PASS" start="2025-10-23T07:28:14.572561" elapsed="0.001000"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-23T07:28:14.573561" level="INFO">${USERNAME} = standard_user</msg>
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-23T07:28:14.573561" elapsed="0.000000"/>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2025-11-07T16:46:31.567902" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-11-07T16:46:31.728956" level="INFO">POST Request : url=https://reqres.in/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ body=b'{"email": "eve.holt@reqres.in", "password": "cityslicka"}' 
+ </msg>
+<msg time="2025-11-07T16:46:31.729955" level="INFO">POST Response : url=https://reqres.in/api/login 
+ status=401, reason=Unauthorized 
+ headers={'Date': 'Fri, 07 Nov 2025 15:46:32 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"1b-FQ1mIOMgD7jlZN53VsiSdXzsYTY"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '99', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=MxepTkg7t1zWqDzaq7lmjfsAEpcYKBn4RHunVEVnaf4%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1762530392"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=MxepTkg7t1zWqDzaq7lmjfsAEpcYKBn4RHunVEVnaf4%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1762530392"', 'Server': 'cloudflare', 'Vary': 'Origin', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': 'db5a7325-9333-73d4-5e49-f8715ad5b22f', 'X-Xss-Protection': '1; mode=block', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': '99adf6c5cf1b73cb-MRS'} 
+ body={"error":"Missing API key"} 
+ </msg>
+<msg time="2025-11-07T16:46:31.729955" level="INFO">C:\Users\GENIUS\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-07T16:46:31.730461" level="INFO">${resp} = &lt;Response [401]&gt;</msg>
+<var>${resp}</var>
+<arg>api</arg>
+<arg>/api/login</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2025-11-07T16:46:31.567902" elapsed="0.162559"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-23T07:28:14.574971" level="INFO">${PASSWORD} = secret_sauce</msg>
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
+<msg time="2025-11-07T16:46:31.733577" level="FAIL">Resolving variable '${resp.json()['token']}' failed: KeyError: 'token'</msg>
+<var>${token}</var>
+<arg>${resp.json()['token']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-23T07:28:14.573561" elapsed="0.001410"/>
+<status status="FAIL" start="2025-11-07T16:46:31.730461" elapsed="0.003116">Resolving variable '${resp.json()['token']}' failed: KeyError: 'token'</status>
 </kw>
-<status status="PASS" start="2025-10-23T07:28:14.573561" elapsed="0.001410"/>
-</branch>
-<status status="PASS" start="2025-10-23T07:28:14.573561" elapsed="0.001410"/>
-</if>
-<var name="${element}">{'NOM': 'Bob', 'EMAIL': 'bob@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'standard_user'}</var>
-<status status="PASS" start="2025-10-23T07:28:14.573561" elapsed="0.001410"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-10-23T07:28:14.574971" elapsed="0.000000"/>
+<kw name="Log" owner="BuiltIn">
+<arg>Token reçu : ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-07T16:46:31.733577" elapsed="0.000000"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-10-23T07:28:14.574971" elapsed="0.000000"/>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-11-07T16:46:31.733577" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<var>${resp2}</var>
+<arg>api</arg>
+<arg>/api/users?page=2</arg>
+<arg>headers={"Authorization":"Bearer ${token}"}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="NOT RUN" start="2025-11-07T16:46:31.733577" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-10-23T07:28:14.574971" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-10-23T07:28:14.574971" elapsed="0.000000"/>
-</if>
-<var name="${element}">{'NOM': 'Charlie', 'EMAIL': 'charlie@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'coucou'}</var>
-<status status="PASS" start="2025-10-23T07:28:14.574971" elapsed="0.000000"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-10-23T07:28:14.575972" elapsed="0.000000"/>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${resp2.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-11-07T16:46:31.734555" elapsed="0.000000"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-10-23T07:28:14.575972" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-10-23T07:28:14.575972" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-10-23T07:28:14.575972" elapsed="0.000000"/>
-</if>
-<var name="${element}">{'NOM': 'David', 'EMAIL': 'david@test.com', 'MOTDEPASSE': 'pass321', 'username': 'holly'}</var>
-<status status="PASS" start="2025-10-23T07:28:14.574971" elapsed="0.001001"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-10-23T07:28:14.575972" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-10-23T07:28:14.576972" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-10-23T07:28:14.575972" elapsed="0.001000"/>
-</branch>
-<status status="PASS" start="2025-10-23T07:28:14.575972" elapsed="0.001000"/>
-</if>
-<var name="${element}">{'NOM': 'Emma', 'EMAIL': 'emma@test.com', 'MOTDEPASSE': 'pass654', 'username': None}</var>
-<status status="PASS" start="2025-10-23T07:28:14.575972" elapsed="0.001000"/>
-</iter>
-<var>${element}</var>
-<value>@{lire}</value>
-<status status="PASS" start="2025-10-23T07:28:14.572561" elapsed="0.004411"/>
-</for>
-<tag>EN-21</tag>
-<status status="PASS" start="2025-10-23T07:28:14.548418" elapsed="0.028554"/>
+<status status="FAIL" start="2025-11-07T16:46:31.564896" elapsed="0.169659">Resolving variable '${resp.json()['token']}' failed: KeyError: 'token'</status>
 </test>
-<status status="PASS" start="2025-10-23T07:28:14.205293" elapsed="0.371679"/>
+<status status="FAIL" start="2025-11-07T16:46:31.309172" elapsed="0.425383"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">EN-21</stat>
 </tag>
 <suite>
-<stat name="Excelmanipulation" id="s1" pass="1" fail="0" skip="0">Excelmanipulation</stat>
+<stat name="Token" id="s1" pass="0" fail="1" skip="0">Token</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-11-07T16:46:31.567902" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-11-07T16:46:31.733577" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
 </errors>
 </robot>
