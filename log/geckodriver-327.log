@@ -1,0 +1,26 @@
+1763116526046	geckodriver	INFO	Listening on 127.0.0.1:54034
+1763116529116	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54035" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GENIUS\\AppData\\Local\\Temp\\rust_mozprofile8qQtoe"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1763116529498	Marionette	INFO	Marionette enabled
+1763116529575	Marionette	INFO	Listening on port 58864
+WebDriver BiDi listening on ws://127.0.0.1:54035
+Read port: 58864
+1763116529693	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1763116531699	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-T3XWXPZX5B&cx=c&_slc=1, line 753: Script terminated by timeout at:
+k.wj@https://www.googletagmanager.com/gtag/js?id=G-T3XWXPZX5B&cx=c&_slc=1:753:30
+get@https://www.googletagmanager.com/gtag/js?id=G-T3XWXPZX5B&cx=c&_slc=1:751:119
+stop@https://www.googletagmanager.com/gtag/js?id=G-T3XWXPZX5B&cx=c&_slc=1:751:87
+k.Cp/c/<@https://www.googletagmanager.com/gtag/js?id=G-T3XWXPZX5B&cx=c&_slc=1:751:410
+
+1763116535309	Marionette	INFO	Stopped listening on port 58864
+Dynamically enable window occlusion 1
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 117: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+Exiting due to channel error.
+Exiting due to channel error.

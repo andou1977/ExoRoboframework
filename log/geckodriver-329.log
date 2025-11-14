@@ -1,0 +1,29 @@
+1763116750297	geckodriver	INFO	Listening on 127.0.0.1:63233
+1763116753353	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63234" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GENIUS\\AppData\\Local\\Temp\\rust_mozprofilemwNIjW"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1763116753751	Marionette	INFO	Marionette enabled
+1763116753827	Marionette	INFO	Listening on port 54116
+WebDriver BiDi listening on ws://127.0.0.1:63234
+Read port: 54116
+1763116753954	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1763116756058	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497, line 42: Script terminated by timeout at:
+t.exports@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497:42:19271
+triggerResize@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497:42:16589
+@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497:42:22387
+n@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497:35:255
+@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497:42:19418
+n@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497:35:255
+@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497:35:1076
+@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763116756497:35:1087
+
+1763116761192	Marionette	INFO	Stopped listening on port 54116
+Dynamically enable window occlusion 1
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 117: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+JavaScript error: resource://services-settings/RemoteSettingsClient.sys.mjs, line 85: Error: Unknown callback

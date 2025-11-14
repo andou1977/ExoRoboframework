@@ -1,0 +1,33 @@
+1763115853699	geckodriver	INFO	Listening on 127.0.0.1:64295
+1763115856753	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64296" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GENIUS\\AppData\\Local\\Temp\\rust_mozprofile4SE9vC"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1763115857175	Marionette	INFO	Marionette enabled
+1763115857259	Marionette	INFO	Listening on port 63897
+WebDriver BiDi listening on ws://127.0.0.1:64296
+Read port: 63897
+1763115857442	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1763115859481	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893, line 42: Script terminated by timeout at:
+t.exports@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893:42:19271
+triggerResize@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893:42:16589
+@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893:42:22387
+n@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893:35:255
+@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893:42:19418
+n@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893:35:255
+@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893:35:1076
+@https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=tastejs&show_count=false&show_screen_name=false&size=m&time=1763115859893:35:1087
+
+1763115864342	Marionette	INFO	Stopped listening on port 63897
+Dynamically enable window occlusion 1
+JavaScript error: , line 0: NotFoundError: No such JSProcessActor 'DevToolsProcess'
+JavaScript error: , line 0: NotFoundError: No such JSProcessActor 'DevToolsProcess'
+JavaScript error: , line 0: NotFoundError: No such JSProcessActor 'DevToolsProcess'
+JavaScript error: chrome://global/content/customElements.js, line 17: ReferenceError: window is not defined
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 117: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+JavaScript error: resource://services-settings/RemoteSettingsClient.sys.mjs, line 85: Error: Unknown callback

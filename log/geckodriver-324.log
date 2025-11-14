@@ -1,0 +1,29 @@
+1763116116907	geckodriver	INFO	Listening on 127.0.0.1:51027
+1763116119986	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51028" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GENIUS\\AppData\\Local\\Temp\\rust_mozprofilegTunWz"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1763116120355	Marionette	INFO	Marionette enabled
+1763116120418	Marionette	INFO	Listening on port 53703
+WebDriver BiDi listening on ws://127.0.0.1:51028
+Read port: 53703
+1763116120568	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1763116122385	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs, line 27: Script terminated by timeout at:
+t.exports@https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs:27:27013
+triggerResize@https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs:27:24331
+@https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs:27:28756
+n@https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs:27:255
+@https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs:27:27165
+n@https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs:27:255
+@https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs:27:1076
+@https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Ftodomvc.com%2F&size=m&text=TodoMVC%20-%20Helping%20you%20select%20an%20MV*%20framework%20-%20Todo%20apps%20for%20Backbone.js%2C%20Ember.js%2C%20AngularJS%2C%20and%20more&time=1763116122785&type=share&url=http%3A%2F%2Ftodomvc.com&via=tastejs:27:1087
+
+1763116127183	Marionette	INFO	Stopped listening on port 53703
+Dynamically enable window occlusion 1
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 117: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+JavaScript error: resource://services-settings/RemoteSettingsClient.sys.mjs, line 85: Error: Unknown callback

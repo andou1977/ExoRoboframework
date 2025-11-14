@@ -1,87 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-11-07T16:46:31.305994" rpa="false" schemaversion="5">
-<suite id="s1" name="Token" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\Intermediaire\token.robot">
-<test id="s1-t1" name="Connexion avec token" line="22">
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-11-07T16:46:31.565902" level="INFO">Creating Session using : alias=api, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>api</arg>
-<arg>https://reqres.in</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-11-07T16:46:31.564896" elapsed="0.002006"/>
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-11-14T12:14:39.441318" rpa="false" schemaversion="5">
+<suite id="s1" name="TodoMvc" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\TodoMvc.robot">
+<test id="s1-t1" name="TodoMvc" line="14">
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2025-11-14T12:14:40.290859" level="INFO">Opening browser 'firefox' to base url 'https://todomvc.com/'.</msg>
+<arg>https://todomvc.com/</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-14T12:14:40.289854" elapsed="7.553115"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-11-07T16:46:31.566902" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}</msg>
-<var>${body}</var>
-<arg>email=eve.holt@reqres.in</arg>
-<arg>password=cityslicka</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-11-07T16:46:31.566902" elapsed="0.000000"/>
+<kw name="Click Element" owner="RPA.Browser">
+<msg time="2025-11-14T12:14:47.843979" level="INFO">Clicking element 'class=link'.</msg>
+<arg>class=link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:14:47.843979" elapsed="0.449874"/>
 </kw>
-<kw name="Post Request" owner="RequestsLibrary">
-<msg time="2025-11-07T16:46:31.567902" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-11-07T16:46:31.728956" level="INFO">POST Request : url=https://reqres.in/api/login 
- path_url=/api/login 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
- body=b'{"email": "eve.holt@reqres.in", "password": "cityslicka"}' 
- </msg>
-<msg time="2025-11-07T16:46:31.729955" level="INFO">POST Response : url=https://reqres.in/api/login 
- status=401, reason=Unauthorized 
- headers={'Date': 'Fri, 07 Nov 2025 15:46:32 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"1b-FQ1mIOMgD7jlZN53VsiSdXzsYTY"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '99', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=MxepTkg7t1zWqDzaq7lmjfsAEpcYKBn4RHunVEVnaf4%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1762530392"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=MxepTkg7t1zWqDzaq7lmjfsAEpcYKBn4RHunVEVnaf4%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1762530392"', 'Server': 'cloudflare', 'Vary': 'Origin', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': 'db5a7325-9333-73d4-5e49-f8715ad5b22f', 'X-Xss-Protection': '1; mode=block', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': '99adf6c5cf1b73cb-MRS'} 
- body={"error":"Missing API key"} 
- </msg>
-<msg time="2025-11-07T16:46:31.729955" level="INFO">C:\Users\GENIUS\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-11-07T16:46:31.730461" level="INFO">${resp} = &lt;Response [401]&gt;</msg>
-<var>${resp}</var>
-<arg>api</arg>
-<arg>/api/login</arg>
-<arg>json=${body}</arg>
-<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<status status="PASS" start="2025-11-07T16:46:31.567902" elapsed="0.162559"/>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-11-14T12:14:48.294853" level="INFO">Typing text 'Robot Framework' into text field 'class=new-todo'.</msg>
+<arg>class=new-todo</arg>
+<arg>Robot Framework</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:14:48.294853" elapsed="0.102351"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-11-07T16:46:31.733577" level="FAIL">Resolving variable '${resp.json()['token']}' failed: KeyError: 'token'</msg>
-<var>${token}</var>
-<arg>${resp.json()['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="FAIL" start="2025-11-07T16:46:31.730461" elapsed="0.003116">Resolving variable '${resp.json()['token']}' failed: KeyError: 'token'</status>
+<kw name="Press Keys" owner="RPA.Browser">
+<msg time="2025-11-14T12:14:48.398207" level="INFO">Sending key(s) ('ENTER',) to css:.new-todo element.</msg>
+<msg time="2025-11-14T12:14:48.814458" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-11-14T12:14:48.815526" level="INFO">Releasing special key ENTER.</msg>
+<arg>css:.new-todo</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-14T12:14:48.397204" elapsed="0.534832"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<arg>Token reçu : ${token}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-07T16:46:31.733577" elapsed="0.000000"/>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2025-11-14T12:14:48.933035" level="INFO">Typing text 'Selenium' into text field 'class=new-todo'.</msg>
+<arg>class=new-todo</arg>
+<arg>Selenium</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:14:48.933035" elapsed="0.077671"/>
 </kw>
-<kw name="Get Request" owner="RequestsLibrary">
-<msg time="2025-11-07T16:46:31.733577" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<var>${resp2}</var>
-<arg>api</arg>
-<arg>/api/users?page=2</arg>
-<arg>headers={"Authorization":"Bearer ${token}"}</arg>
-<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<status status="NOT RUN" start="2025-11-07T16:46:31.733577" elapsed="0.000000"/>
+<kw name="Press Keys" owner="RPA.Browser">
+<msg time="2025-11-14T12:14:49.011708" level="INFO">Sending key(s) ('ENTER',) to css=.new-todo element.</msg>
+<msg time="2025-11-14T12:14:49.339893" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-11-14T12:14:49.340894" level="INFO">Releasing special key ENTER.</msg>
+<arg>css=.new-todo</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-14T12:14:49.010706" elapsed="0.337420"/>
 </kw>
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<arg>${resp2.status_code}</arg>
-<arg>200</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="NOT RUN" start="2025-11-07T16:46:31.734555" elapsed="0.000000"/>
+<kw name="Click Element" owner="RPA.Browser">
+<msg time="2025-11-14T12:14:49.348126" level="INFO">Clicking element 'class=toggle'.</msg>
+<arg>class=toggle</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:14:49.348126" elapsed="0.069719"/>
 </kw>
-<status status="FAIL" start="2025-11-07T16:46:31.564896" elapsed="0.169659">Resolving variable '${resp.json()['token']}' failed: KeyError: 'token'</status>
+<kw name="Get Text" owner="RPA.Browser">
+<msg time="2025-11-14T12:14:49.502216" level="INFO">${biil} = 1 item left!</msg>
+<var>${biil}</var>
+<arg>xpath=//span[@class="todo-count"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T12:14:49.417845" elapsed="0.084371"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${biil}</arg>
+<arg>1 item left!</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-11-14T12:14:49.503216" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-11-14T12:14:40.288937" elapsed="9.214798"/>
 </test>
-<status status="FAIL" start="2025-11-07T16:46:31.309172" elapsed="0.425383"/>
+<status status="PASS" start="2025-11-14T12:14:39.445837" elapsed="10.057898"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Token" id="s1" pass="0" fail="1" skip="0">Token</stat>
+<stat name="TodoMvc" id="s1" pass="1" fail="0" skip="0">TodoMvc</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-11-07T16:46:31.567902" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-11-07T16:46:31.733577" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-11-14T12:14:39.785920" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>
