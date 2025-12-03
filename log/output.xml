@@ -1,86 +1,251 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-11-14T12:14:39.441318" rpa="false" schemaversion="5">
-<suite id="s1" name="TodoMvc" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\TodoMvc.robot">
-<test id="s1-t1" name="TodoMvc" line="14">
-<kw name="Open Browser" owner="RPA.Browser">
-<msg time="2025-11-14T12:14:40.290859" level="INFO">Opening browser 'firefox' to base url 'https://todomvc.com/'.</msg>
-<arg>https://todomvc.com/</arg>
-<arg>firefox</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-11-14T12:14:40.289854" elapsed="7.553115"/>
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-03T21:07:03.218262" rpa="false" schemaversion="5">
+<suite id="s1" name="Oauth2" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\OAuth2\Oauth2.robot">
+<test id="s1-t1" name="Appel API Avec Token OAuth2" line="9">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-03T21:07:03.538165" level="INFO">${headers} = {'Authorization': 'Bearer IGxDcAoyuiMomtliNNFH6KQxHRpwPrKz9Q7K1P5-tbBHE7HQ8yyx9FlvRs81My-NnfWpXIT6'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-03T21:07:03.537167" elapsed="0.001997"/>
 </kw>
-<kw name="Click Element" owner="RPA.Browser">
-<msg time="2025-11-14T12:14:47.843979" level="INFO">Clicking element 'class=link'.</msg>
-<arg>class=link</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-14T12:14:47.843979" elapsed="0.449874"/>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-12-03T21:07:03.540166" level="INFO">Creating Session using : alias=api, url=https://authorization-server.com/token, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>${API_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-03T21:07:03.540166" elapsed="0.000998"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-11-14T12:14:48.294853" level="INFO">Typing text 'Robot Framework' into text field 'class=new-todo'.</msg>
-<arg>class=new-todo</arg>
-<arg>Robot Framework</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-14T12:14:48.294853" elapsed="0.102351"/>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-12-03T21:07:04.873500" level="INFO">GET Request : url=https://authorization-server.com/token/ (redirected) 
+ path_url=/token/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer IGxDcAoyuiMomtliNNFH6KQxHRpwPrKz9Q7K1P5-tbBHE7HQ8yyx9FlvRs81My-NnfWpXIT6'} 
+ body=None 
+ </msg>
+<msg time="2025-12-03T21:07:04.874134" level="INFO">GET Response : url=https://oauth2simplified.com/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.14.0', 'Date': 'Wed, 03 Dec 2025 20:07:05 GMT', 'Content-Type': 'text/html; charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;OAuth 2.0 Simplified - A guide to building OAuth 2.0 servers&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" /&gt;
+  &lt;link href="https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans|Open+Sans+Condensed:300" rel="stylesheet"&gt;
+  &lt;link rel="stylesheet" href="/styles.css"&gt;
+  
+  &lt;link rel="indieauth-metadata" href="https://authorization-server.com/fedcm/indieauth-metadata.php"&gt;
+
+  &lt;meta name="twitter:card" content="summary_large_image"/&gt;
+  &lt;meta name="twitter:site" content="@oauth_2"/&gt;
+  &lt;meta name="twitter:creator" content="@aaronpk"/&gt;
+  &lt;meta name="twitter:title" content="OAuth 2.0 Simplified"/&gt;
+  &lt;meta name="twitter:description" content="OAuth 2.0 Simplified is a guide to building an OAuth 2.0 server. Through high-level overviews, step-by-step instructions, and real-world examples, you will learn how to take advantage of the OAuth 2.0 framework while building a secure API."/&gt;
+  &lt;meta name="twitter:image" content="https://oauth2simplified.com/images/book-cover-large.jpg"/&gt;
+
+  &lt;meta property="og:url"                content="https://oauth2simplified.com/" /&gt;
+  &lt;meta property="og:type"               content="book" /&gt;
+  &lt;meta property="og:title"              content="OAuth 2.0 Simplified" /&gt;
+  &lt;meta property="og:description"        content="OAuth 2.0 Simplified is a guide to building an OAuth 2.0 server. Through high-level overviews, step-by-step instructions, and real-world examples, you will learn how to take advantage of the OAuth 2.0 framework while building a secure API." /&gt;
+  &lt;meta property="og:image"              content="https://oauth2simplified.com/images/book-cover.jpg" /&gt;
+
+&lt;/head&gt;
+&lt;body class="h-entry"&gt;
+
+&lt;section class="cover split"&gt;
+  &lt;div class="left light"&gt;
+    &lt;img src="/images/book-cover.png" alt="OAuth 2.0 Simplified Book Cover" class="u-photo book-cover"&gt;
+  &lt;/div&gt;
+  &lt;div class="right dark"&gt;
+    &lt;div class="in"&gt;
+      &lt;h1 class="p-name"&gt;OAuth 2.0 Simplified&lt;/h1&gt;
+
+          &lt;h3&gt;Fourth Edition, updated November 2021&lt;/h3&gt;
+    &lt;div class=""&gt;
+        &lt;a href="https://www.lulu.com/en/us/shop/aaron-parecki/oauth-20-simplified/paperback/product-1p74yj65.html" class="buy-button"&gt;&lt;span&gt;Paperback&lt;/span&gt;&lt;/a&gt;
+
+    &lt;/div&gt;
+    &lt;div class="buy-buttons"&gt;
+      &lt;!-- &lt;a href="https://gum.co/dRihH" class="buy-button"&gt;&lt;span&gt;Paperback&lt;/span&gt;&lt;/a&gt; --&gt;
+      &lt;a href="https://aaronpk.gumroad.com/l/NhSw" class="buy-button"&gt;&lt;span&gt;PDF&lt;/span&gt;&lt;/a&gt;
+      &lt;a href="https://www.amazon.com/OAuth-2-0-Simplified-Building-Servers-ebook/dp/B08KWP22H1/?tag=oauth2simplified-20" class="buy-button"&gt;&lt;span&gt; Kindle&lt;/span&gt;&lt;/a&gt;
+      &lt;a href="https://www.lulu.com/en/us/shop/aaron-parecki/oauth-20-simplified-a-guide-to-building-oauth-20-servers/ebook/product-1z9ndjdm.html?page=1&amp;pageSize=4" class="buy-button"&gt;&lt;span&gt;ePub&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+
+      &lt;!--
+      &lt;p style="font-size: 1.3em; line-height: 1.6em; margin: 3em 0;"&gt;All editions were updated in November 2021.&lt;/p&gt;
+      --&gt;
+
+      &lt;p style="font-size: 1.1em; line-height: 1.6em; margin: 3em 0;"&gt;OAuth 2.0 Simplified is a guide to building an OAuth 2.0 server. Through high-level overviews, step-by-step instructions, and real-world examples, you will learn how to take advantage of the OAuth 2.0 framework while building a secure API.&lt;/p&gt;
+      
+      &lt;p style="font-size: 1.6em; line-height: 1.6em; margin: 3em 0;"&gt;Subscribe to my email list to be notified about new books, workshops and more!&lt;/p&gt;
+
+      &lt;!-- Begin MailChimp Signup Form --&gt;
+&lt;div id="mc_embed_signup"&gt;
+&lt;form action="//nicernet.us12.list-manage.com/subscribe/post?u=3da16cdb35a3696d18f3d5001&amp;amp;id=3565daa7a4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate&gt;
+  &lt;div id="mc_embed_signup_scroll"&gt;
+    &lt;div class="mc-field-group"&gt;
+      &lt;label for="mce-EMAIL"&gt;Email Address &lt;span class="asterisk"&gt;*&lt;/span&gt;&lt;/label&gt;
+      &lt;input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="enter your email"&gt;
+    &lt;/div&gt;
+    &lt;div class="mc-field-group"&gt;
+      &lt;label for="mce-FNAME"&gt;First Name &lt;/label&gt;
+      &lt;input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="what is your name?"&gt;
+    &lt;/div&gt;
+    &lt;div id="mce-responses" class="clear"&gt;
+      &lt;div class="response" id="mce-error-response" style="display:none"&gt;&lt;/div&gt;
+      &lt;div class="response" id="mce-success-response" style="display:none"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style="position: absolute; left: -5000px;" aria-hidden="true"&gt;&lt;input type="text" name="b_3da16cdb35a3696d18f3d5001_3565daa7a4" tabindex="-1" value=""&gt;&lt;/div&gt;
+    &lt;div class="clear"&gt;
+      &lt;input type="submit" value="Keep me updated!" name="subscribe" id="mc-embedded-subscribe" class="button"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;!--End mc_embed_signup--&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+
+
+&lt;section style="background: #eee;"&gt;
+  &lt;div class="in" style="max-width: 800px; margin: 0 auto;"&gt;
+    &lt;h1&gt;The Nuts and Bolts of OAuth 2.0&lt;/h1&gt;
+
+    &lt;div class="course-image"&gt;&lt;a href="https://www.udemy.com/course/oauth-2-simplified/?referralCode=B04F59AED67B8DA74FA7"&gt;&lt;img src="images/nuts-and-bolts-of-oauth.png" style="width: 100%"&gt;&lt;/a&gt;&lt;/div&gt;
+    
+    &lt;div class="course-description"&gt;
+      &lt;p&gt;This course includes the latest recommendations from the OAuth working group including covering everything from using PKCE for all types of applications to explaining the motivations behind dropping the Implicit and Password grants from the spec. These security recommendations and more will be rolled up into the new OAuth 2.1 update, so this course will give you an excellent head start on learning the best way to use OAuth going forward!&lt;/p&gt;
+      &lt;p&gt;Topics include: OAuth 2.0, OpenID, PKCE, deprecated flows, JWTs, API Gateways, and scopes. No programming knowledge needed!&lt;/p&gt;
+      &lt;p&gt;This course covers each of the OAuth flows and applies them to use cases such as implementing OAuth for web apps, native apps, and SPAs. In addition to learning how applications can use OAuth to access APIs, you’ll learn how to use OpenID Connect to get the user’s identity.&lt;/p&gt;
+      &lt;p&gt;If you're building an API, you'll learn the differences and tradeoffs between different access token formats, how to choose an appropriate access token lifetime, and how to design scopes to protect various parts of your APIs.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;&lt;a href="https://www.udemy.com/course/oauth-2-simplified/?referralCode=B04F59AED67B8DA74FA7"&gt;&lt;span&gt;Enroll Now&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+
+
+&lt;section style="background: #ccc;"&gt;
+  &lt;div class="in" style="max-width: 800px; margin: 0 auto;"&gt;
+    &lt;h1&gt;Advanced OAuth Security&lt;/h1&gt;
+
+    &lt;div class="course-image"&gt;&lt;a href="https://www.udemy.com/course/advanced-oauth-security/?referralCode=E986334DCA7052166B3F"&gt;&lt;img src="images/advanced-oauth-security.png" style="width: 100%"&gt;&lt;/a&gt;&lt;/div&gt;
+    
+    &lt;div class="course-description"&gt;
+      &lt;p&gt;Certain applications need a higher level of security compared to what is part of the core OAuth 2.0 specifications. This course will guide you through the details of FAPI, a set of extensions of OAuth 2.0 that provide additional layers of security throughout the OAuth flows.&lt;/p&gt;
+      &lt;p&gt;Topics include: Pushed Authorization Requests (PAR), JWT Secured Authorization Request (JAR), JWT Authorization Response Mode (JARM), Mutual TLS (MTLS), DPoP, Authorization Server Issuer Identifier (iss), and HTTP Signatures.&lt;/p&gt;
+      &lt;p&gt;The content is divided into five parts, beginning with and overview of the OAuth authorization code flow, an overview of the security goals set out by FAPI and related extensions, as well as a description of the types of attacks we are concerned about protecting against. Part two focuses on securing the front channel, where we'll discuss authorization code injection attacks, PKCE, authorization server mixup attacks, and using Pushed Authorization Requests. Part three focuses on the back channel, and discusses the differences between Mutual TLS and Private Key JWT for client authentication. Part four is all about proof-of-possession (sender-constraining) access tokens using Mutual TLS and DPoP. Part five discusses how to achieve non-repudiation throughout each leg of the OAuth flow.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;&lt;a href="https://www.udemy.com/course/advanced-oauth-security/?referralCode=E986334DCA7052166B3F"&gt;&lt;span&gt;Enroll Now&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+
+
+&lt;!--
+&lt;section class="cover split dzone-refcard"&gt;
+  &lt;div class="left dark"&gt;
+
+    &lt;div class="in"&gt;
+      &lt;h1&gt;OAuth Patterns and Anti-Patterns&lt;/h1&gt;
+    
+      &lt;h3&gt;Download Free!&lt;/h3&gt;
+      &lt;div class=""&gt;
+        &lt;a href="" class="buy-button"&gt;&lt;span&gt;PDF&lt;/span&gt;&lt;img src="/images/new-star.png" width="75" class="new"&gt;&lt;/a&gt;
+      &lt;/div&gt;
+    
+      &lt;p&gt;This five-page reference guide covers the latest in OAuth and clarifies some common misunderstandings of applying it to real world use cases. With a focus on OAuth 2.0, OpenID Connect, and best practices, you'll quickly learn how to avoid some common mistakes and how to make your applications and APIs more secure.&lt;/p&gt;
+    
+    &lt;/div&gt;
+    
+  &lt;/div&gt;
+  &lt;div class="right light"&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+--&gt;
+
+
+
+&lt;section&gt;
+  &lt;div class="in"&gt;
+    &lt;h1&gt;Stickers&lt;/h1&gt;
+
+    &lt;div class="sticker-preview"&gt;
+      &lt;a href="https://gum.co/sPye"&gt;
+        &lt;img src="/images/jumping-cat-600.jpg"&gt;
+        &lt;span class="buy-now"&gt;Buy Now&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;a href="https://gum.co/sQTx"&gt;
+        &lt;img src="/images/cat-sticker-sheet-600.jpg"&gt;
+        &lt;span class="buy-now"&gt;Buy Now&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;a href="https://gum.co/ludyr"&gt;
+        &lt;img src="/images/reflective-oauth-logo.jpg"&gt;
+        &lt;span class="buy-now"&gt;Buy Now&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+
+&lt;section class="cover split rfc-book"&gt;
+  &lt;div class="left light"&gt;
+    
+  &lt;/div&gt;
+  &lt;div class="right dark"&gt;
+    &lt;div class="in"&gt;
+      &lt;h1&gt;The Little Book of OAuth 2.0 RFCs&lt;/h1&gt;
+  
+      &lt;h3&gt;Buy Now!&lt;/h3&gt;
+      &lt;div class=""&gt;
+              &lt;a href="https://www.amazon.com... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2025-12-03T21:07:04.874134" level="INFO">C:\Users\GENIUS\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'authorization-server.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+C:\Users\GENIUS\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'oauth2simplified.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-12-03T21:07:04.874134" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-03T21:07:03.541164" elapsed="1.332970"/>
 </kw>
-<kw name="Press Keys" owner="RPA.Browser">
-<msg time="2025-11-14T12:14:48.398207" level="INFO">Sending key(s) ('ENTER',) to css:.new-todo element.</msg>
-<msg time="2025-11-14T12:14:48.814458" level="INFO">Pressing special key ENTER to element.</msg>
-<msg time="2025-11-14T12:14:48.815526" level="INFO">Releasing special key ENTER.</msg>
-<arg>css:.new-todo</arg>
-<arg>ENTER</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-14T12:14:48.397204" elapsed="0.534832"/>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-12-03T21:07:04.875450" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-12-03T21:07:04.874134" elapsed="0.001316"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-11-14T12:14:48.933035" level="INFO">Typing text 'Selenium' into text field 'class=new-todo'.</msg>
-<arg>class=new-todo</arg>
-<arg>Selenium</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-14T12:14:48.933035" elapsed="0.077671"/>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-12-03T21:07:04.876137" level="FAIL">Resolving variable '${response.json()}' failed: JSONDecodeError: Expecting value: line 1 column 1 (char 0)</msg>
+<arg>Réponse: ${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="FAIL" start="2025-12-03T21:07:04.875450" elapsed="0.000687">Resolving variable '${response.json()}' failed: JSONDecodeError: Expecting value: line 1 column 1 (char 0)</status>
 </kw>
-<kw name="Press Keys" owner="RPA.Browser">
-<msg time="2025-11-14T12:14:49.011708" level="INFO">Sending key(s) ('ENTER',) to css=.new-todo element.</msg>
-<msg time="2025-11-14T12:14:49.339893" level="INFO">Pressing special key ENTER to element.</msg>
-<msg time="2025-11-14T12:14:49.340894" level="INFO">Releasing special key ENTER.</msg>
-<arg>css=.new-todo</arg>
-<arg>ENTER</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-14T12:14:49.010706" elapsed="0.337420"/>
-</kw>
-<kw name="Click Element" owner="RPA.Browser">
-<msg time="2025-11-14T12:14:49.348126" level="INFO">Clicking element 'class=toggle'.</msg>
-<arg>class=toggle</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-14T12:14:49.348126" elapsed="0.069719"/>
-</kw>
-<kw name="Get Text" owner="RPA.Browser">
-<msg time="2025-11-14T12:14:49.502216" level="INFO">${biil} = 1 item left!</msg>
-<var>${biil}</var>
-<arg>xpath=//span[@class="todo-count"]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-14T12:14:49.417845" elapsed="0.084371"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${biil}</arg>
-<arg>1 item left!</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-11-14T12:14:49.503216" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-11-14T12:14:40.288937" elapsed="9.214798"/>
+<status status="FAIL" start="2025-12-03T21:07:03.535163" elapsed="1.340974">Resolving variable '${response.json()}' failed: JSONDecodeError: Expecting value: line 1 column 1 (char 0)</status>
 </test>
-<status status="PASS" start="2025-11-14T12:14:39.445837" elapsed="10.057898"/>
+<status status="FAIL" start="2025-12-03T21:07:03.220262" elapsed="1.655875"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="TodoMvc" id="s1" pass="1" fail="0" skip="0">TodoMvc</stat>
+<stat name="Oauth2" id="s1" pass="0" fail="1" skip="0">Oauth2</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-11-14T12:14:39.785920" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
 </errors>
 </robot>
