@@ -12,7 +12,7 @@ ${readcsv}   C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\File\\andou.csv
 *** Keywords ***
 Manipuler Les Api request
     Create Session    manipuler    https://api.restful-api.dev
-    ${myrequest}=   Get Request    manipuler    /objects
+    ${myrequest}=   GET On Session   manipuler    /objects
     Status Should Be    200
     ${nametest}=   To Json    ${myrequest.content}
     ${first}=  Get From List   ${nametest}    0
