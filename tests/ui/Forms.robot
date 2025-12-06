@@ -15,7 +15,7 @@ ${adress}      47 Boulevard Trouin
 Open the Browser
      [Documentation]  Remplir
      ...             Lancer le navigateur
-     Open Browser   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html  firefox
+     Open Browser   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html  chrome
 Envoyer les données
      [Documentation]   Le formulaire
      ...   remplir avec des informations

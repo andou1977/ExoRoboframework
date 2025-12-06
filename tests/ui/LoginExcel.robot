@@ -14,7 +14,7 @@ Library    RPA.Excel.Files
 
 *** Test Cases ***
 Login with Excel
-    [Setup]  Open Workbook   C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\File\\login.xlsx  firefox
+    [Setup]  Open Workbook   C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\File\\login.xlsx  chrome
     ${fileexcel}=   Read Worksheet As Table  header=false
     ${read}=  Get From List    ${fileexcel}   2
     Open Browser  https://www.saucedemo.com/
