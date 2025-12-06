@@ -10,9 +10,6 @@ Library    RPA.HTTP
 
 
 
-
-
-
 *** Keywords ***
 Télécharger le fichier CSV1
     Capture Page Screenshot   filename=EMBED
@@ -34,6 +31,14 @@ Créer le command
 
     Open Browser   https://api.restful-api.dev/objects   firefox
     Page Should Contain    ${verifyvariable}
+
+
+
+
+
+
+
+
 
 
 
