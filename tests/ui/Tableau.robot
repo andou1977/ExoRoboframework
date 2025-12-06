@@ -10,7 +10,7 @@ ${table}    //table
 *** Test Cases ***
 Tableau
     [Tags]    EN-21
-    Open Browser   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html   firefox
+    Open Browser   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html   chrome
     Element Should Be Visible   ${table}
     wait until element is visible   ${table}
     ${myvalue}=   Get Text    xpath=//table/thead/tr/th[2]

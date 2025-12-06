@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 
 *** Keywords ***
 Login to website
-   Open Browser   ${url}   firefox
+   Open Browser   ${url}   chrome
    Input Text  id=user-name  ${username}
    Input Text  id=password  ${password}
    Should Be Equal    ${username}  standard_user

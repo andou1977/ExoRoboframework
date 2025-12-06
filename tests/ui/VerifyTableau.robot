@@ -8,7 +8,7 @@ ${url}   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html
 
 *** Keywords ***
 Login to website
-    Open Browser   ${url}   firefox
+    Open Browser   ${url}   chrome
     @{elements}   Get WebElements    xpath=//h2[@class="dolor_text"]
     FOR    ${element}    IN    @{elements}
         ${text}=    Get Text    ${element}

@@ -23,6 +23,8 @@ Télécharger le fichier CSV1
 
 Créer le command
     Create Session   placejsonholder    ${navigateur}
+
+
     ${addcommande}=    Create Dictionary   name=Hp victus 15   year=2020   price=4098.34   CPU model=intel core i9
     ${thecommande2}=   POST On Session    placejsonholder    /objects    json=${addcommande}
     Status Should Be    200

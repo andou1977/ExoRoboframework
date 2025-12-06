@@ -6,6 +6,7 @@ ${url2}     https://drive.google.com/uc?id=1OT84-j5J5z2tHoUvikJtoJFInWmlyYzY&amp
 ${destin2}  C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/andou2.csv
 
 ${navigateur}    https://api.restful-api.dev
+
 ${verifyvariable}   Apple AirPods
 
 

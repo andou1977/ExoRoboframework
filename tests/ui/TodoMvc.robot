@@ -12,7 +12,7 @@ Library    RPA.PDF
 
 *** Test Cases ***
 TodoMvc
-    Open Browser  https://todomvc.com/  firefox
+    Open Browser  https://todomvc.com/  chrome
     Click Element   class=link
     Input Text   class=new-todo   Robot Framework
     Press Keys    css:.new-todo    ENTER
