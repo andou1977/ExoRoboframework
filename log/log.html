@@ -2074,25 +2074,25 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[0,0,695],[],[[4,0,0,[],[0,685,9,5],[[0,6,7,0,0,0,0,0,[0,686,7],[[0,8,9,0,10,11,0,0,[0,687,4],[[688,2,12],[690,5,5]]],[0,13,14,0,15,16,17,0,[3,692,0],[]],[0,18,9,0,19,20,21,0,[3,692,0],[]],[0,22,9,0,23,24,0,0,[3,692,0],[]],[0,25,9,0,26,27,28,0,[3,692,1],[[693,3,30]]],[0,31,14,0,32,33,0,0,[3,693,0],[]],[0,34,35,0,36,37,0,0,[3,693,0],[]],[0,38,35,0,39,40,0,0,[3,693,0],[]]]]]]],[],[1,0,1,0]];
+window.output["suite"] = [1,2,3,0,[],[1,0,2273],[],[[4,0,0,[],[1,410,1862],[[1,5,6,0,7,8,0,0,[1,410,4],[[414,2,9]]],[0,10,6,0,11,12,13,0,[1,414,0],[[414,2,14],[414,2,15]]],[0,16,17,0,18,19,20,0,[1,414,0],[[414,2,21]]],[0,22,23,0,24,25,0,0,[1,414,1535],[[414,2,26]]],[0,27,23,0,28,29,0,0,[1,1949,112],[[1949,2,30]]],[0,27,23,0,28,31,0,0,[1,2061,70],[[2063,2,32]]],[0,33,23,0,34,35,0,0,[1,2131,116],[[2131,2,36]]],[0,37,23,0,38,39,0,0,[1,2249,11],[]],[2,37,23,0,38,40,0,0,[1,2260,12],[]]]]],[],[1,1,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*CreateCommande","*C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\tests\\api\\CreateCommande.robot","*../tests/api/CreateCommande.robot","*po","*ValueError: not enough values to unpack (expected 2, got 1)","*Créer le command","*keywords","*Create Session","*RPA.HTTP","*<p>Create Session: create a HTTP session to a server\x3c/p>","*placejsonholder    ${navigateur}    chrome","*Creating Session using : alias=placejsonholder, url=https://api.restful-api.dev, headers=chrome,                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 ","*Create Dictionary","*BuiltIn","*<p>Creates and returns a dictionary based on the given <code>items\x3c/code>.\x3c/p>","*name=Hp victus 15    year=2020    price=4098.34    CPU model=intel core i9","*${addcommande}","*POST On Session","*<p>Sends a POST request on a previously created HTTP Session.\x3c/p>","*placejsonholder    /objects    json=${addcommande}","*${thecommande2}","*Status Should Be","*<p>Fails if response status code is different than the expected.\x3c/p>","*200","*To Json","*<p><b>DEPRECATED\x3c/b> Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.\x3c/p>","*${thecommande2.content}","*${verify}","*s1-t1-k1-k5","*Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.","*Should Be Equal","*<p>Fails if the given objects are unequal.\x3c/p>","*${verify['name']}    Hp victus 15","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*<a href=\"https://api.restful-api.dev/objects\">https://api.restful-api.dev/objects\x3c/a>    firefox","*Page Should Contain","*<p>Verifies that current page contains <code>text\x3c/code>.\x3c/p>","*${verifyvariable}"]);
+window.output["strings"] = window.output["strings"].concat(["*","*LoginExcel","*C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\tests\\ui\\LoginExcel.robot","*../tests/ui/LoginExcel.robot","*Login with Excel","*Open Workbook","*RPA.Excel.Files","*<p>Open an existing Excel workbook.\x3c/p>","*C:\\\\Users\\\\GENIUS\\\\IdeaProjects\\\\ExoRoboframework\\\\File\\\\login.xlsx","*Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000026F238D7A50&gt;","*Read Worksheet As Table","*<p>Read the contents of a worksheet into a Table container. Allows sorting/filtering/manipulating using the <code>RPA.Tables\x3c/code> library.\x3c/p>","*header=false","*${fileexcel}","*Created table: Table(columns=['A', 'B', 'C'], rows=3)","*${fileexcel} = Table(columns=['A', 'B', 'C'], rows=3)","*Get From List","*Collections","*<p>Returns the value specified with an <code>index\x3c/code> from <code>list\x3c/code>.\x3c/p>","*${fileexcel}    2","*${read}","*${read} = ['Admin', 'standard_user', 'secret_sauce']","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*<a href=\"https://www.saucedemo.com/\">https://www.saucedemo.com/\x3c/a>    chrome","*Opening browser 'chrome' to base url '<a href=\"https://www.saucedemo.com/\">https://www.saucedemo.com/\x3c/a>'.","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*id=user-name    ${read[1]}","*Typing text 'standard_user' into text field 'id=user-name'.","*id=password    ${read[2]}","*Typing text 'secret_sauce' into text field 'id=password'.","*Click Button","*<p>Clicks the button identified by <code>locator\x3c/code>.\x3c/p>","*id=login-button","*Clicking button 'id=login-button'.","*Wait Until Page Contains","*<p>Waits until <code>text\x3c/code> appears on the current page.\x3c/p>","*Sauce Labs Backpack","*Sauce Labs Bike Light"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:00","fail":1,"label":"All Tests","pass":0,"skip":0}],[],[{"elapsed":"00:00:01","fail":1,"id":"s1","label":"CreateCommande","name":"CreateCommande","pass":0,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:02","fail":0,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:02","fail":0,"id":"s1","label":"LoginExcel","name":"LoginExcel","pass":1,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["errors"] = [[693,3,30,29]];
+window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1765023973490;
+window.output["baseMillis"] = 1765027777032;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 702;
+window.output["generated"] = 2280;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
