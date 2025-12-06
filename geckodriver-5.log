@@ -1,0 +1,13 @@
+1765024042383	geckodriver	INFO	Listening on 127.0.0.1:54330
+1765024045435	mozrunner::runner	INFO	Running command: "C:\\Users\\GENIUS\\.cache\\selenium\\firefox\\win64\\145.0.2\\firefox.exe" "--marionette" "--remote-debuggi ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GENIUS\\AppData\\Local\\Temp\\rust_mozprofileIbdSbz"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1765024045839	Marionette	INFO	Marionette enabled
+1765024045924	Marionette	INFO	Listening on port 54345
+WebDriver BiDi listening on ws://127.0.0.1:54331
+Read port: 54345
+1765024046051	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: (new TypeError("can't access property \"find\", this._searchProviderInfo is null", "moz-src:///browser/components/search/SearchSERPTelemetry.sys.mjs", 1141))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."

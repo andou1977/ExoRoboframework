@@ -1,0 +1,12 @@
+1765024004662	geckodriver	INFO	Listening on 127.0.0.1:63240
+1765024007691	mozrunner::runner	INFO	Running command: "C:\\Users\\GENIUS\\.cache\\selenium\\firefox\\win64\\145.0.2\\firefox.exe" "--marionette" "--remote-debuggi ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GENIUS\\AppData\\Local\\Temp\\rust_mozprofileIT4aKA"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1765024008102	Marionette	INFO	Marionette enabled
+1765024008189	Marionette	INFO	Listening on port 63275
+WebDriver BiDi listening on ws://127.0.0.1:63241
+Read port: 63275
+1765024008612	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "https://api.restful-api.dev/objects" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "https://api.restful-api.dev/objects" [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]

@@ -1,155 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-05T23:03:30.396069" rpa="false" schemaversion="5">
-<suite id="s1" name="Excelmanipulation" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Excelmanipulation.robot">
-<test id="s1-t1" name="Lire Mot De Passe Seulement" line="11">
-<kw name="Open Workbook" owner="RPA.Excel.Files">
-<msg time="2025-12-05T23:03:30.715473" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002B6F3E6A810&gt;</msg>
-<arg>${FICHIER}</arg>
-<doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2025-12-05T23:03:30.711385" elapsed="0.005086"/>
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-06T13:26:13.486884" rpa="false" schemaversion="5">
+<suite id="s1" name="CreateCommande" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api\CreateCommande.robot">
+<test id="s1-t1" name="po" line="7">
+<kw name="Créer le command" owner="keywords">
+<kw name="Create Session" owner="RPA.HTTP">
+<msg time="2025-12-06T13:26:14.178324" level="INFO">Creating Session using : alias=placejsonholder, url=https://api.restful-api.dev, headers=chrome,                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-12-06T13:26:14.179735" level="FAIL">ValueError: not enough values to unpack (expected 2, got 1)</msg>
+<arg>placejsonholder</arg>
+<arg>${navigateur}</arg>
+<arg>chrome</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="FAIL" start="2025-12-06T13:26:14.177321" elapsed="0.003644">ValueError: not enough values to unpack (expected 2, got 1)</status>
 </kw>
-<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2025-12-05T23:03:30.717443" level="INFO">Created table: Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
-<msg time="2025-12-05T23:03:30.717443" level="INFO">${lire} = Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
-<var>${lire}</var>
-<arg>header=true</arg>
-<doc>Read the contents of a worksheet into a Table container. Allows
-sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2025-12-05T23:03:30.717443" elapsed="0.000000"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${addcommande}</var>
+<arg>name=Hp victus 15</arg>
+<arg>year=2020</arg>
+<arg>price=4098.34</arg>
+<arg>CPU model=intel core i9</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2025-12-06T13:26:14.182002" elapsed="0.000000"/>
 </kw>
-<for flavor="IN">
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-05T23:03:30.718435" elapsed="0.000000"/>
+<kw name="POST On Session" owner="RPA.HTTP">
+<var>${thecommande2}</var>
+<arg>placejsonholder</arg>
+<arg>/objects</arg>
+<arg>json=${addcommande}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-12-06T13:26:14.182002" elapsed="0.000000"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-05T23:03:30.718435" elapsed="0.000000"/>
+<kw name="Status Should Be" owner="RPA.HTTP">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" start="2025-12-06T13:26:14.182002" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-05T23:03:30.718435" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-12-05T23:03:30.718435" elapsed="0.000000"/>
-</if>
-<var name="${element}">{'NOM': 'Alice', 'EMAIL': 'alice@test.com', 'MOTDEPASSE': 'pass123', 'username': 'alexandra'}</var>
-<status status="PASS" start="2025-12-05T23:03:30.718435" elapsed="0.000000"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-12-05T23:03:30.719443" level="INFO">${USERNAME} = standard_user</msg>
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-12-05T23:03:30.719443" elapsed="0.000000"/>
+<kw name="To Json" owner="RPA.HTTP">
+<msg time="2025-12-06T13:26:14.182968" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<var>${verify}</var>
+<arg>${thecommande2.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="NOT RUN" start="2025-12-06T13:26:14.182002" elapsed="0.000966"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-12-05T23:03:30.719443" level="INFO">${PASSWORD} = secret_sauce</msg>
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-12-05T23:03:30.719443" elapsed="0.000000"/>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${verify['name']}</arg>
+<arg>Hp victus 15</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-12-06T13:26:14.182968" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-12-05T23:03:30.719443" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-12-05T23:03:30.719443" elapsed="0.000000"/>
-</if>
-<var name="${element}">{'NOM': 'Bob', 'EMAIL': 'bob@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'standard_user'}</var>
-<status status="PASS" start="2025-12-05T23:03:30.719443" elapsed="0.000000"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-05T23:03:30.720443" elapsed="0.000000"/>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>https://api.restful-api.dev/objects</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2025-12-06T13:26:14.182968" elapsed="0.000000"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-05T23:03:30.720443" elapsed="0.000000"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>${verifyvariable}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-12-06T13:26:14.182968" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-05T23:03:30.720443" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-12-05T23:03:30.720443" elapsed="0.000000"/>
-</if>
-<var name="${element}">{'NOM': 'Charlie', 'EMAIL': 'charlie@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'coucou'}</var>
-<status status="PASS" start="2025-12-05T23:03:30.720443" elapsed="0.000000"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-05T23:03:30.720443" elapsed="0.000000"/>
+<status status="FAIL" start="2025-12-06T13:26:14.175920" elapsed="0.007048">ValueError: not enough values to unpack (expected 2, got 1)</status>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-05T23:03:30.721436" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-12-05T23:03:30.720443" elapsed="0.000993"/>
-</branch>
-<status status="PASS" start="2025-12-05T23:03:30.720443" elapsed="0.000993"/>
-</if>
-<var name="${element}">{'NOM': 'David', 'EMAIL': 'david@test.com', 'MOTDEPASSE': 'pass321', 'username': 'holly'}</var>
-<status status="PASS" start="2025-12-05T23:03:30.720443" elapsed="0.000993"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${USERNAME}</var>
-<arg>${element}[username]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-05T23:03:30.721436" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${PASSWORD}</var>
-<arg>${element}[MOTDEPASSE]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-05T23:03:30.721436" elapsed="0.000589"/>
-</kw>
-<status status="NOT RUN" start="2025-12-05T23:03:30.721436" elapsed="0.000589"/>
-</branch>
-<status status="PASS" start="2025-12-05T23:03:30.721436" elapsed="0.000589"/>
-</if>
-<var name="${element}">{'NOM': 'Emma', 'EMAIL': 'emma@test.com', 'MOTDEPASSE': 'pass654', 'username': None}</var>
-<status status="PASS" start="2025-12-05T23:03:30.721436" elapsed="0.000589"/>
-</iter>
-<var>${element}</var>
-<value>@{lire}</value>
-<status status="PASS" start="2025-12-05T23:03:30.717443" elapsed="0.004582"/>
-</for>
-<tag>EN-21</tag>
-<status status="PASS" start="2025-12-05T23:03:30.710363" elapsed="0.011662"/>
+<status status="FAIL" start="2025-12-06T13:26:14.174904" elapsed="0.009499">ValueError: not enough values to unpack (expected 2, got 1)</status>
 </test>
-<status status="PASS" start="2025-12-05T23:03:30.398068" elapsed="0.323957"/>
+<status status="FAIL" start="2025-12-06T13:26:13.489883" elapsed="0.694520"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">EN-21</stat>
 </tag>
 <suite>
-<stat name="Excelmanipulation" id="s1" pass="1" fail="0" skip="0">Excelmanipulation</stat>
+<stat name="CreateCommande" id="s1" pass="0" fail="1" skip="0">CreateCommande</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-12-06T13:26:14.182968" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>
