@@ -31,7 +31,7 @@ Créer le command
     ${verify}=   To Json    ${thecommande2.content}
     Should Be Equal    ${verify['name']}    Hp victus 15
 
-    Open Browser   https://api.restful-api.dev/objects   firefox
+    Open Browser   https://api.restful-api.dev/objects   chrome
     Page Should Contain    ${verifyvariable}
 
 

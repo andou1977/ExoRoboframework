@@ -1,70 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-06T14:29:37.025585" rpa="false" schemaversion="5">
-<suite id="s1" name="LoginExcel" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\LoginExcel.robot">
-<test id="s1-t1" name="Login with Excel" line="16">
-<kw name="Open Workbook" owner="RPA.Excel.Files" type="SETUP">
-<msg time="2025-12-06T14:29:37.446222" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000026F238D7A50&gt;</msg>
-<arg>C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\File\\login.xlsx</arg>
-<doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2025-12-06T14:29:37.441976" elapsed="0.004246"/>
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-06T14:40:49.272708" rpa="false" schemaversion="5">
+<suite id="s1" name="CreateCommande" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api\CreateCommande.robot">
+<test id="s1-t1" name="po" line="7">
+<kw name="Créer le command" owner="keywords">
+<kw name="Create Session" owner="RPA.HTTP">
+<msg time="2025-12-06T14:40:49.868032" level="INFO">Creating Session using : alias=placejsonholder, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>placejsonholder</arg>
+<arg>${navigateur}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-06T14:40:49.868032" elapsed="0.002545"/>
 </kw>
-<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2025-12-06T14:29:37.446222" level="INFO">Created table: Table(columns=['A', 'B', 'C'], rows=3)</msg>
-<msg time="2025-12-06T14:29:37.446222" level="INFO">${fileexcel} = Table(columns=['A', 'B', 'C'], rows=3)</msg>
-<var>${fileexcel}</var>
-<arg>header=false</arg>
-<doc>Read the contents of a worksheet into a Table container. Allows
-sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2025-12-06T14:29:37.446222" elapsed="0.000000"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-06T14:40:49.870577" level="INFO">${addcommande} = {'name': 'Hp victus 15', 'year': '2020', 'price': '4098.34', 'CPU model': 'intel core i9'}</msg>
+<var>${addcommande}</var>
+<arg>name=Hp victus 15</arg>
+<arg>year=2020</arg>
+<arg>price=4098.34</arg>
+<arg>CPU model=intel core i9</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-06T14:40:49.870577" elapsed="0.000000"/>
 </kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-12-06T14:29:37.446222" level="INFO">${read} = ['Admin', 'standard_user', 'secret_sauce']</msg>
-<var>${read}</var>
-<arg>${fileexcel}</arg>
-<arg>2</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-12-06T14:29:37.446222" elapsed="0.000000"/>
+<kw name="POST On Session" owner="RPA.HTTP">
+<msg time="2025-12-06T14:40:50.145271" level="INFO">C:\Users\GENIUS\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-12-06T14:40:50.145271" level="INFO">${thecommande2} = &lt;Response [200]&gt;</msg>
+<var>${thecommande2}</var>
+<arg>placejsonholder</arg>
+<arg>/objects</arg>
+<arg>json=${addcommande}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-06T14:40:49.870577" elapsed="0.274694"/>
+</kw>
+<kw name="Status Should Be" owner="RPA.HTTP">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-12-06T14:40:50.145271" elapsed="0.002113"/>
+</kw>
+<kw name="To Json" owner="RPA.HTTP">
+<msg time="2025-12-06T14:40:50.147384" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-12-06T14:40:50.148004" level="INFO">To JSON using : content={"id":"ff8081819782e69e019af3e4cef91230","name":"Hp victus 15","createdAt":"2025-12-06T13:40:50.041+00:00","data":null} </msg>
+<msg time="2025-12-06T14:40:50.148004" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-12-06T14:40:50.148004" level="INFO">${verify} = {'id': 'ff8081819782e69e019af3e4cef91230', 'name': 'Hp victus 15', 'createdAt': '2025-12-06T13:40:50.041+00:00', 'data': None}</msg>
+<var>${verify}</var>
+<arg>${thecommande2.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-12-06T14:40:50.147384" elapsed="0.000620"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${verify['name']}</arg>
+<arg>Hp victus 15</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-06T14:40:50.148004" elapsed="0.000000"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-06T14:29:37.446222" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
-<arg>https://www.saucedemo.com/</arg>
+<msg time="2025-12-06T14:40:50.148004" level="INFO">Opening browser 'chrome' to base url 'https://api.restful-api.dev/objects'.</msg>
+<arg>https://api.restful-api.dev/objects</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T14:29:37.446222" elapsed="1.534621"/>
+<status status="PASS" start="2025-12-06T14:40:50.148004" elapsed="1.609449"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T14:29:38.980843" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
-<arg>id=user-name</arg>
-<arg>${read[1]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T14:29:38.980843" elapsed="0.112252"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-12-06T14:40:51.779325" level="INFO">Current page contains text 'Apple AirPods'.</msg>
+<arg>${verifyvariable}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-12-06T14:40:51.757453" elapsed="0.021872"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T14:29:39.094761" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
-<arg>id=password</arg>
-<arg>${read[2]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T14:29:39.093095" elapsed="0.070384"/>
+<status status="PASS" start="2025-12-06T14:40:49.864735" elapsed="1.914590"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-06T14:29:39.163479" level="INFO">Clicking button 'id=login-button'.</msg>
-<arg>id=login-button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T14:29:39.163479" elapsed="0.116078"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Sauce Labs Backpack</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-06T14:29:39.281066" elapsed="0.010660"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary" type="TEARDOWN">
-<arg>Sauce Labs Bike Light</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-06T14:29:39.291726" elapsed="0.012156"/>
-</kw>
-<status status="PASS" start="2025-12-06T14:29:37.441976" elapsed="1.861906"/>
+<status status="PASS" start="2025-12-06T14:40:49.864735" elapsed="1.914590"/>
 </test>
-<status status="PASS" start="2025-12-06T14:29:37.031790" elapsed="2.273093"/>
+<status status="PASS" start="2025-12-06T14:40:49.275743" elapsed="2.504582"/>
 </suite>
 <statistics>
 <total>
@@ -73,9 +78,10 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <tag>
 </tag>
 <suite>
-<stat name="LoginExcel" id="s1" pass="1" fail="0" skip="0">LoginExcel</stat>
+<stat name="CreateCommande" id="s1" pass="1" fail="0" skip="0">CreateCommande</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-12-06T14:40:50.147384" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>
