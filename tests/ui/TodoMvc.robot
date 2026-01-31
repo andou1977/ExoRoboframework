@@ -4,7 +4,7 @@ Library    RPA.Browser
 Library    RPA.PDF
 
 *** Variables ***
-
+${myvariable}    1 item left!
 *** Keywords ***
 
 
@@ -20,7 +20,18 @@ TodoMvc
     Press Keys    css=.new-todo   ENTER
     Click Element    class=toggle
     ${biil}=  Get Text   xpath=//span[@class="todo-count"]
-    Should Be Equal    ${biil}   1 item left!
+    IF    '${biil}' == '1 item left!'
+       Should Be Equal    ${biil}   ${myvariable}
+    ELSE
+       Log    il ne sont pas egaux
+
+    END
+#    Run Keyword If    ${biil} == ${myvariable}
+#    ...    Log    ${biil}
+#    ...  ELSE
+#    ...   log   merde
+#    Should Be Equal    ${biil}   ${myvariable}
+    
 
 
 

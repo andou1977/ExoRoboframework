@@ -5,6 +5,8 @@ Library    RequestsLibrary
 Library    Collections
 Library    RPA.Excel.Files
 Library    RPA.Tables
+Library    index.py
+
 
 *** Variables ***
 ${readcsv}   C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\File\\andou.csv
@@ -34,3 +36,4 @@ Call Api
    Manipuler Les Api request
 call Csv
    Manipuler Fichier csv
+

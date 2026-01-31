@@ -1,5 +1,6 @@
 *** Settings ***
 Library     RPA.Browser.Selenium
+Library    DatabaseLibrary
 Documentation  Remmplir Le Formulaire
 
 
@@ -19,7 +20,7 @@ Open the Browser
 Envoyer les données
      [Documentation]   Le formulaire
      ...   remplir avec des informations
-     Input Text     id=firstname   ${firstname}
+     Input Text     css:#firstname   ${firstname}
      Input Text     id=lastname    ${lastname}
      Input Text     id=email     ${email}
      Wait Until Element Is Visible    id=lastname
@@ -29,6 +30,7 @@ Envoyer les données
      Input Text     id=age         ${position}
      Press Keys     id=dob    22/09/1967
      Input Text     id=address     ${adress}
+     Should Not Be Empty    css:#lastname
 
      Sleep           5
 

@@ -1,160 +1,280 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-06T13:26:43.560623" rpa="false" schemaversion="5">
-<suite id="s1" name="Tests" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests">
-<suite id="s1-s1" name="Api" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api">
-<suite id="s1-s1-s1" name="CreateCommande" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api\CreateCommande.robot">
-<test id="s1-s1-s1-t1" name="po" line="7">
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2026-01-31T12:32:59.467302" rpa="false" schemaversion="5">
+<suite id="s1" name="ExoRoboframework" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework">
+<suite id="s1-s1" name="Tests" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests">
+<suite id="s1-s1-s1" name="Api" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api">
+<suite id="s1-s1-s1-s1" name="CreateCommande" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api\CreateCommande.robot">
+<test id="s1-s1-s1-s1-t1" name="po" line="7">
 <kw name="Créer le command" owner="keywords">
 <kw name="Create Session" owner="RPA.HTTP">
-<msg time="2025-12-06T13:26:44.189080" level="INFO">Creating Session using : alias=placejsonholder, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-01-31T12:33:01.177806" level="INFO">Creating Session using : alias=placejsonholder, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>placejsonholder</arg>
 <arg>${navigateur}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-12-06T13:26:44.188080" elapsed="0.001000"/>
+<status status="PASS" start="2026-01-31T12:33:01.177806" elapsed="0.000000"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-12-06T13:26:44.189080" level="INFO">${addcommande} = {'name': 'Hp victus 15', 'year': '2020', 'price': '4098.34', 'CPU model': 'intel core i9'}</msg>
+<msg time="2026-01-31T12:33:01.177806" level="INFO">${addcommande} = {'name': 'Hp victus 15', 'year': '2020', 'price': '4098.34', 'CPU model': 'intel core i9'}</msg>
 <var>${addcommande}</var>
 <arg>name=Hp victus 15</arg>
 <arg>year=2020</arg>
 <arg>price=4098.34</arg>
 <arg>CPU model=intel core i9</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-12-06T13:26:44.189080" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:01.177806" elapsed="0.000000"/>
 </kw>
 <kw name="POST On Session" owner="RPA.HTTP">
-<msg time="2025-12-06T13:26:44.463932" level="INFO">C:\Users\GENIUS\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2026-01-31T12:33:01.803662" level="INFO">C:\Users\GENIUS\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-12-06T13:26:44.464935" level="INFO">${thecommande2} = &lt;Response [200]&gt;</msg>
+<msg time="2026-01-31T12:33:01.803662" level="INFO">${thecommande2} = &lt;Response [200]&gt;</msg>
 <var>${thecommande2}</var>
 <arg>placejsonholder</arg>
 <arg>/objects</arg>
 <arg>json=${addcommande}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-12-06T13:26:44.189080" elapsed="0.275855"/>
+<status status="PASS" start="2026-01-31T12:33:01.177806" elapsed="0.625856"/>
 </kw>
 <kw name="Status Should Be" owner="RPA.HTTP">
 <arg>200</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2025-12-06T13:26:44.464935" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:01.803662" elapsed="0.000000"/>
 </kw>
 <kw name="To Json" owner="RPA.HTTP">
-<msg time="2025-12-06T13:26:44.464935" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-12-06T13:26:44.466445" level="INFO">To JSON using : content={"id":"ff8081819782e69e019af3a0f8ea11fa","name":"Hp victus 15","createdAt":"2025-12-06T12:26:44.330+00:00","data":null} </msg>
-<msg time="2025-12-06T13:26:44.466445" level="INFO">To JSON using : pretty_print=False </msg>
-<msg time="2025-12-06T13:26:44.466996" level="INFO">${verify} = {'id': 'ff8081819782e69e019af3a0f8ea11fa', 'name': 'Hp victus 15', 'createdAt': '2025-12-06T12:26:44.330+00:00', 'data': None}</msg>
+<msg time="2026-01-31T12:33:01.803662" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-01-31T12:33:01.803662" level="INFO">To JSON using : content={"id":"ff8081819782e69e019c13d3e8fd329e","name":"Hp victus 15","createdAt":"2026-01-31T11:33:00.797+00:00","data":null} </msg>
+<msg time="2026-01-31T12:33:01.803662" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2026-01-31T12:33:01.803662" level="INFO">${verify} = {'id': 'ff8081819782e69e019c13d3e8fd329e', 'name': 'Hp victus 15', 'createdAt': '2026-01-31T11:33:00.797+00:00', 'data': None}</msg>
 <var>${verify}</var>
 <arg>${thecommande2.content}</arg>
 <doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<status status="PASS" start="2025-12-06T13:26:44.464935" elapsed="0.002061"/>
+<status status="PASS" start="2026-01-31T12:33:01.803662" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${verify['name']}</arg>
 <arg>Hp victus 15</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-06T13:26:44.466996" elapsed="0.000426"/>
+<status status="PASS" start="2026-01-31T12:33:01.803662" elapsed="0.003732"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:26:44.467422" level="INFO">Opening browser 'firefox' to base url 'https://api.restful-api.dev/objects'.</msg>
+<msg time="2026-01-31T12:33:01.807394" level="INFO">Opening browser 'chrome' to base url 'https://api.restful-api.dev/objects'.</msg>
 <arg>https://api.restful-api.dev/objects</arg>
-<arg>firefox</arg>
+<arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:26:44.467422" elapsed="6.140509"/>
+<status status="PASS" start="2026-01-31T12:33:01.807394" elapsed="18.933153"/>
 </kw>
 <kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:26:50.640817" level="INFO">Current page contains text 'Apple AirPods'.</msg>
+<msg time="2026-01-31T12:33:20.757024" level="INFO">Current page contains text 'Apple AirPods'.</msg>
 <arg>${verifyvariable}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-12-06T13:26:50.607931" elapsed="0.033888"/>
+<status status="PASS" start="2026-01-31T12:33:20.740547" elapsed="0.016477"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:44.188080" elapsed="6.453739"/>
+<status status="PASS" start="2026-01-31T12:33:01.177806" elapsed="19.579218"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:44.187074" elapsed="6.454745"/>
+<status status="PASS" start="2026-01-31T12:33:01.177806" elapsed="19.580215"/>
 </test>
-<status status="PASS" start="2025-12-06T13:26:43.586119" elapsed="7.055700"/>
+<status status="PASS" start="2026-01-31T12:32:59.483803" elapsed="21.275218"/>
 </suite>
-<status status="PASS" start="2025-12-06T13:26:43.584593" elapsed="7.058746"/>
+<suite id="s1-s1-s1-s2" name="Readfile" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api\readfile.robot">
+<test id="s1-s1-s1-s2-t1" name="logger avec ddt" line="13">
+<kw name="Open Browser" owner="RPA.Browser">
+<msg time="2026-01-31T12:33:20.950644" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>https://www.saucedemo.com/</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-31T12:33:20.950644" elapsed="7.307870"/>
+</kw>
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2026-01-31T12:33:28.263412" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000020C7DB839D0&gt;</msg>
+<arg>C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/code.xlsx</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.258852" elapsed="0.004560"/>
+</kw>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2026-01-31T12:33:28.264409" level="INFO">Created table: Table(columns=['A', 'B'], rows=2)</msg>
+<msg time="2026-01-31T12:33:28.264409" level="INFO">${myvalue} = Table(columns=['A', 'B'], rows=2)</msg>
+<var>${myvalue}</var>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.264409" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-31T12:33:28.266015" level="INFO">${myusername} = username</msg>
+<var>${myusername}</var>
+<arg>${element}[A]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.264409" elapsed="0.001606"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-31T12:33:28.266015" level="INFO">${password} = password</msg>
+<var>${password}</var>
+<arg>${element}[B]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.266015" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2026-01-31T12:33:28.266015" level="INFO">Typing text 'username' into text field 'css=#user-name'.</msg>
+<arg>css=#user-name</arg>
+<arg>${myusername}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.266015" elapsed="0.051963"/>
+</kw>
+<kw name="Input Password" owner="RPA.Browser">
+<msg time="2026-01-31T12:33:28.317978" level="INFO">Typing password into text field 'css:#password'.</msg>
+<msg time="2026-01-31T12:33:28.325740" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>css:#password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.317978" elapsed="0.024118"/>
+</kw>
+<kw name="Click Element" owner="RPA.Browser">
+<msg time="2026-01-31T12:33:28.343097" level="INFO">Clicking element 'css:#login-button'.</msg>
+<arg>css:#login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.342096" elapsed="0.086990"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="RPA.Browser">
+<arg>Swag Labs</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.429086" elapsed="0.006370"/>
+</kw>
+<var name="${element}">{'A': 'username', 'B': 'password'}</var>
+<status status="PASS" start="2026-01-31T12:33:28.264409" elapsed="0.171047"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-31T12:33:28.435456" level="INFO">${myusername} = standard_user</msg>
+<var>${myusername}</var>
+<arg>${element}[A]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.435456" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-31T12:33:28.436962" level="INFO">${password} = secret_sauce</msg>
+<var>${password}</var>
+<arg>${element}[B]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.435456" elapsed="0.001506"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser">
+<msg time="2026-01-31T12:33:28.437554" level="INFO">Typing text 'standard_user' into text field 'css=#user-name'.</msg>
+<arg>css=#user-name</arg>
+<arg>${myusername}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.436962" elapsed="0.314855"/>
+</kw>
+<kw name="Input Password" owner="RPA.Browser">
+<msg time="2026-01-31T12:33:28.752932" level="INFO">Typing password into text field 'css:#password'.</msg>
+<msg time="2026-01-31T12:33:28.821434" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>css:#password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.751817" elapsed="0.103865"/>
+</kw>
+<kw name="Click Element" owner="RPA.Browser">
+<msg time="2026-01-31T12:33:28.857571" level="INFO">Clicking element 'css:#login-button'.</msg>
+<arg>css:#login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-31T12:33:28.855682" elapsed="0.221120"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="RPA.Browser">
+<arg>Swag Labs</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-31T12:33:29.076802" elapsed="0.151219"/>
+</kw>
+<var name="${element}">{'A': 'standard_user', 'B': 'secret_sauce'}</var>
+<status status="PASS" start="2026-01-31T12:33:28.435456" elapsed="0.792565"/>
+</iter>
+<var>${element}</var>
+<value>@{myvalue}</value>
+<status status="PASS" start="2026-01-31T12:33:28.264409" elapsed="0.963612"/>
+</for>
+<status status="PASS" start="2026-01-31T12:33:20.949637" elapsed="8.281327"/>
+</test>
+<status status="PASS" start="2026-01-31T12:33:20.760549" elapsed="8.470415"/>
 </suite>
-<suite id="s1-s2" name="Intermediaire" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\Intermediaire">
-<suite id="s1-s2-s1" name="Exo" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\Intermediaire\exo.robot">
-<test id="s1-s2-s1-t1" name="Call Api" line="33">
+<status status="PASS" start="2026-01-31T12:32:59.483803" elapsed="29.749683"/>
+</suite>
+<suite id="s1-s1-s2" name="Intermediaire" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\Intermediaire">
+<suite id="s1-s1-s2-s1" name="Exo" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\Intermediaire\exo.robot">
+<test id="s1-s1-s2-s1-t1" name="Call Api" line="35">
 <kw name="Manipuler Les Api request">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-12-06T13:26:50.656800" level="INFO">Creating Session using : alias=manipuler, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-01-31T12:33:29.251921" level="INFO">Creating Session using : alias=manipuler, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>manipuler</arg>
 <arg>https://api.restful-api.dev</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-12-06T13:26:50.656800" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.251921" elapsed="0.000000"/>
 </kw>
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-12-06T13:26:51.125285" level="INFO">C:\Users\GENIUS\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2026-01-31T12:33:29.504485" level="INFO">C:\Users\GENIUS\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-12-06T13:26:51.126451" level="INFO">${myrequest} = &lt;Response [200]&gt;</msg>
+<msg time="2026-01-31T12:33:29.505478" level="INFO">${myrequest} = &lt;Response [200]&gt;</msg>
 <var>${myrequest}</var>
 <arg>manipuler</arg>
 <arg>/objects</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-12-06T13:26:50.656800" elapsed="0.469651"/>
+<status status="PASS" start="2026-01-31T12:33:29.251921" elapsed="0.253557"/>
 </kw>
 <kw name="Status Should Be" owner="RequestsLibrary">
 <arg>200</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2025-12-06T13:26:51.126451" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.505478" elapsed="0.000000"/>
 </kw>
 <kw name="To Json" owner="RequestsLibrary">
-<msg time="2025-12-06T13:26:51.126451" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-12-06T13:26:51.127472" level="INFO">To JSON using : content=[{"id":"1","name":"Google Pixel 6 Pro","data":{"color":"Cloudy White","capacity":"128 GB"}},{"id":"2","name":"Apple iPhone 12 Mini, 256GB, Blue","data":null},{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"4","name":"Apple iPhone 11, 64GB","data":{"price":389.99,"color":"Purple"}},{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}},{"id":"6","name":"Apple AirPods","data":{"generation":"3rd","price":120}},{"id":"7","name":"Apple MacBook Pro 16","data":{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}},{"id":"8","name":"Apple Watch Series 8","data":{"Strap Colour":"Elderberry","Case Size":"41mm"}},{"id":"9","name":"Beats Studio3 Wireless","data":{"Color":"Red","Description":"High-performance wireless noise cancelling headphones"}},{"id":"10","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"64 GB","Screen size":7.9}},{"id":"11","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"254 GB","Screen size":7.9}},{"id":"12","name":"Apple iPad Air","data":{"Generation":"4th","Price":"419.99","Capacity":"64 GB"}},{"id":"13","name":"Apple iPad Air","data":{"Generation":"4th","Price":"519.99","Capacity":"256 GB"}}] </msg>
-<msg time="2025-12-06T13:26:51.127472" level="INFO">To JSON using : pretty_print=False </msg>
-<msg time="2025-12-06T13:26:51.127472" level="INFO">${nametest} = [{'id': '1', 'name': 'Google Pixel 6 Pro', 'data': {'color': 'Cloudy White', 'capacity': '128 GB'}}, {'id': '2', 'name': 'Apple iPhone 12 Mini, 256GB, Blue', 'data': None}, {'id': '3', 'name': 'Apple ...</msg>
+<msg time="2026-01-31T12:33:29.506479" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-01-31T12:33:29.506999" level="INFO">To JSON using : content=[{"id":"1","name":"Google Pixel 6 Pro","data":{"color":"Cloudy White","capacity":"128 GB"}},{"id":"2","name":"Apple iPhone 12 Mini, 256GB, Blue","data":null},{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"4","name":"Apple iPhone 11, 64GB","data":{"price":389.99,"color":"Purple"}},{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}},{"id":"6","name":"Apple AirPods","data":{"generation":"3rd","price":120}},{"id":"7","name":"Apple MacBook Pro 16","data":{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}},{"id":"8","name":"Apple Watch Series 8","data":{"Strap Colour":"Elderberry","Case Size":"41mm"}},{"id":"9","name":"Beats Studio3 Wireless","data":{"Color":"Red","Description":"High-performance wireless noise cancelling headphones"}},{"id":"10","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"64 GB","Screen size":7.9}},{"id":"11","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"254 GB","Screen size":7.9}},{"id":"12","name":"Apple iPad Air","data":{"Generation":"4th","Price":"419.99","Capacity":"64 GB"}},{"id":"13","name":"Apple iPad Air","data":{"Generation":"4th","Price":"519.99","Capacity":"256 GB"}}] </msg>
+<msg time="2026-01-31T12:33:29.506999" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2026-01-31T12:33:29.506999" level="INFO">${nametest} = [{'id': '1', 'name': 'Google Pixel 6 Pro', 'data': {'color': 'Cloudy White', 'capacity': '128 GB'}}, {'id': '2', 'name': 'Apple iPhone 12 Mini, 256GB, Blue', 'data': None}, {'id': '3', 'name': 'Apple ...</msg>
 <var>${nametest}</var>
 <arg>${myrequest.content}</arg>
 <doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<status status="PASS" start="2025-12-06T13:26:51.126451" elapsed="0.001021"/>
+<status status="PASS" start="2026-01-31T12:33:29.506479" elapsed="0.000520"/>
 </kw>
 <kw name="Get From List" owner="Collections">
-<msg time="2025-12-06T13:26:51.127472" level="INFO">${first} = {'id': '1', 'name': 'Google Pixel 6 Pro', 'data': {'color': 'Cloudy White', 'capacity': '128 GB'}}</msg>
+<msg time="2026-01-31T12:33:29.506999" level="INFO">${first} = {'id': '1', 'name': 'Google Pixel 6 Pro', 'data': {'color': 'Cloudy White', 'capacity': '128 GB'}}</msg>
 <var>${first}</var>
 <arg>${nametest}</arg>
 <arg>0</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-12-06T13:26:51.127472" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.506999" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${first['name']}</arg>
 <arg>Google Pixel 6 Pro</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-06T13:26:51.127472" elapsed="0.001000"/>
+<status status="PASS" start="2026-01-31T12:33:29.506999" elapsed="0.003166"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:50.656800" elapsed="0.471672"/>
+<status status="PASS" start="2026-01-31T12:33:29.250920" elapsed="0.259245"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:50.656800" elapsed="0.472669"/>
+<status status="PASS" start="2026-01-31T12:33:29.250920" elapsed="0.259245"/>
 </test>
-<test id="s1-s2-s1-t2" name="call Csv" line="35">
+<test id="s1-s1-s2-s1-t2" name="call Csv" line="37">
 <kw name="Manipuler Fichier csv">
 <kw name="Read table from CSV" owner="RPA.Tables">
-<msg time="2025-12-06T13:26:51.136169" level="INFO">${lirecsv} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
+<msg time="2026-01-31T12:33:29.535388" level="INFO">${lirecsv} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
 <var>${lirecsv}</var>
 <arg>${readcsv}</arg>
 <doc>Read a CSV file as a table.</doc>
-<status status="PASS" start="2025-12-06T13:26:51.132594" elapsed="0.003575"/>
+<status status="PASS" start="2026-01-31T12:33:29.511523" elapsed="0.023865"/>
 </kw>
 <for flavor="IN">
 <iter>
 <if>
 <branch type="IF" condition="'${element}[First Name]' == 'Sheryl' and '${element}[Last Name]' == 'Baxter'">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-12-06T13:26:51.140257" level="INFO">${USERNAME} = Sheryl</msg>
+<msg time="2026-01-31T12:33:29.537941" level="INFO">${USERNAME} = Sheryl</msg>
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-12-06T13:26:51.139891" elapsed="0.000366"/>
+<status status="PASS" start="2026-01-31T12:33:29.537941" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:51.139540" elapsed="0.000717"/>
+<status status="PASS" start="2026-01-31T12:33:29.537941" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.139540" elapsed="0.000717"/>
+<status status="PASS" start="2026-01-31T12:33:29.537941" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '1', 'Customer Id': 'DD37Cf93aecA6Dc', 'First Name': 'Sheryl', 'Last Name': 'Baxter', 'Company': 'Rasmussen Group', 'City': 'East Leonard', 'Country': 'Chile', 'Phone 1': '229.077.5154', 'Ph...</var>
-<status status="PASS" start="2025-12-06T13:26:51.138696" elapsed="0.001561"/>
+<status status="PASS" start="2026-01-31T12:33:29.537079" elapsed="0.000862"/>
 </iter>
 <iter>
 <if>
@@ -163,14 +283,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.140257" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.538948" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.140257" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.538948" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.140257" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.538948" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '2', 'Customer Id': '1Ef7b82A4CAAD10', 'First Name': 'Preston', 'Last Name': 'Lozano', 'Company': 'Vega-Gentry', 'City': 'East Jimmychester', 'Country': 'Djibouti', 'Phone 1': '5153435776', ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.140257" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.538948" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -179,14 +299,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.140257" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.538948" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.140257" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.538948" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.140257" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.538948" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '3', 'Customer Id': '6F94879bDAfE5a6', 'First Name': 'Roy', 'Last Name': 'Berry', 'Company': 'Murillo-Perry', 'City': 'Isabelborough', 'Country': 'Antigua and Barbuda', 'Phone 1': '+1-539-40...</var>
-<status status="PASS" start="2025-12-06T13:26:51.140257" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.538948" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -195,14 +315,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.141268" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.141268" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.141268" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '4', 'Customer Id': '5Cef8BFA16c5e3c', 'First Name': 'Linda', 'Last Name': 'Olsen', 'Company': 'Dominguez, Mcmillan and Donovan', 'City': 'Bensonview', 'Country': 'Dominican Republic', 'Phon...</var>
-<status status="PASS" start="2025-12-06T13:26:51.141268" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -211,14 +331,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.141268" elapsed="0.000513"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.141268" elapsed="0.000513"/>
+<status status="PASS" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '5', 'Customer Id': '053d585Ab6b3159', 'First Name': 'Joanna', 'Last Name': 'Bender', 'Company': 'Martin, Lang and Andrade', 'City': 'West Priscilla', 'Country': 'Slovakia (Slovak Republic)'...</var>
-<status status="PASS" start="2025-12-06T13:26:51.141268" elapsed="0.000513"/>
+<status status="PASS" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -227,14 +347,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '6', 'Customer Id': '2d08FB17EE273F4', 'First Name': 'Aimee', 'Last Name': 'Downs', 'Company': 'Steele Group', 'City': 'Chavezborough', 'Country': 'Bosnia and Herzegovina', 'Phone 1': '(283)...</var>
-<status status="PASS" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -243,14 +363,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.539949" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '7', 'Customer Id': 'EA4d384DfDbBf77', 'First Name': 'Darren', 'Last Name': 'Peck', 'Company': 'Lester, Woodard and Mitchell', 'City': 'Lake Ana', 'Country': 'Pitcairn Islands', 'Phone 1': '...</var>
-<status status="PASS" start="2025-12-06T13:26:51.141781" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.539949" elapsed="0.001507"/>
 </iter>
 <iter>
 <if>
@@ -259,14 +379,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.143295" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.541456" elapsed="0.000439"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.143295" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.541456" elapsed="0.000439"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.143295" elapsed="0.001023"/>
+<status status="PASS" start="2026-01-31T12:33:29.541456" elapsed="0.000439"/>
 </if>
 <var name="${element}">{'Index': '8', 'Customer Id': '0e04AFde9f225dE', 'First Name': 'Brett', 'Last Name': 'Mullen', 'Company': 'Sanford, Davenport and Giles', 'City': 'Kimport', 'Country': 'Bulgaria', 'Phone 1': '001-583-...</var>
-<status status="PASS" start="2025-12-06T13:26:51.143295" elapsed="0.001023"/>
+<status status="PASS" start="2026-01-31T12:33:29.541456" elapsed="0.000439"/>
 </iter>
 <iter>
 <if>
@@ -275,14 +395,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.144318" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.541895" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.144318" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.541895" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.144318" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.541895" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '9', 'Customer Id': 'C2dE4dEEc489ae0', 'First Name': 'Sheryl', 'Last Name': 'Meyers', 'Company': 'Browning-Simon', 'City': 'Robersonstad', 'Country': 'Cyprus', 'Phone 1': '854-138-4911x5772'...</var>
-<status status="PASS" start="2025-12-06T13:26:51.144318" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.541895" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -291,14 +411,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.146243" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.541895" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.146243" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.541895" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.145835" elapsed="0.000408"/>
+<status status="PASS" start="2026-01-31T12:33:29.541895" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '10', 'Customer Id': '8C2811a503C7c5a', 'First Name': 'Michelle', 'Last Name': 'Gallagher', 'Company': 'Beck-Hendrix', 'City': 'Elaineberg', 'Country': 'Timor-Leste', 'Phone 1': '739.218.251...</var>
-<status status="PASS" start="2025-12-06T13:26:51.145835" elapsed="0.000408"/>
+<status status="PASS" start="2026-01-31T12:33:29.541895" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -307,14 +427,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.146243" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.146243" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.541895" elapsed="0.001512"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.146243" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.541895" elapsed="0.001512"/>
 </if>
 <var name="${element}">{'Index': '11', 'Customer Id': '216E205d6eBb815', 'First Name': 'Carl', 'Last Name': 'Schroeder', 'Company': 'Oconnell, Meza and Everett', 'City': 'Shannonville', 'Country': 'Guernsey', 'Phone 1': '63...</var>
-<status status="PASS" start="2025-12-06T13:26:51.146243" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.541895" elapsed="0.001512"/>
 </iter>
 <iter>
 <if>
@@ -323,14 +443,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.147386" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.147386" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.147386" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '12', 'Customer Id': 'CEDec94deE6d69B', 'First Name': 'Jenna', 'Last Name': 'Dodson', 'Company': 'Hoffman, Reed and Mcclain', 'City': 'East Andrea', 'Country': 'Vietnam', 'Phone 1': '(041)73...</var>
-<status status="PASS" start="2025-12-06T13:26:51.147386" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -339,14 +459,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.147386" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.147386" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.147386" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '13', 'Customer Id': 'e35426EbDEceaFF', 'First Name': 'Tracey', 'Last Name': 'Mata', 'Company': 'Graham-Francis', 'City': 'South Joannamouth', 'Country': 'Togo', 'Phone 1': '001-949-844-8787...</var>
-<status status="PASS" start="2025-12-06T13:26:51.147386" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -355,14 +475,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.148384" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.147386" elapsed="0.000998"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.147386" elapsed="0.000998"/>
+<status status="PASS" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '14', 'Customer Id': 'A08A8aF8BE9FaD4', 'First Name': 'Kristine', 'Last Name': 'Cox', 'Company': 'Carpenter-Cook', 'City': 'Jodyberg', 'Country': 'Sri Lanka', 'Phone 1': '786-284-3358x62152'...</var>
-<status status="PASS" start="2025-12-06T13:26:51.147386" elapsed="0.000998"/>
+<status status="PASS" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -371,14 +491,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.148384" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.148384" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.148384" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '15', 'Customer Id': '6fEaA1b7cab7B6C', 'First Name': 'Faith', 'Last Name': 'Lutz', 'Company': 'Carter-Hancock', 'City': 'Burchbury', 'Country': 'Singapore', 'Phone 1': '(781)861-7180x8306',...</var>
-<status status="PASS" start="2025-12-06T13:26:51.148384" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.543407" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -387,14 +507,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.150383" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.149383" elapsed="0.001000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.149383" elapsed="0.001000"/>
+<status status="PASS" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '16', 'Customer Id': '8cad0b4CBceaeec', 'First Name': 'Miranda', 'Last Name': 'Beasley', 'Company': 'Singleton and Sons', 'City': 'Desireeshire', 'Country': 'Oman', 'Phone 1': '540.085.3135x...</var>
-<status status="PASS" start="2025-12-06T13:26:51.149383" elapsed="0.001000"/>
+<status status="PASS" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -403,14 +523,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.151771" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.150383" elapsed="0.001388"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.150383" elapsed="0.001388"/>
+<status status="PASS" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '17', 'Customer Id': 'a5DC21AE3a21eaA', 'First Name': 'Caroline', 'Last Name': 'Foley', 'Company': 'Winters-Mendoza', 'City': 'West Adriennestad', 'Country': 'Western Sahara', 'Phone 1': '93...</var>
-<status status="PASS" start="2025-12-06T13:26:51.150383" elapsed="0.001388"/>
+<status status="PASS" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -419,14 +539,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.151771" elapsed="0.001012"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.151771" elapsed="0.001012"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.151771" elapsed="0.001012"/>
+<status status="PASS" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '18', 'Customer Id': 'F8Aa9d6DfcBeeF8', 'First Name': 'Greg', 'Last Name': 'Mata', 'Company': 'Valentine LLC', 'City': 'Lake Leslie', 'Country': 'Mozambique', 'Phone 1': '(701)087-2415', 'Ph...</var>
-<status status="PASS" start="2025-12-06T13:26:51.151771" elapsed="0.001012"/>
+<status status="PASS" start="2026-01-31T12:33:29.544911" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -435,14 +555,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.153853" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.545919" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.153298" elapsed="0.000555"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.544911" elapsed="0.001008"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.153298" elapsed="0.000555"/>
+<status status="PASS" start="2026-01-31T12:33:29.544911" elapsed="0.001008"/>
 </if>
 <var name="${element}">{'Index': '19', 'Customer Id': 'F160f5Db3EfE973', 'First Name': 'Clifford', 'Last Name': 'Jacobson', 'Company': 'Simon LLC', 'City': 'Harmonview', 'Country': 'South Georgia and the South Sandwich Isla...</var>
-<status status="PASS" start="2025-12-06T13:26:51.153298" elapsed="0.000555"/>
+<status status="PASS" start="2026-01-31T12:33:29.544911" elapsed="0.001008"/>
 </iter>
 <iter>
 <if>
@@ -451,14 +571,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.154503" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.153853" elapsed="0.000650"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.153853" elapsed="0.000650"/>
+<status status="PASS" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '20', 'Customer Id': '0F60FF3DdCd7aB0', 'First Name': 'Joanna', 'Last Name': 'Kirk', 'Company': 'Mays-Mccormick', 'City': 'Jamesshire', 'Country': 'French Polynesia', 'Phone 1': '(266)131-70...</var>
-<status status="PASS" start="2025-12-06T13:26:51.153853" elapsed="0.000650"/>
+<status status="PASS" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -467,14 +587,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.154503" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.154503" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.154503" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '21', 'Customer Id': '9F9AdB7B8A6f7F2', 'First Name': 'Maxwell', 'Last Name': 'Frye', 'Company': 'Patterson Inc', 'City': 'East Carly', 'Country': 'Malta', 'Phone 1': '423.262.3059', 'Phone ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.154503" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -483,14 +603,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.156522" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.155520" elapsed="0.001002"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.155520" elapsed="0.001521"/>
+<status status="PASS" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '22', 'Customer Id': 'FBd0Ded4F02a742', 'First Name': 'Kiara', 'Last Name': 'Houston', 'Company': 'Manning, Hester and Arroyo', 'City': 'South Alvin', 'Country': 'Netherlands', 'Phone 1': '0...</var>
-<status status="PASS" start="2025-12-06T13:26:51.155520" elapsed="0.001521"/>
+<status status="PASS" start="2026-01-31T12:33:29.546916" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -499,14 +619,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.158066" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.547995" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.157041" elapsed="0.001025"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.546916" elapsed="0.001079"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.157041" elapsed="0.001025"/>
+<status status="PASS" start="2026-01-31T12:33:29.546916" elapsed="0.001079"/>
 </if>
 <var name="${element}">{'Index': '23', 'Customer Id': '2FB0FAA1d429421', 'First Name': 'Colleen', 'Last Name': 'Howard', 'Company': 'Greer and Sons', 'City': 'Brittanyview', 'Country': 'Paraguay', 'Phone 1': '1935085151', '...</var>
-<status status="PASS" start="2025-12-06T13:26:51.157041" elapsed="0.001025"/>
+<status status="PASS" start="2026-01-31T12:33:29.546916" elapsed="0.001079"/>
 </iter>
 <iter>
 <if>
@@ -515,14 +635,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.160059" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.158066" elapsed="0.001993"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.547995" elapsed="0.000330"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.158066" elapsed="0.001993"/>
+<status status="PASS" start="2026-01-31T12:33:29.547995" elapsed="0.000330"/>
 </if>
 <var name="${element}">{'Index': '24', 'Customer Id': '010468dAA11382c', 'First Name': 'Janet', 'Last Name': 'Valenzuela', 'Company': 'Watts-Donaldson', 'City': 'Veronicamouth', 'Country': "Lao People's Democratic Republic"...</var>
-<status status="PASS" start="2025-12-06T13:26:51.158066" elapsed="0.001993"/>
+<status status="PASS" start="2026-01-31T12:33:29.547995" elapsed="0.000330"/>
 </iter>
 <iter>
 <if>
@@ -531,14 +651,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.161058" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.160059" elapsed="0.000999"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.160059" elapsed="0.000999"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '25', 'Customer Id': 'eC1927Ca84E033e', 'First Name': 'Shane', 'Last Name': 'Wilcox', 'Company': 'Tucker LLC', 'City': 'Bryanville', 'Country': 'Albania', 'Phone 1': '(429)005-9030x11004', '...</var>
-<status status="PASS" start="2025-12-06T13:26:51.160059" elapsed="0.000999"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -547,14 +667,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.161058" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.161058" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.161058" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '26', 'Customer Id': '09D7D7C8Fe09aea', 'First Name': 'Marcus', 'Last Name': 'Moody', 'Company': 'Giles Ltd', 'City': 'Kaitlyntown', 'Country': 'Panama', 'Phone 1': '674-677-8623', 'Phone 2'...</var>
-<status status="PASS" start="2025-12-06T13:26:51.161058" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -563,14 +683,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.162061" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.162061" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.162061" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '27', 'Customer Id': 'aBdfcF2c50b0bfD', 'First Name': 'Dakota', 'Last Name': 'Poole', 'Company': 'Simmons Group', 'City': 'Michealshire', 'Country': 'Belarus', 'Phone 1': '(371)987-8576x4720...</var>
-<status status="PASS" start="2025-12-06T13:26:51.162061" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -579,14 +699,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.162061" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.162061" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.162061" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '28', 'Customer Id': 'b92EBfdF8a3f0E6', 'First Name': 'Frederick', 'Last Name': 'Harper', 'Company': 'Hinton, Chaney and Stokes', 'City': 'South Marissatown', 'Country': 'Switzerland', 'Phon...</var>
-<status status="PASS" start="2025-12-06T13:26:51.162061" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -595,14 +715,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.163066" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.162061" elapsed="0.001005"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.162061" elapsed="0.001005"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '29', 'Customer Id': '3B5dAAFA41AFa22', 'First Name': 'Stefanie', 'Last Name': 'Fitzpatrick', 'Company': 'Santana-Duran', 'City': 'Acevedoville', 'Country': 'Saint Vincent and the Grenadines...</var>
-<status status="PASS" start="2025-12-06T13:26:51.162061" elapsed="0.001005"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -611,14 +731,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.163066" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.163066" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.163066" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '30', 'Customer Id': 'EDA69ca7a6e96a2', 'First Name': 'Kent', 'Last Name': 'Bradshaw', 'Company': 'Sawyer PLC', 'City': 'North Harold', 'Country': 'Tanzania', 'Phone 1': '+1-472-143-5037x884...</var>
-<status status="PASS" start="2025-12-06T13:26:51.163066" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -627,14 +747,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.163581" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.163581" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.163581" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '31', 'Customer Id': '64DCcDFaB9DFd4e', 'First Name': 'Jack', 'Last Name': 'Tate', 'Company': 'Acosta, Petersen and Morrow', 'City': 'West Samuel', 'Country': 'Zimbabwe', 'Phone 1': '965-108...</var>
-<status status="PASS" start="2025-12-06T13:26:51.163581" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -643,14 +763,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.163581" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.163581" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.163581" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '32', 'Customer Id': '679c6c83DD872d6', 'First Name': 'Tom', 'Last Name': 'Trujillo', 'Company': 'Mcgee Group', 'City': 'Cunninghamborough', 'Country': 'Denmark', 'Phone 1': '416-338-3758', ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.163581" elapsed="0.001020"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -659,14 +779,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.165600" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.164601" elapsed="0.000999"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.164601" elapsed="0.000999"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '33', 'Customer Id': '7Ce381e4Afa4ba9', 'First Name': 'Gabriel', 'Last Name': 'Mejia', 'Company': 'Adkins-Salinas', 'City': 'Port Annatown', 'Country': 'Liechtenstein', 'Phone 1': '407724542...</var>
-<status status="PASS" start="2025-12-06T13:26:51.164601" elapsed="0.000999"/>
+<status status="PASS" start="2026-01-31T12:33:29.548325" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -675,14 +795,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.166618" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.550947" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.166618" elapsed="0.000991"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.550947" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.166618" elapsed="0.000991"/>
+<status status="PASS" start="2026-01-31T12:33:29.550947" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '34', 'Customer Id': 'A09AEc6E3bF70eE', 'First Name': 'Kaitlyn', 'Last Name': 'Santana', 'Company': 'Herrera Group', 'City': 'New Kaitlyn', 'Country': 'United States of America', 'Phone 1': ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.166618" elapsed="0.000991"/>
+<status status="PASS" start="2026-01-31T12:33:29.550947" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -691,14 +811,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.550947" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.550947" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.550947" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '35', 'Customer Id': 'aA9BAFfBc3710fe', 'First Name': 'Faith', 'Last Name': 'Moon', 'Company': 'Waters, Chase and Aguilar', 'City': 'West Marthaburgh', 'Country': 'Bahamas', 'Phone 1': '+1-5...</var>
-<status status="PASS" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.550947" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -707,14 +827,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.551799" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.550947" elapsed="0.000852"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.550947" elapsed="0.000852"/>
 </if>
 <var name="${element}">{'Index': '36', 'Customer Id': 'E11dfb2DB8C9f72', 'First Name': 'Tammie', 'Last Name': 'Haley', 'Company': 'Palmer, Barnes and Houston', 'City': 'East Teresa', 'Country': 'Belize', 'Phone 1': '001-276...</var>
-<status status="PASS" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.550947" elapsed="0.000852"/>
 </iter>
 <iter>
 <if>
@@ -723,14 +843,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.552732" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.551799" elapsed="0.000933"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.551799" elapsed="0.000933"/>
 </if>
 <var name="${element}">{'Index': '37', 'Customer Id': '889eCf90f68c5Da', 'First Name': 'Nicholas', 'Last Name': 'Sosa', 'Company': 'Jordan Ltd', 'City': 'South Hunter', 'Country': 'Uruguay', 'Phone 1': '(661)425-6042', 'Pho...</var>
-<status status="PASS" start="2025-12-06T13:26:51.167609" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.551799" elapsed="0.000933"/>
 </iter>
 <iter>
 <if>
@@ -739,14 +859,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.169122" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.552732" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.167609" elapsed="0.001513"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.552732" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.167609" elapsed="0.001513"/>
+<status status="PASS" start="2026-01-31T12:33:29.552732" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '38', 'Customer Id': '7a1Ee69F4fF4B4D', 'First Name': 'Jordan', 'Last Name': 'Gay', 'Company': 'Glover and Sons', 'City': 'South Walter', 'Country': 'Solomon Islands', 'Phone 1': '7208417020...</var>
-<status status="PASS" start="2025-12-06T13:26:51.167609" elapsed="0.001513"/>
+<status status="PASS" start="2026-01-31T12:33:29.552732" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -755,14 +875,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.169122" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.169122" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.552732" elapsed="0.001091"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.169122" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.552732" elapsed="0.001091"/>
 </if>
 <var name="${element}">{'Index': '39', 'Customer Id': 'dca4f1D0A0fc5c9', 'First Name': 'Bruce', 'Last Name': 'Esparza', 'Company': 'Huerta-Mclean', 'City': 'Poolefurt', 'Country': 'Montenegro', 'Phone 1': '559-529-4424', 'P...</var>
-<status status="PASS" start="2025-12-06T13:26:51.169122" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.552732" elapsed="0.001091"/>
 </iter>
 <iter>
 <if>
@@ -771,14 +891,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.169708" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.169122" elapsed="0.000586"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.169122" elapsed="0.000586"/>
+<status status="PASS" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '40', 'Customer Id': '17aD8e2dB3df03D', 'First Name': 'Sherry', 'Last Name': 'Garza', 'Company': 'Anderson Ltd', 'City': 'West John', 'Country': 'Poland', 'Phone 1': '001-067-713-6440x158', ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.169122" elapsed="0.000586"/>
+<status status="PASS" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -787,14 +907,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.169708" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.169708" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.169708" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '41', 'Customer Id': '2f79Cd309624Abb', 'First Name': 'Natalie', 'Last Name': 'Gentry', 'Company': 'Monroe PLC', 'City': 'West Darius', 'Country': 'Dominican Republic', 'Phone 1': '830.996.8...</var>
-<status status="PASS" start="2025-12-06T13:26:51.169708" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.553823" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -803,14 +923,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.170729" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.170729" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.554814" elapsed="0.000392"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.170729" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.554814" elapsed="0.000392"/>
 </if>
 <var name="${element}">{'Index': '42', 'Customer Id': '6e5ad5a5e2bB5Ca', 'First Name': 'Bryan', 'Last Name': 'Dunn', 'Company': 'Kaufman and Sons', 'City': 'North Jimstad', 'Country': 'Burkina Faso', 'Phone 1': '001-710-802...</var>
-<status status="PASS" start="2025-12-06T13:26:51.170729" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.554814" elapsed="0.000392"/>
 </iter>
 <iter>
 <if>
@@ -819,14 +939,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.170729" elapsed="0.000995"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.170729" elapsed="0.000995"/>
+<status status="PASS" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '43', 'Customer Id': '7E441b6B228DBcA', 'First Name': 'Wayne', 'Last Name': 'Simpson', 'Company': 'Perkins-Trevino', 'City': 'East Rebekahborough', 'Country': 'Bolivia', 'Phone 1': '(344)156...</var>
-<status status="PASS" start="2025-12-06T13:26:51.170729" elapsed="0.000995"/>
+<status status="PASS" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -835,14 +955,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '44', 'Customer Id': 'D3fC11A9C235Dc6', 'First Name': 'Luis', 'Last Name': 'Greer', 'Company': 'Cross PLC', 'City': 'North Drew', 'Country': 'Bulgaria', 'Phone 1': '001-336-025-6849x701', 'P...</var>
-<status status="PASS" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -851,14 +971,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '45', 'Customer Id': '30Dfa48fe5Ede78', 'First Name': 'Rhonda', 'Last Name': 'Frost', 'Company': 'Herrera, Shepherd and Underwood', 'City': 'Lake Lindaburgh', 'Country': 'Monaco', 'Phone 1':...</var>
-<status status="PASS" start="2025-12-06T13:26:51.171724" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -867,14 +987,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.173242" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.173242" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.555206" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.173242" elapsed="0.000692"/>
+<status status="PASS" start="2026-01-31T12:33:29.555206" elapsed="0.002093"/>
 </if>
 <var name="${element}">{'Index': '46', 'Customer Id': 'fD780ED8dbEae7B', 'First Name': 'Joanne', 'Last Name': 'Montes', 'Company': 'Price, Sexton and Mcdaniel', 'City': 'Gwendolynview', 'Country': 'Palau', 'Phone 1': '(897)...</var>
-<status status="PASS" start="2025-12-06T13:26:51.173242" elapsed="0.000692"/>
+<status status="PASS" start="2026-01-31T12:33:29.555206" elapsed="0.002093"/>
 </iter>
 <iter>
 <if>
@@ -883,14 +1003,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.174261" elapsed="0.000472"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.174261" elapsed="0.000472"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.174261" elapsed="0.000472"/>
+<status status="PASS" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '47', 'Customer Id': '300A40d3ce24bBA', 'First Name': 'Geoffrey', 'Last Name': 'Guzman', 'Company': 'Short-Wiggins', 'City': 'Zimmermanland', 'Country': 'Uzbekistan', 'Phone 1': '975.235.892...</var>
-<status status="PASS" start="2025-12-06T13:26:51.174261" elapsed="0.000472"/>
+<status status="PASS" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -899,14 +1019,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.174733" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.174733" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.174733" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '48', 'Customer Id': '283DFCD0Dba40aF', 'First Name': 'Gloria', 'Last Name': 'Mccall', 'Company': 'Brennan, Acosta and Ramos', 'City': 'North Kerriton', 'Country': 'Ghana', 'Phone 1': '445-6...</var>
-<status status="PASS" start="2025-12-06T13:26:51.174733" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -915,14 +1035,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.174733" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.174733" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.174733" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '49', 'Customer Id': 'F4Fc91fEAEad286', 'First Name': 'Brady', 'Last Name': 'Cohen', 'Company': 'Osborne-Erickson', 'City': 'North Eileenville', 'Country': 'United Arab Emirates', 'Phone 1':...</var>
-<status status="PASS" start="2025-12-06T13:26:51.174733" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.557299" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -931,14 +1051,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.558863" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.174733" elapsed="0.001124"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.557299" elapsed="0.001564"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.174733" elapsed="0.001124"/>
+<status status="PASS" start="2026-01-31T12:33:29.557299" elapsed="0.001564"/>
 </if>
 <var name="${element}">{'Index': '50', 'Customer Id': '80F33Fd2AcebF05', 'First Name': 'Latoya', 'Last Name': 'Mccann', 'Company': 'Hobbs, Garrett and Sanford', 'City': 'Port Sergiofort', 'Country': 'Belarus', 'Phone 1': '(...</var>
-<status status="PASS" start="2025-12-06T13:26:51.174733" elapsed="0.001124"/>
+<status status="PASS" start="2026-01-31T12:33:29.557299" elapsed="0.001564"/>
 </iter>
 <iter>
 <if>
@@ -947,14 +1067,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.558863" elapsed="0.000592"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.558863" elapsed="0.000592"/>
 </if>
 <var name="${element}">{'Index': '51', 'Customer Id': 'Aa20BDe68eAb0e9', 'First Name': 'Gerald', 'Last Name': 'Hawkins', 'Company': 'Phelps, Forbes and Koch', 'City': 'New Alberttown', 'Country': 'Canada', 'Phone 1': '+1-32...</var>
-<status status="PASS" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.558863" elapsed="0.000592"/>
 </iter>
 <iter>
 <if>
@@ -963,14 +1083,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '52', 'Customer Id': 'e898eEB1B9FE22b', 'First Name': 'Samuel', 'Last Name': 'Crawford', 'Company': 'May, Goodwin and Martin', 'City': 'South Jasmine', 'Country': 'Algeria', 'Phone 1': '802-...</var>
-<status status="PASS" start="2025-12-06T13:26:51.175857" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -979,14 +1099,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.176850" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.175857" elapsed="0.000993"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.175857" elapsed="0.000993"/>
+<status status="PASS" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '53', 'Customer Id': 'faCEF517ae7D8eB', 'First Name': 'Patricia', 'Last Name': 'Goodwin', 'Company': 'Christian, Winters and Ellis', 'City': 'Cowanfort', 'Country': 'Swaziland', 'Phone 1': '...</var>
-<status status="PASS" start="2025-12-06T13:26:51.175857" elapsed="0.000993"/>
+<status status="PASS" start="2026-01-31T12:33:29.559455" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -995,14 +1115,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.176850" elapsed="0.000306"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.559455" elapsed="0.001019"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.176850" elapsed="0.000306"/>
+<status status="PASS" start="2026-01-31T12:33:29.559455" elapsed="0.001019"/>
 </if>
 <var name="${element}">{'Index': '54', 'Customer Id': 'c09952De6Cda8aA', 'First Name': 'Stacie', 'Last Name': 'Richard', 'Company': 'Byrd Inc', 'City': 'New Deborah', 'Country': 'Madagascar', 'Phone 1': '001-622-948-3641x24...</var>
-<status status="PASS" start="2025-12-06T13:26:51.176850" elapsed="0.000306"/>
+<status status="PASS" start="2026-01-31T12:33:29.559455" elapsed="0.001019"/>
 </iter>
 <iter>
 <if>
@@ -1011,14 +1131,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '55', 'Customer Id': 'f3BEf3Be028166f', 'First Name': 'Robin', 'Last Name': 'West', 'Company': 'Nixon, Blackwell and Sosa', 'City': 'Wallstown', 'Country': 'Ecuador', 'Phone 1': '698.303.426...</var>
-<status status="PASS" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1027,14 +1147,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '56', 'Customer Id': 'C6F2Fc6a7948a4e', 'First Name': 'Ralph', 'Last Name': 'Haas', 'Company': 'Montes PLC', 'City': 'Lake Ellenchester', 'Country': 'Palestinian Territory', 'Phone 1': '2239...</var>
-<status status="PASS" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1043,14 +1163,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.177156" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.177156" elapsed="0.000991"/>
+<status status="PASS" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '57', 'Customer Id': 'c8FE57cBBdCDcb2', 'First Name': 'Phyllis', 'Last Name': 'Maldonado', 'Company': 'Costa PLC', 'City': 'Lake Whitney', 'Country': 'Saint Barthelemy', 'Phone 1': '45003707...</var>
-<status status="PASS" start="2025-12-06T13:26:51.177156" elapsed="0.000991"/>
+<status status="PASS" start="2026-01-31T12:33:29.560474" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1059,14 +1179,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.560474" elapsed="0.001113"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.560474" elapsed="0.001113"/>
 </if>
 <var name="${element}">{'Index': '58', 'Customer Id': 'B5acdFC982124F2', 'First Name': 'Danny', 'Last Name': 'Parrish', 'Company': 'Novak LLC', 'City': 'East Jaredbury', 'Country': 'United Arab Emirates', 'Phone 1': '(669)3...</var>
-<status status="PASS" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.560474" elapsed="0.001113"/>
 </iter>
 <iter>
 <if>
@@ -1075,14 +1195,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '59', 'Customer Id': '8c7DdF10798bCC3', 'First Name': 'Kathy', 'Last Name': 'Hill', 'Company': 'Moore, Mccoy and Glass', 'City': 'Selenabury', 'Country': 'South Georgia and the South Sandwic...</var>
-<status status="PASS" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1091,14 +1211,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '60', 'Customer Id': 'C681dDd0cc422f7', 'First Name': 'Kelli', 'Last Name': 'Hardy', 'Company': 'Petty Ltd', 'City': 'Huangfort', 'Country': 'Sao Tome and Principe', 'Phone 1': '020.324.2191...</var>
-<status status="PASS" start="2025-12-06T13:26:51.178147" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.561587" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1107,14 +1227,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562468" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.178147" elapsed="0.001004"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.561587" elapsed="0.000881"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.178147" elapsed="0.001004"/>
+<status status="PASS" start="2026-01-31T12:33:29.561587" elapsed="0.000881"/>
 </if>
 <var name="${element}">{'Index': '61', 'Customer Id': 'a940cE42e035F28', 'First Name': 'Lynn', 'Last Name': 'Pham', 'Company': 'Brennan, Camacho and Tapia', 'City': 'East Pennyshire', 'Country': 'Portugal', 'Phone 1': '846....</var>
-<status status="PASS" start="2025-12-06T13:26:51.178147" elapsed="0.001004"/>
+<status status="PASS" start="2026-01-31T12:33:29.561587" elapsed="0.000881"/>
 </iter>
 <iter>
 <if>
@@ -1123,14 +1243,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562468" elapsed="0.000464"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562468" elapsed="0.000464"/>
 </if>
 <var name="${element}">{'Index': '62', 'Customer Id': '9Cf5E6AFE0aeBfd', 'First Name': 'Shelley', 'Last Name': 'Harris', 'Company': 'Prince, Malone and Pugh', 'City': 'Port Jasminborough', 'Country': 'Togo', 'Phone 1': '423...</var>
-<status status="PASS" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562468" elapsed="0.000464"/>
 </iter>
 <iter>
 <if>
@@ -1139,14 +1259,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '63', 'Customer Id': 'aEcbe5365BbC67D', 'First Name': 'Eddie', 'Last Name': 'Jimenez', 'Company': 'Caldwell Group', 'City': 'West Kristine', 'Country': 'Ethiopia', 'Phone 1': '+1-235-657-107...</var>
-<status status="PASS" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1155,14 +1275,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '64', 'Customer Id': 'FCBdfCEAe20A8Dc', 'First Name': 'Chloe', 'Last Name': 'Hutchinson', 'Company': 'Simon LLC', 'City': 'South Julia', 'Country': 'Netherlands', 'Phone 1': '981-544-9452', ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.179151" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1171,14 +1291,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.180150" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.179151" elapsed="0.000999"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.179151" elapsed="0.000999"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '65', 'Customer Id': '636cBF0835E10ff', 'First Name': 'Eileen', 'Last Name': 'Lynch', 'Company': 'Knight, Abbott and Hubbard', 'City': 'Helenborough', 'Country': 'Liberia', 'Phone 1': '+1-15...</var>
-<status status="PASS" start="2025-12-06T13:26:51.179151" elapsed="0.000999"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1187,14 +1307,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.180150" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.180150" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.180150" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '66', 'Customer Id': 'fF1b6c9E8Fbf1ff', 'First Name': 'Fernando', 'Last Name': 'Lambert', 'Company': 'Church-Banks', 'City': 'Lake Nancy', 'Country': 'Lithuania', 'Phone 1': '497.829.9038', ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.180150" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1203,14 +1323,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.180874" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.180150" elapsed="0.000724"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.180150" elapsed="0.000724"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '67', 'Customer Id': '2A13F74EAa7DA6c', 'First Name': 'Makayla', 'Last Name': 'Cannon', 'Company': 'Henderson Inc', 'City': 'Georgeport', 'Country': 'New Caledonia', 'Phone 1': '001-215-801-...</var>
-<status status="PASS" start="2025-12-06T13:26:51.180150" elapsed="0.000724"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1219,14 +1339,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.180874" elapsed="0.000602"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.180874" elapsed="0.000602"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '68', 'Customer Id': 'a014Ec1b9FccC1E', 'First Name': 'Tom', 'Last Name': 'Alvarado', 'Company': 'Donaldson-Dougherty', 'City': 'South Sophiaberg', 'Country': 'Kiribati', 'Phone 1': '(585)60...</var>
-<status status="PASS" start="2025-12-06T13:26:51.180874" elapsed="0.000602"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1235,14 +1355,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.562932" elapsed="0.002694"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.002694"/>
 </if>
 <var name="${element}">{'Index': '69', 'Customer Id': '421a109cABDf5fa', 'First Name': 'Virginia', 'Last Name': 'Dudley', 'Company': 'Warren Ltd', 'City': 'Hartbury', 'Country': 'French Southern Territories', 'Phone 1': '02...</var>
-<status status="PASS" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.562932" elapsed="0.002694"/>
 </iter>
 <iter>
 <if>
@@ -1251,14 +1371,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '70', 'Customer Id': 'CC68FD1D3Bbbf22', 'First Name': 'Riley', 'Last Name': 'Good', 'Company': 'Wade PLC', 'City': 'Erikaville', 'Country': 'Canada', 'Phone 1': '6977745822', 'Phone 2': '855...</var>
-<status status="PASS" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1267,14 +1387,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '71', 'Customer Id': 'CBCd2Ac8E3eBDF9', 'First Name': 'Alexandria', 'Last Name': 'Buck', 'Company': 'Keller-Coffey', 'City': 'Nicolasfort', 'Country': 'Iran', 'Phone 1': '078-900-4760x76668'...</var>
-<status status="PASS" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.565626" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1283,14 +1403,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.565626" elapsed="0.001192"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.565626" elapsed="0.001192"/>
 </if>
 <var name="${element}">{'Index': '72', 'Customer Id': 'Ef859092FbEcC07', 'First Name': 'Richard', 'Last Name': 'Roth', 'Company': 'Conway-Mcbride', 'City': 'New Jasmineshire', 'Country': 'Morocco', 'Phone 1': '581-440-6539'...</var>
-<status status="PASS" start="2025-12-06T13:26:51.181476" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.565626" elapsed="0.001192"/>
 </iter>
 <iter>
 <if>
@@ -1299,14 +1419,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '73', 'Customer Id': 'F560f2d3cDFb618', 'First Name': 'Candice', 'Last Name': 'Keller', 'Company': 'Huynh and Sons', 'City': 'East Summerstad', 'Country': 'Zimbabwe', 'Phone 1': '001-927-965...</var>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1315,14 +1435,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '74', 'Customer Id': 'A3F76Be153Df4a3', 'First Name': 'Anita', 'Last Name': 'Benson', 'Company': 'Parrish Ltd', 'City': 'Skinnerport', 'Country': 'Russian Federation', 'Phone 1': '874.617.56...</var>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.566818" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1331,14 +1451,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.566818" elapsed="0.000997"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.566818" elapsed="0.000997"/>
 </if>
 <var name="${element}">{'Index': '75', 'Customer Id': 'D01Af0AF7cBbFeA', 'First Name': 'Regina', 'Last Name': 'Stein', 'Company': 'Guzman-Brown', 'City': 'Raystad', 'Country': 'Solomon Islands', 'Phone 1': '001-469-848-0724...</var>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.566818" elapsed="0.000997"/>
 </iter>
 <iter>
 <if>
@@ -1347,14 +1467,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '76', 'Customer Id': 'd40e89dCade7b2F', 'First Name': 'Debra', 'Last Name': 'Riddle', 'Company': 'Chang, Aguirre and Leblanc', 'City': 'Colinhaven', 'Country': 'United States Virgin Islands'...</var>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1363,14 +1483,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '77', 'Customer Id': 'BF6a1f9bd1bf8DE', 'First Name': 'Brittany', 'Last Name': 'Zuniga', 'Company': 'Mason-Hester', 'City': 'West Reginald', 'Country': 'Kyrgyz Republic', 'Phone 1': '(050)13...</var>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1379,14 +1499,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.567815" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.567815" elapsed="0.001001"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.567815" elapsed="0.001001"/>
 </if>
 <var name="${element}">{'Index': '78', 'Customer Id': 'FfaeFFbbbf280db', 'First Name': 'Cassidy', 'Last Name': 'Mcmahon', 'Company': 'Mcguire, Huynh and Hopkins', 'City': 'Lake Sherryborough', 'Country': 'Myanmar', 'Phone 1...</var>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.567815" elapsed="0.001001"/>
 </iter>
 <iter>
 <if>
@@ -1395,14 +1515,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.183000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.568816" elapsed="0.000377"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.002024"/>
+<status status="PASS" start="2026-01-31T12:33:29.568816" elapsed="0.000377"/>
 </if>
 <var name="${element}">{'Index': '79', 'Customer Id': 'CbAE1d1e9a8dCb1', 'First Name': 'Laurie', 'Last Name': 'Pennington', 'Company': 'Sanchez, Marsh and Hale', 'City': 'Port Katherineville', 'Country': 'Dominica', 'Phone ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.183000" elapsed="0.002024"/>
+<status status="PASS" start="2026-01-31T12:33:29.568816" elapsed="0.000377"/>
 </iter>
 <iter>
 <if>
@@ -1411,14 +1531,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185024" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185024" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.185024" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '80', 'Customer Id': 'A7F85c1DE4dB87f', 'First Name': 'Alejandro', 'Last Name': 'Blair', 'Company': 'Combs, Waller and Durham', 'City': 'Thomasland', 'Country': 'Iceland', 'Phone 1': '(690)0...</var>
-<status status="PASS" start="2025-12-06T13:26:51.185024" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1427,14 +1547,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185024" elapsed="0.000516"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.185024" elapsed="0.000516"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '81', 'Customer Id': 'D6CEAfb3BDbaa1A', 'First Name': 'Leslie', 'Last Name': 'Jennings', 'Company': 'Blankenship-Arias', 'City': 'Coreybury', 'Country': 'Micronesia', 'Phone 1': '629.198.634...</var>
-<status status="PASS" start="2025-12-06T13:26:51.185024" elapsed="0.000516"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1443,14 +1563,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '82', 'Customer Id': 'Ebdb6F6F7c90b69', 'First Name': 'Kathleen', 'Last Name': 'Mckay', 'Company': 'Coffey, Lamb and Johnson', 'City': 'Lake Janiceton', 'Country': 'Saint Vincent and the Gre...</var>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1459,14 +1579,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '83', 'Customer Id': 'E8E7e8Cfe516ef0', 'First Name': 'Hunter', 'Last Name': 'Moreno', 'Company': 'Fitzpatrick-Lawrence', 'City': 'East Clinton', 'Country': 'Isle of Man', 'Phone 1': '(733)8...</var>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1475,14 +1595,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '84', 'Customer Id': '78C06E9b6B3DF20', 'First Name': 'Chad', 'Last Name': 'Davidson', 'Company': 'Garcia-Jimenez', 'City': 'South Joshuashire', 'Country': 'Oman', 'Phone 1': '8275702958', '...</var>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1491,14 +1611,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '85', 'Customer Id': '03A1E62ADdeb31c', 'First Name': 'Corey', 'Last Name': 'Holt', 'Company': 'Mcdonald, Bird and Ramirez', 'City': 'New Glenda', 'Country': 'Fiji', 'Phone 1': '001-439-242-...</var>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1507,14 +1627,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '86', 'Customer Id': 'C6763c99d0bd16D', 'First Name': 'Emma', 'Last Name': 'Cunningham', 'Company': 'Stephens Inc', 'City': 'North Jillianview', 'Country': 'New Zealand', 'Phone 1': '128-059...</var>
-<status status="PASS" start="2025-12-06T13:26:51.185540" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1523,14 +1643,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.187301" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.187301" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.187301" elapsed="0.000493"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '87', 'Customer Id': 'ebe77E5Bf9476CE', 'First Name': 'Duane', 'Last Name': 'Woods', 'Company': 'Montoya-Miller', 'City': 'Lyonsberg', 'Country': 'Maldives', 'Phone 1': '(636)544-7783x7288',...</var>
-<status status="PASS" start="2025-12-06T13:26:51.187301" elapsed="0.000493"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1539,14 +1659,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.187794" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.187794" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.187794" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '88', 'Customer Id': 'E4Bbcd8AD81fC5f', 'First Name': 'Alison', 'Last Name': 'Vargas', 'Company': 'Vaughn, Watts and Leach', 'City': 'East Cristinabury', 'Country': 'Benin', 'Phone 1': '365-...</var>
-<status status="PASS" start="2025-12-06T13:26:51.187794" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1555,14 +1675,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.187794" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.187794" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.187794" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '89', 'Customer Id': 'efeb73245CDf1fF', 'First Name': 'Vernon', 'Last Name': 'Kane', 'Company': 'Carter-Strickland', 'City': 'Thomasfurt', 'Country': 'Yemen', 'Phone 1': '114-854-1159x555', ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.187794" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.569193" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1571,14 +1691,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.572717" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.187794" elapsed="0.001019"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.572717" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.187794" elapsed="0.001019"/>
+<status status="PASS" start="2026-01-31T12:33:29.572717" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '90', 'Customer Id': '37Ec4B395641c1E', 'First Name': 'Lori', 'Last Name': 'Flowers', 'Company': 'Decker-Mcknight', 'City': 'North Joeburgh', 'Country': 'Namibia', 'Phone 1': '679.415.1210',...</var>
-<status status="PASS" start="2025-12-06T13:26:51.187794" elapsed="0.001019"/>
+<status status="PASS" start="2026-01-31T12:33:29.572717" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1587,14 +1707,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.572717" elapsed="0.000521"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.572717" elapsed="0.000521"/>
 </if>
 <var name="${element}">{'Index': '91', 'Customer Id': '5ef6d3eefdD43bE', 'First Name': 'Nina', 'Last Name': 'Chavez', 'Company': 'Byrd-Campbell', 'City': 'Cassidychester', 'Country': 'Bhutan', 'Phone 1': '053-344-3205', 'Ph...</var>
-<status status="PASS" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.572717" elapsed="0.000521"/>
 </iter>
 <iter>
 <if>
@@ -1603,14 +1723,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '92', 'Customer Id': '98b3aeDcC3B9FF3', 'First Name': 'Shane', 'Last Name': 'Foley', 'Company': 'Rocha-Hart', 'City': 'South Dannymouth', 'Country': 'Hungary', 'Phone 1': '+1-822-569-0302', ...</var>
-<status status="PASS" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1619,14 +1739,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.188813" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.188813" elapsed="0.000998"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.188813" elapsed="0.000998"/>
+<status status="PASS" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '93', 'Customer Id': 'aAb6AFc7AfD0fF3', 'First Name': 'Collin', 'Last Name': 'Ayers', 'Company': 'Lamb-Peterson', 'City': 'South Lonnie', 'Country': 'Anguilla', 'Phone 1': '404-645-5351x012'...</var>
-<status status="PASS" start="2025-12-06T13:26:51.188813" elapsed="0.000998"/>
+<status status="PASS" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1635,14 +1755,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '94', 'Customer Id': '54B5B5Fe9F1B6C5', 'First Name': 'Sherry', 'Last Name': 'Young', 'Company': 'Lee, Lucero and Johnson', 'City': 'Frankchester', 'Country': 'Solomon Islands', 'Phone 1': '...</var>
-<status status="PASS" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.573238" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1651,14 +1771,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.574250" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.574250" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.574250" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '95', 'Customer Id': 'BE91A0bdcA49Bbc', 'First Name': 'Darrell', 'Last Name': 'Douglas', 'Company': 'Newton, Petersen and Mathis', 'City': 'Daisyborough', 'Country': 'Mali', 'Phone 1': '001-...</var>
-<status status="PASS" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.573238" elapsed="0.001012"/>
 </iter>
 <iter>
 <if>
@@ -1667,14 +1787,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.574250" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.574250" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.574250" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '96', 'Customer Id': 'cb8E23e48d22Eae', 'First Name': 'Karl', 'Last Name': 'Greer', 'Company': 'Carey LLC', 'City': 'East Richard', 'Country': 'Guyana', 'Phone 1': '(188)169-1674x58692', 'Ph...</var>
-<status status="PASS" start="2025-12-06T13:26:51.189811" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.574250" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1683,14 +1803,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.189811" elapsed="0.000996"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.574250" elapsed="0.001000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.189811" elapsed="0.000996"/>
+<status status="PASS" start="2026-01-31T12:33:29.574250" elapsed="0.001000"/>
 </if>
 <var name="${element}">{'Index': '97', 'Customer Id': 'CeD220bdAaCfaDf', 'First Name': 'Lynn', 'Last Name': 'Atkinson', 'Company': 'Ware, Burns and Oneal', 'City': 'New Bradview', 'Country': 'Sri Lanka', 'Phone 1': '+1-846-...</var>
-<status status="PASS" start="2025-12-06T13:26:51.189811" elapsed="0.000996"/>
+<status status="PASS" start="2026-01-31T12:33:29.574250" elapsed="0.001000"/>
 </iter>
 <iter>
 <if>
@@ -1699,14 +1819,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '98', 'Customer Id': '28CDbC0dFe4b1Db', 'First Name': 'Fred', 'Last Name': 'Guerra', 'Company': 'Schmitt-Jones', 'City': 'Ortegaland', 'Country': 'Solomon Islands', 'Phone 1': '+1-753-067-84...</var>
-<status status="PASS" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1715,14 +1835,14 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'Index': '99', 'Customer Id': 'c23d1D9EE8DEB0A', 'First Name': 'Yvonne', 'Last Name': 'Farmer', 'Company': 'Fitzgerald-Harrell', 'City': 'Lake Elijahview', 'Country': 'Aruba', 'Phone 1': '(530)311-97...</var>
-<status status="PASS" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.575250" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1731,89 +1851,98 @@
 <var>${USERNAME}</var>
 <arg>${element}[First Name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.576426" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:29.575250" elapsed="0.001176"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.575250" elapsed="0.001176"/>
 </if>
 <var name="${element}">{'Index': '100', 'Customer Id': '2354a0E336A91A1', 'First Name': 'Clarence', 'Last Name': 'Haynes', 'Company': 'Le, Nash and Cross', 'City': 'Judymouth', 'Country': 'Honduras', 'Phone 1': '(753)813-69...</var>
-<status status="PASS" start="2025-12-06T13:26:51.190807" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:29.575250" elapsed="0.001176"/>
 </iter>
 <var>${element}</var>
 <value>@{lirecsv}</value>
-<status status="PASS" start="2025-12-06T13:26:51.136169" elapsed="0.054638"/>
+<status status="PASS" start="2026-01-31T12:33:29.535388" elapsed="0.041038"/>
 </for>
-<status status="PASS" start="2025-12-06T13:26:51.132285" elapsed="0.058522"/>
+<status status="PASS" start="2026-01-31T12:33:29.511523" elapsed="0.064903"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:51.131464" elapsed="0.060350"/>
+<status status="PASS" start="2026-01-31T12:33:29.510165" elapsed="0.066618"/>
 </test>
-<status status="PASS" start="2025-12-06T13:26:50.646922" elapsed="0.544892"/>
+<test id="s1-s1-s2-s1-t3" name="call library" line="39">
+<kw name="sendm">
+<msg time="2026-01-31T12:33:29.576783" level="FAIL">No keyword with name 'sendm' found.</msg>
+<var>${calcule}</var>
+<status status="FAIL" start="2026-01-31T12:33:29.576783" elapsed="0.000000">No keyword with name 'sendm' found.</status>
+</kw>
+<status status="FAIL" start="2026-01-31T12:33:29.576783" elapsed="0.000000">No keyword with name 'sendm' found.</status>
+</test>
+<status status="FAIL" start="2026-01-31T12:33:29.238569" elapsed="0.341107"/>
 </suite>
-<status status="PASS" start="2025-12-06T13:26:50.643339" elapsed="0.551413"/>
+<status status="FAIL" start="2026-01-31T12:33:29.234524" elapsed="0.346164"/>
 </suite>
-<suite id="s1-s3" name="Ui" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui">
-<suite id="s1-s3-s1" name="Data-Driven Testing" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Data-Driven Testing.robot">
-<test id="s1-s3-s1-t1" name="Appelez la fonction" line="8">
+<suite id="s1-s1-s3" name="Ui" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui">
+<suite id="s1-s1-s3-s1" name="Data-Driven Testing" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Data-Driven Testing.robot">
+<test id="s1-s1-s3-s1-t1" name="Appelez la fonction" line="8">
 <kw name="Télécharger le fichier CSV1" owner="keywords">
 <kw name="Download" owner="RPA.HTTP" type="SETUP">
-<msg time="2025-12-06T13:26:51.241495" level="INFO">Creating a new HTTP session</msg>
-<msg time="2025-12-06T13:26:51.241495" level="INFO">Creating Session using : alias=rpasession_alias.httpsdrive.google.com, url=https://drive.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<msg time="2026-01-31T12:33:29.623284" level="INFO">Creating a new HTTP session</msg>
+<msg time="2026-01-31T12:33:29.623284" level="INFO">Creating Session using : alias=rpasession_alias.httpsdrive.google.com, url=https://drive.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
 <arg>${URL}</arg>
 <arg>${DEST}</arg>
 <doc>An alias for the ``HTTP Get`` keyword.</doc>
-<status status="PASS" start="2025-12-06T13:26:51.241495" elapsed="1.874624"/>
+<status status="PASS" start="2026-01-31T12:33:29.623284" elapsed="1.662556"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:26:53.118120" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2026-01-31T12:33:31.285840" level="INFO">Cannot capture screenshot because no browser is open.</msg>
 <arg>filename=EMBED</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-12-06T13:26:53.117123" elapsed="0.000997"/>
+<status status="PASS" start="2026-01-31T12:33:31.285840" elapsed="0.000000"/>
 </kw>
 <kw name="Read table from CSV" owner="RPA.Tables">
-<msg time="2025-12-06T13:26:53.120409" level="INFO">${fre} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
+<msg time="2026-01-31T12:33:31.285840" level="INFO">${fre} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=100)</msg>
 <var>${fre}</var>
 <arg>${DEST}</arg>
 <doc>Read a CSV file as a table.</doc>
-<status status="PASS" start="2025-12-06T13:26:53.118120" elapsed="0.002289"/>
+<status status="PASS" start="2026-01-31T12:33:31.285840" elapsed="0.000000"/>
 </kw>
 <kw name="Download" owner="RPA.HTTP">
-<msg time="2025-12-06T13:26:53.121413" level="INFO">Using already existing HTTP session</msg>
+<msg time="2026-01-31T12:33:31.285840" level="INFO">Using already existing HTTP session</msg>
 <arg>${url2}</arg>
 <arg>${destin2}</arg>
 <doc>An alias for the ``HTTP Get`` keyword.</doc>
-<status status="PASS" start="2025-12-06T13:26:53.121413" elapsed="2.080193"/>
+<status status="PASS" start="2026-01-31T12:33:31.285840" elapsed="1.487119"/>
 </kw>
 <kw name="Read table from CSV" owner="RPA.Tables">
-<msg time="2025-12-06T13:26:55.211476" level="INFO">${de2} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=1000)</msg>
+<msg time="2026-01-31T12:33:32.862530" level="INFO">${de2} = Table(columns=['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City', 'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date', 'Website'], rows=1000)</msg>
 <var>${de2}</var>
 <arg>${destin2}</arg>
 <doc>Read a CSV file as a table.</doc>
-<status status="PASS" start="2025-12-06T13:26:55.201606" elapsed="0.010868"/>
+<status status="PASS" start="2026-01-31T12:33:32.772959" elapsed="0.089571"/>
 </kw>
 <tag>EN-21</tag>
-<status status="PASS" start="2025-12-06T13:26:51.240495" elapsed="3.971979"/>
+<status status="PASS" start="2026-01-31T12:33:29.623284" elapsed="3.239246"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:51.240495" elapsed="3.971979"/>
+<status status="PASS" start="2026-01-31T12:33:29.623284" elapsed="3.239246"/>
 </test>
-<status status="PASS" start="2025-12-06T13:26:51.198507" elapsed="4.014968"/>
+<status status="PASS" start="2026-01-31T12:33:29.584099" elapsed="3.278431"/>
 </suite>
-<suite id="s1-s3-s2" name="Excelmanipulation" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Excelmanipulation.robot">
-<test id="s1-s3-s2-t1" name="Lire Mot De Passe Seulement" line="11">
+<suite id="s1-s1-s3-s2" name="Excelmanipulation" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Excelmanipulation.robot">
+<test id="s1-s1-s3-s2-t1" name="Lire Mot De Passe Seulement" line="11">
 <kw name="Open Workbook" owner="RPA.Excel.Files">
-<msg time="2025-12-06T13:26:55.228359" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002621CC45DD0&gt;</msg>
+<msg time="2026-01-31T12:33:32.867857" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000020C7DB839D0&gt;</msg>
+<msg time="2026-01-31T12:33:32.896619" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000020C7DD4B650&gt;</msg>
 <arg>${FICHIER}</arg>
 <doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2025-12-06T13:26:55.222271" elapsed="0.006088"/>
+<status status="PASS" start="2026-01-31T12:33:32.867857" elapsed="0.028762"/>
 </kw>
 <kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2025-12-06T13:26:55.229848" level="INFO">Created table: Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
-<msg time="2025-12-06T13:26:55.229848" level="INFO">${lire} = Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
+<msg time="2026-01-31T12:33:32.897481" level="INFO">Created table: Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
+<msg time="2026-01-31T12:33:32.897481" level="INFO">${lire} = Table(columns=['NOM', 'EMAIL', 'MOTDEPASSE', 'username'], rows=5)</msg>
 <var>${lire}</var>
 <arg>header=true</arg>
 <doc>Read the contents of a worksheet into a Table container. Allows
 sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2025-12-06T13:26:55.229228" elapsed="0.000620"/>
+<status status="PASS" start="2026-01-31T12:33:32.897056" elapsed="0.000425"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1823,44 +1952,44 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <var>${USERNAME}</var>
 <arg>${element}[username]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:55.231600" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.898530" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${PASSWORD}</var>
 <arg>${element}[MOTDEPASSE]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:55.233112" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.898530" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:55.231600" elapsed="0.001512"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.897481" elapsed="0.001049"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:55.231600" elapsed="0.001512"/>
+<status status="PASS" start="2026-01-31T12:33:32.897481" elapsed="0.001049"/>
 </if>
 <var name="${element}">{'NOM': 'Alice', 'EMAIL': 'alice@test.com', 'MOTDEPASSE': 'pass123', 'username': 'alexandra'}</var>
-<status status="PASS" start="2025-12-06T13:26:55.231600" elapsed="0.001512"/>
+<status status="PASS" start="2026-01-31T12:33:32.897481" elapsed="0.001049"/>
 </iter>
 <iter>
 <if>
 <branch type="IF" condition="'${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-12-06T13:26:55.233112" level="INFO">${USERNAME} = standard_user</msg>
+<msg time="2026-01-31T12:33:32.899643" level="INFO">${USERNAME} = standard_user</msg>
 <var>${USERNAME}</var>
 <arg>${element}[username]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-12-06T13:26:55.233112" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:32.898530" elapsed="0.001113"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-12-06T13:26:55.234826" level="INFO">${PASSWORD} = secret_sauce</msg>
+<msg time="2026-01-31T12:33:32.899643" level="INFO">${PASSWORD} = secret_sauce</msg>
 <var>${PASSWORD}</var>
 <arg>${element}[MOTDEPASSE]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-12-06T13:26:55.233112" elapsed="0.001714"/>
+<status status="PASS" start="2026-01-31T12:33:32.899643" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:55.233112" elapsed="0.001714"/>
+<status status="PASS" start="2026-01-31T12:33:32.898530" elapsed="0.001113"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:55.233112" elapsed="0.001714"/>
+<status status="PASS" start="2026-01-31T12:33:32.898530" elapsed="0.001113"/>
 </if>
 <var name="${element}">{'NOM': 'Bob', 'EMAIL': 'bob@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'standard_user'}</var>
-<status status="PASS" start="2025-12-06T13:26:55.233112" elapsed="0.001714"/>
+<status status="PASS" start="2026-01-31T12:33:32.898530" elapsed="0.001113"/>
 </iter>
 <iter>
 <if>
@@ -1869,20 +1998,20 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <var>${USERNAME}</var>
 <arg>${element}[username]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:55.235727" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.899643" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${PASSWORD}</var>
 <arg>${element}[MOTDEPASSE]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:55.235727" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.899643" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:55.234826" elapsed="0.000901"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.899643" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:55.234826" elapsed="0.000901"/>
+<status status="PASS" start="2026-01-31T12:33:32.899643" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'NOM': 'Charlie', 'EMAIL': 'charlie@test.com', 'MOTDEPASSE': 'secret_sauce', 'username': 'coucou'}</var>
-<status status="PASS" start="2025-12-06T13:26:55.234826" elapsed="0.001412"/>
+<status status="PASS" start="2026-01-31T12:33:32.899643" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1891,20 +2020,20 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <var>${USERNAME}</var>
 <arg>${element}[username]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:55.236238" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.900878" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${PASSWORD}</var>
 <arg>${element}[MOTDEPASSE]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:55.236238" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.900878" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:55.236238" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.900878" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:55.236238" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:32.900878" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'NOM': 'David', 'EMAIL': 'david@test.com', 'MOTDEPASSE': 'pass321', 'username': 'holly'}</var>
-<status status="PASS" start="2025-12-06T13:26:55.236238" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:32.900878" elapsed="0.000000"/>
 </iter>
 <iter>
 <if>
@@ -1913,500 +2042,354 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <var>${USERNAME}</var>
 <arg>${element}[username]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:55.237247" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.901789" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${PASSWORD}</var>
 <arg>${element}[MOTDEPASSE]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-12-06T13:26:55.237247" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.901789" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-06T13:26:55.237247" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:32.901789" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-12-06T13:26:55.237247" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:32.901789" elapsed="0.000000"/>
 </if>
 <var name="${element}">{'NOM': 'Emma', 'EMAIL': 'emma@test.com', 'MOTDEPASSE': 'pass654', 'username': None}</var>
-<status status="PASS" start="2025-12-06T13:26:55.237247" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:32.901789" elapsed="0.000000"/>
 </iter>
 <var>${element}</var>
 <value>@{lire}</value>
-<status status="PASS" start="2025-12-06T13:26:55.229848" elapsed="0.007399"/>
+<status status="PASS" start="2026-01-31T12:33:32.897481" elapsed="0.004308"/>
 </for>
 <tag>EN-21</tag>
-<status status="PASS" start="2025-12-06T13:26:55.221512" elapsed="0.016735"/>
+<status status="PASS" start="2026-01-31T12:33:32.867857" elapsed="0.034932"/>
 </test>
-<status status="PASS" start="2025-12-06T13:26:55.215309" elapsed="0.022938"/>
+<status status="PASS" start="2026-01-31T12:33:32.862530" elapsed="0.040259"/>
 </suite>
-<suite id="s1-s3-s3" name="Forms" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Forms.robot">
-<test id="s1-s3-s3-t1" name="Full forms" line="38">
+<suite id="s1-s1-s3-s3" name="Forms" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Forms.robot">
+<test id="s1-s1-s3-s3-t1" name="Full forms" line="40">
 <kw name="Open the Browser">
-<kw name="Open Browser" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:55.405469" level="INFO">Opening browser 'chrome' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html'.</msg>
+<kw name="Open Browser" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:33.041542" level="INFO">Opening browser 'chrome' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html'.</msg>
 <arg>C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/html-application-form.html</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:26:55.405469" elapsed="1.438758"/>
+<status status="PASS" start="2026-01-31T12:33:33.040501" elapsed="1.351955"/>
 </kw>
 <doc>Remplir
 Lancer le navigateur</doc>
-<status status="PASS" start="2025-12-06T13:26:55.404143" elapsed="1.440084"/>
+<status status="PASS" start="2026-01-31T12:33:33.038954" elapsed="1.353502"/>
 </kw>
 <kw name="Envoyer les données">
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:56.847225" level="INFO">Typing text 'andou' into text field 'id=firstname'.</msg>
-<arg>id=firstname</arg>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:34.393458" level="INFO">Typing text 'andou' into text field 'css:#firstname'.</msg>
+<arg>css:#firstname</arg>
 <arg>${firstname}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:26:56.846234" elapsed="0.145913"/>
+<status status="PASS" start="2026-01-31T12:33:34.393458" elapsed="0.136132"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:56.993657" level="INFO">Typing text 'emmanuel' into text field 'id=lastname'.</msg>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:34.530107" level="INFO">Typing text 'emmanuel' into text field 'id=lastname'.</msg>
 <arg>id=lastname</arg>
 <arg>${lastname}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:26:56.993148" elapsed="0.084427"/>
+<status status="PASS" start="2026-01-31T12:33:34.530107" elapsed="0.086748"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:57.077575" level="INFO">Typing text 'andouemmanuel@gmail.com' into text field 'id=email'.</msg>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:34.616855" level="INFO">Typing text 'andouemmanuel@gmail.com' into text field 'id=email'.</msg>
 <arg>id=email</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.077575" elapsed="0.090556"/>
+<status status="PASS" start="2026-01-31T12:33:34.616855" elapsed="0.081582"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="RPA.Browser">
+<kw name="Wait Until Element Is Visible" owner="RPA.Browser.Selenium">
 <arg>id=lastname</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.169131" elapsed="0.016925"/>
+<status status="PASS" start="2026-01-31T12:33:34.698437" elapsed="0.089897"/>
 </kw>
-<kw name="Select From List By Value" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:57.187064" level="INFO">Selecting options from selection list 'id=occupation' by value others.</msg>
+<kw name="Select From List By Value" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:34.789332" level="INFO">Selecting options from selection list 'id=occupation' by value others.</msg>
 <arg>id=occupation</arg>
 <arg>others</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.187064" elapsed="0.072171"/>
+<status status="PASS" start="2026-01-31T12:33:34.789332" elapsed="0.055829"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:57.259235" level="INFO">Typing text '33' into text field 'id=areacode'.</msg>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:34.845161" level="INFO">Typing text '33' into text field 'id=areacode'.</msg>
 <arg>id=areacode</arg>
 <arg>${area}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.259235" elapsed="0.068144"/>
+<status status="PASS" start="2026-01-31T12:33:34.845161" elapsed="0.091716"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:57.327379" level="INFO">Typing text '0678967887' into text field 'id=phone'.</msg>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:34.936877" level="INFO">Typing text '0678967887' into text field 'id=phone'.</msg>
 <arg>id=phone</arg>
 <arg>${phone}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.327379" elapsed="0.064287"/>
+<status status="PASS" start="2026-01-31T12:33:34.936877" elapsed="0.089189"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:57.391666" level="INFO">Typing text 'Testeur Auto et Fonctionnelle' into text field 'id=age'.</msg>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:35.026066" level="INFO">Typing text 'Testeur Auto et Fonctionnelle' into text field 'id=age'.</msg>
 <arg>id=age</arg>
 <arg>${position}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.391666" elapsed="0.093157"/>
+<status status="PASS" start="2026-01-31T12:33:35.026066" elapsed="0.164839"/>
 </kw>
-<kw name="Press Keys" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:57.486040" level="INFO">Sending key(s) ('22/09/1967',) to id=dob element.</msg>
-<msg time="2025-12-06T13:26:57.775631" level="INFO">Sending keys 22/09/1967</msg>
+<kw name="Press Keys" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:35.191904" level="INFO">Sending key(s) ('22/09/1967',) to id=dob element.</msg>
+<msg time="2026-01-31T12:33:35.464148" level="INFO">Sending keys 22/09/1967</msg>
 <arg>id=dob</arg>
 <arg>22/09/1967</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.484823" elapsed="0.307264"/>
+<status status="PASS" start="2026-01-31T12:33:35.190905" elapsed="0.292613"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:26:57.792087" level="INFO">Typing text '47 Boulevard Trouin' into text field 'id=address'.</msg>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2026-01-31T12:33:35.483518" level="INFO">Typing text '47 Boulevard Trouin' into text field 'id=address'.</msg>
 <arg>id=address</arg>
 <arg>${adress}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.792087" elapsed="0.105737"/>
+<status status="PASS" start="2026-01-31T12:33:35.483518" elapsed="0.132017"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-01-31T12:33:35.615535" level="INFO">Length is 13.</msg>
+<arg>css:#lastname</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-01-31T12:33:35.615535" elapsed="0.000000"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-12-06T13:27:02.898725" level="INFO">Slept 5 seconds.</msg>
+<msg time="2026-01-31T12:33:40.615938" level="INFO">Slept 5 seconds.</msg>
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-12-06T13:26:57.897824" elapsed="5.000901"/>
+<status status="PASS" start="2026-01-31T12:33:35.615535" elapsed="5.000403"/>
 </kw>
 <doc>Le formulaire
 remplir avec des informations</doc>
-<status status="PASS" start="2025-12-06T13:26:56.845237" elapsed="6.053488"/>
+<status status="PASS" start="2026-01-31T12:33:34.393458" elapsed="6.222480"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:26:55.404143" elapsed="7.494582"/>
+<status status="PASS" start="2026-01-31T12:33:33.038954" elapsed="7.576984"/>
 </test>
 <doc>Remmplir Le Formulaire</doc>
-<status status="PASS" start="2025-12-06T13:26:55.239248" elapsed="7.661565"/>
+<status status="PASS" start="2026-01-31T12:33:32.903789" elapsed="7.713158"/>
 </suite>
-<suite id="s1-s3-s4" name="Login" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Login.robot">
-<test id="s1-s3-s4-t1" name="Login" line="44">
+<suite id="s1-s1-s3-s4" name="Product" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Product.robot">
+<test id="s1-s1-s3-s4-t1" name="Login" line="27">
 <kw name="Login to website">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:02.958807" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg time="2026-01-31T12:33:40.662979" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
 <arg>${url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:27:02.957839" elapsed="1.582023"/>
+<status status="PASS" start="2026-01-31T12:33:40.662979" elapsed="1.514741"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:04.539862" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<msg time="2026-01-31T12:33:42.182519" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
 <arg>id=user-name</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:04.539862" elapsed="0.127285"/>
+<status status="PASS" start="2026-01-31T12:33:42.182010" elapsed="0.217189"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:04.668150" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<msg time="2026-01-31T12:33:42.400201" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
 <arg>id=password</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:04.667147" elapsed="0.076845"/>
+<status status="PASS" start="2026-01-31T12:33:42.399199" elapsed="0.225027"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${username}</arg>
 <arg>standard_user</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-06T13:27:04.743992" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:42.624226" elapsed="0.000000"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:04.745203" level="INFO">Clicking button 'id=login-button'.</msg>
+<msg time="2026-01-31T12:33:42.624226" level="INFO">Clicking button 'id=login-button'.</msg>
 <arg>id=login-button</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:04.745203" elapsed="0.117987"/>
-</kw>
-<kw name="addproduct">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:04.864195" level="INFO">Clicking element 'id=add-to-cart-sauce-labs-backpack'.</msg>
-<arg>id=add-to-cart-sauce-labs-backpack</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:04.864195" elapsed="0.061617"/>
-</kw>
-<status status="PASS" start="2025-12-06T13:27:04.863190" elapsed="0.062622"/>
-</kw>
-<kw name="modifyquantity">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:04.926823" level="INFO">Clicking element 'class=shopping_cart_link'.</msg>
-<arg>class=shopping_cart_link</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:04.926823" elapsed="0.066497"/>
-</kw>
-<status status="PASS" start="2025-12-06T13:27:04.926823" elapsed="0.066497"/>
+<status status="PASS" start="2026-01-31T12:33:42.624226" elapsed="0.128061"/>
 </kw>
 <kw name="verify">
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:05.015961" level="INFO">${verifyvalue} = 1</msg>
-<var>${verifyvalue}</var>
-<arg>xpath=//div[@class="cart_quantity"]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:04.993320" elapsed="0.022641"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${verifyvalue}</arg>
-<arg>1</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-12-06T13:27:05.017132" elapsed="0.000000"/>
-</kw>
-<kw name="Should Not Be Equal As Numbers" owner="BuiltIn">
-<arg>${verifyvalue}</arg>
-<arg>-1</arg>
-<doc>Fails if objects are equal after converting them to real numbers.</doc>
-<status status="PASS" start="2025-12-06T13:27:05.017132" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-12-06T13:27:04.993320" elapsed="0.023812"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-12-06T13:27:20.017733" level="INFO">Slept 15 seconds.</msg>
-<arg>15</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-12-06T13:27:05.017132" elapsed="15.000601"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-12-06T13:27:20.017733" elapsed="2.193414"/>
-</kw>
-<status status="PASS" start="2025-12-06T13:27:02.957839" elapsed="19.253308"/>
-</kw>
-<tag>EN-21</tag>
-<status status="PASS" start="2025-12-06T13:27:02.956757" elapsed="19.254390"/>
-</test>
-<status status="PASS" start="2025-12-06T13:27:02.902441" elapsed="19.309340"/>
-</suite>
-<suite id="s1-s3-s5" name="LoginExcel" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\LoginExcel.robot">
-<test id="s1-s3-s5-t1" name="Login with Excel" line="16">
-<kw name="Open Workbook" owner="RPA.Excel.Files" type="SETUP">
-<msg time="2025-12-06T13:27:22.216437" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002621CC45DD0&gt;</msg>
-<msg time="2025-12-06T13:27:22.220517" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002621CC3EE90&gt;</msg>
-<arg>C:\\Users\\GENIUS\\IdeaProjects\\ExoRoboframework\\File\\login.xlsx</arg>
-<arg>chrome</arg>
-<doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2025-12-06T13:27:22.216437" elapsed="0.004080"/>
-</kw>
-<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2025-12-06T13:27:22.221509" level="INFO">Created table: Table(columns=['A', 'B', 'C'], rows=3)</msg>
-<msg time="2025-12-06T13:27:22.221509" level="INFO">${fileexcel} = Table(columns=['A', 'B', 'C'], rows=3)</msg>
-<var>${fileexcel}</var>
-<arg>header=false</arg>
-<doc>Read the contents of a worksheet into a Table container. Allows
-sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2025-12-06T13:27:22.220517" elapsed="0.000992"/>
-</kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-12-06T13:27:22.221509" level="INFO">${read} = ['Admin', 'standard_user', 'secret_sauce']</msg>
-<var>${read}</var>
-<arg>${fileexcel}</arg>
-<arg>2</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-12-06T13:27:22.221509" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:22.221509" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
-<arg>https://www.saucedemo.com/</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:27:22.221509" elapsed="7.524231"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:29.746783" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
-<arg>id=user-name</arg>
-<arg>${read[1]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:29.745740" elapsed="0.185524"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:29.932259" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
-<arg>id=password</arg>
-<arg>${read[2]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:29.932259" elapsed="0.069156"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:30.002422" level="INFO">Clicking button 'id=login-button'.</msg>
-<arg>id=login-button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:30.001415" elapsed="0.183443"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Sauce Labs Backpack</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-06T13:27:30.185865" elapsed="0.010480"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary" type="TEARDOWN">
-<arg>Sauce Labs Bike Light</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-06T13:27:30.196345" elapsed="0.005601"/>
-</kw>
-<status status="PASS" start="2025-12-06T13:27:22.215415" elapsed="7.986531"/>
-</test>
-<status status="PASS" start="2025-12-06T13:27:22.211781" elapsed="7.991673"/>
-</suite>
-<suite id="s1-s3-s6" name="Product" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Product.robot">
-<test id="s1-s3-s6-t1" name="Login" line="27">
-<kw name="Login to website">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:30.209991" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
-<arg>${url}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:27:30.209991" elapsed="2.522145"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:32.732136" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
-<arg>id=user-name</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:32.732136" elapsed="0.151027"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:32.884179" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
-<arg>id=password</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:32.883163" elapsed="0.129818"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${username}</arg>
-<arg>standard_user</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-06T13:27:33.012981" elapsed="0.001010"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:33.014498" level="INFO">Clicking button 'id=login-button'.</msg>
-<arg>id=login-button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:33.013991" elapsed="0.122364"/>
-</kw>
-<kw name="verify">
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:33.178559" level="INFO">${verifyname} = Sauce Labs Backpack</msg>
+<msg time="2026-01-31T12:33:42.776466" level="INFO">${verifyname} = Sauce Labs Backpack</msg>
 <var>${verifyname}</var>
 <arg>xpath=//div[@class="inventory_item_name "]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:33.137360" elapsed="0.041199"/>
+<status status="PASS" start="2026-01-31T12:33:42.752287" elapsed="0.024179"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${verifyname}</arg>
 <arg>Sauce Labs Backpack</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-12-06T13:27:33.178559" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:42.776466" elapsed="0.001004"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:27:33.136355" elapsed="0.042204"/>
+<status status="PASS" start="2026-01-31T12:33:42.752287" elapsed="0.025183"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-12-06T13:27:38.178826" level="INFO">Slept 5 seconds.</msg>
+<msg time="2026-01-31T12:33:47.777713" level="INFO">Slept 5 seconds.</msg>
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-12-06T13:27:33.178559" elapsed="5.000267"/>
+<status status="PASS" start="2026-01-31T12:33:42.777470" elapsed="5.000243"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-12-06T13:27:38.179426" elapsed="2.285813"/>
+<status status="PASS" start="2026-01-31T12:33:47.778338" elapsed="2.167463"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:27:30.209991" elapsed="10.255248"/>
+<status status="PASS" start="2026-01-31T12:33:40.662979" elapsed="9.282822"/>
 </kw>
 <tag>EN-21</tag>
-<status status="PASS" start="2025-12-06T13:27:30.209106" elapsed="10.256133"/>
+<status status="PASS" start="2026-01-31T12:33:40.661790" elapsed="9.285013"/>
 </test>
-<status status="PASS" start="2025-12-06T13:27:30.204462" elapsed="10.262993"/>
+<status status="PASS" start="2026-01-31T12:33:40.618707" elapsed="9.328096"/>
 </suite>
-<suite id="s1-s3-s7" name="Tableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Tableau.robot">
-<test id="s1-s3-s7-t1" name="Tableau" line="11">
+<suite id="s1-s1-s3-s5" name="Tableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\Tableau.robot">
+<test id="s1-s1-s3-s5-t1" name="Tableau" line="11">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:40.472478" level="INFO">Opening browser 'chrome' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html'.</msg>
+<msg time="2026-01-31T12:33:49.952114" level="INFO">Opening browser 'chrome' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html'.</msg>
 <arg>C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:27:40.471977" elapsed="1.328110"/>
+<status status="PASS" start="2026-01-31T12:33:49.951607" elapsed="1.214288"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:41.840722" level="INFO">Element '//table' is displayed.</msg>
+<msg time="2026-01-31T12:33:51.198614" level="INFO">Element '//table' is displayed.</msg>
 <arg>${table}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-12-06T13:27:41.801087" elapsed="0.039635"/>
+<status status="PASS" start="2026-01-31T12:33:51.165895" elapsed="0.032719"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${table}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-12-06T13:27:41.840722" elapsed="0.018510"/>
+<status status="PASS" start="2026-01-31T12:33:51.199615" elapsed="0.013927"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:41.886749" level="INFO">${myvalue} = Product 1</msg>
+<msg time="2026-01-31T12:33:51.233478" level="INFO">${myvalue} = Product 1</msg>
 <var>${myvalue}</var>
 <arg>xpath=//table/thead/tr/th[2]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:41.859232" elapsed="0.027517"/>
+<status status="PASS" start="2026-01-31T12:33:51.213542" elapsed="0.019936"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:41.929596" level="INFO">${myvalue2} = Price</msg>
+<msg time="2026-01-31T12:33:51.253768" level="INFO">${myvalue2} = Price</msg>
 <var>${myvalue2}</var>
 <arg>xpath=//table/tbody/tr/td[1]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:41.886749" elapsed="0.042847"/>
+<status status="PASS" start="2026-01-31T12:33:51.233478" elapsed="0.020290"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${myvalue}</arg>
 <arg>Product 1</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-06T13:27:41.930193" elapsed="0.000324"/>
+<status status="PASS" start="2026-01-31T12:33:51.253768" elapsed="0.000999"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${myvalue2}</arg>
 <arg>Price</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-06T13:27:41.930517" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:51.254767" elapsed="0.000000"/>
 </kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:41.932054" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:27:41.932054" elapsed="5.173269"/>
-</kw>
-<tag>EN-21</tag>
-<status status="PASS" start="2025-12-06T13:27:40.470977" elapsed="6.634346"/>
+<status status="PASS" start="2026-01-31T12:33:49.950072" elapsed="1.305695"/>
 </test>
-<status status="PASS" start="2025-12-06T13:27:40.468463" elapsed="6.641626"/>
+<status status="PASS" start="2026-01-31T12:33:49.946803" elapsed="1.309347"/>
 </suite>
-<suite id="s1-s3-s8" name="TodoMvc" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\TodoMvc.robot">
-<test id="s1-s3-s8-t1" name="TodoMvc" line="14">
+<suite id="s1-s1-s3-s6" name="TodoMvc" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\TodoMvc.robot">
+<test id="s1-s1-s3-s6-t1" name="TodoMvc" line="14">
 <kw name="Open Browser" owner="RPA.Browser">
-<msg time="2025-12-06T13:27:47.572018" level="INFO">Opening browser 'chrome' to base url 'https://todomvc.com/'.</msg>
+<msg time="2026-01-31T12:33:51.972983" level="INFO">Opening browser 'chrome' to base url 'https://todomvc.com/'.</msg>
 <arg>https://todomvc.com/</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:27:47.572018" elapsed="3.004351"/>
+<status status="PASS" start="2026-01-31T12:33:51.972983" elapsed="2.318827"/>
 </kw>
 <kw name="Click Element" owner="RPA.Browser">
-<msg time="2025-12-06T13:27:50.576915" level="INFO">Clicking element 'class=link'.</msg>
+<msg time="2026-01-31T12:33:54.293810" level="INFO">Clicking element 'class=link'.</msg>
 <arg>class=link</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:50.576369" elapsed="0.244020"/>
+<status status="PASS" start="2026-01-31T12:33:54.292810" elapsed="0.176919"/>
 </kw>
 <kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:27:50.821388" level="INFO">Typing text 'Robot Framework' into text field 'class=new-todo'.</msg>
+<msg time="2026-01-31T12:33:54.470728" level="INFO">Typing text 'Robot Framework' into text field 'class=new-todo'.</msg>
 <arg>class=new-todo</arg>
 <arg>Robot Framework</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:50.820389" elapsed="0.097158"/>
+<status status="PASS" start="2026-01-31T12:33:54.470728" elapsed="0.113893"/>
 </kw>
 <kw name="Press Keys" owner="RPA.Browser">
-<msg time="2025-12-06T13:27:50.918547" level="INFO">Sending key(s) ('ENTER',) to css:.new-todo element.</msg>
-<msg time="2025-12-06T13:27:51.196002" level="INFO">Pressing special key ENTER to element.</msg>
-<msg time="2025-12-06T13:27:51.196002" level="INFO">Releasing special key ENTER.</msg>
+<msg time="2026-01-31T12:33:54.584621" level="INFO">Sending key(s) ('ENTER',) to css:.new-todo element.</msg>
+<msg time="2026-01-31T12:33:54.950992" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2026-01-31T12:33:54.950992" level="INFO">Releasing special key ENTER.</msg>
 <arg>css:.new-todo</arg>
 <arg>ENTER</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-12-06T13:27:50.918547" elapsed="0.307470"/>
+<status status="PASS" start="2026-01-31T12:33:54.584621" elapsed="0.387361"/>
 </kw>
 <kw name="Input Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:27:51.226017" level="INFO">Typing text 'Selenium' into text field 'class=new-todo'.</msg>
+<msg time="2026-01-31T12:33:54.973153" level="INFO">Typing text 'Selenium' into text field 'class=new-todo'.</msg>
 <arg>class=new-todo</arg>
 <arg>Selenium</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:51.226017" elapsed="0.052458"/>
+<status status="PASS" start="2026-01-31T12:33:54.973153" elapsed="0.065307"/>
 </kw>
 <kw name="Press Keys" owner="RPA.Browser">
-<msg time="2025-12-06T13:27:51.279711" level="INFO">Sending key(s) ('ENTER',) to css=.new-todo element.</msg>
-<msg time="2025-12-06T13:27:51.570376" level="INFO">Pressing special key ENTER to element.</msg>
-<msg time="2025-12-06T13:27:51.570376" level="INFO">Releasing special key ENTER.</msg>
+<msg time="2026-01-31T12:33:55.038460" level="INFO">Sending key(s) ('ENTER',) to css=.new-todo element.</msg>
+<msg time="2026-01-31T12:33:55.327440" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2026-01-31T12:33:55.327440" level="INFO">Releasing special key ENTER.</msg>
 <arg>css=.new-todo</arg>
 <arg>ENTER</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-12-06T13:27:51.278475" elapsed="0.302049"/>
+<status status="PASS" start="2026-01-31T12:33:55.038460" elapsed="0.308336"/>
 </kw>
 <kw name="Click Element" owner="RPA.Browser">
-<msg time="2025-12-06T13:27:51.580524" level="INFO">Clicking element 'class=toggle'.</msg>
+<msg time="2026-01-31T12:33:55.347922" level="INFO">Clicking element 'class=toggle'.</msg>
 <arg>class=toggle</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:51.580524" elapsed="0.060387"/>
+<status status="PASS" start="2026-01-31T12:33:55.346796" elapsed="0.164926"/>
 </kw>
 <kw name="Get Text" owner="RPA.Browser">
-<msg time="2025-12-06T13:27:51.677756" level="INFO">${biil} = 1 item left!</msg>
+<msg time="2026-01-31T12:33:55.545169" level="INFO">${biil} = 1 item left!</msg>
 <var>${biil}</var>
 <arg>xpath=//span[@class="todo-count"]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:51.641913" elapsed="0.035843"/>
+<status status="PASS" start="2026-01-31T12:33:55.511722" elapsed="0.033447"/>
 </kw>
+<if>
+<branch type="IF" condition="'${biil}' == '1 item left!'">
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${biil}</arg>
-<arg>1 item left!</arg>
+<arg>${myvariable}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-12-06T13:27:51.678759" elapsed="0.000000"/>
+<status status="PASS" start="2026-01-31T12:33:55.546354" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-12-06T13:27:47.571019" elapsed="4.108739"/>
+<status status="PASS" start="2026-01-31T12:33:55.545169" elapsed="0.001185"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>il ne sont pas egaux</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-01-31T12:33:55.546354" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-01-31T12:33:55.546354" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2026-01-31T12:33:55.545169" elapsed="0.001185"/>
+</if>
+<status status="PASS" start="2026-01-31T12:33:51.972983" elapsed="3.573371"/>
 </test>
-<status status="PASS" start="2025-12-06T13:27:47.111098" elapsed="4.569506"/>
+<status status="PASS" start="2026-01-31T12:33:51.256766" elapsed="4.291367"/>
 </suite>
-<suite id="s1-s3-s9" name="VerifyTableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\VerifyTableau.robot">
-<test id="s1-s3-s9-t1" name="Launch" line="19">
+<suite id="s1-s1-s3-s7" name="VerifyTableau" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\ui\VerifyTableau.robot">
+<test id="s1-s1-s3-s7-t1" name="Launch" line="19">
 <kw name="Login to website">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:51.688263" level="INFO">Opening browser 'chrome' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html'.</msg>
+<msg time="2026-01-31T12:33:55.552717" level="INFO">Opening browser 'chrome' to base url 'C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/index.html'.</msg>
 <arg>${url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-06T13:27:51.687257" elapsed="1.310300"/>
+<status status="PASS" start="2026-01-31T12:33:55.552717" elapsed="1.241195"/>
 </kw>
 <kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-12-06T13:27:53.044945" level="INFO">@{elements} = [ ]</msg>
+<msg time="2026-01-31T12:33:56.808423" level="INFO">@{elements} = [ ]</msg>
 <var>@{elements}</var>
 <arg>xpath=//h2[@class="dolor_text"]</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-12-06T13:27:52.998595" elapsed="0.046350"/>
+<status status="PASS" start="2026-01-31T12:33:56.793912" elapsed="0.014511"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -2414,59 +2397,62 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <var>${text}</var>
 <arg>${element}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-12-06T13:27:53.046459" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:56.808423" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
 <arg>${text}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-12-06T13:27:53.046459" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:56.808423" elapsed="0.000000"/>
 </kw>
 <var name="${element}"/>
-<status status="NOT RUN" start="2025-12-06T13:27:53.046459" elapsed="0.000000"/>
+<status status="NOT RUN" start="2026-01-31T12:33:56.808423" elapsed="0.000000"/>
 </iter>
 <var>${element}</var>
 <value>@{elements}</value>
-<status status="NOT RUN" start="2025-12-06T13:27:53.044945" elapsed="0.002543"/>
+<status status="NOT RUN" start="2026-01-31T12:33:56.808423" elapsed="0.000000"/>
 </for>
-<status status="PASS" start="2025-12-06T13:27:51.686247" elapsed="1.361241"/>
+<status status="PASS" start="2026-01-31T12:33:55.552717" elapsed="1.255706"/>
 </kw>
 <tag>EN-21</tag>
-<status status="PASS" start="2025-12-06T13:27:51.685619" elapsed="1.361869"/>
+<status status="PASS" start="2026-01-31T12:33:55.550698" elapsed="1.257725"/>
 </test>
-<status status="PASS" start="2025-12-06T13:27:51.681769" elapsed="1.366707"/>
+<status status="PASS" start="2026-01-31T12:33:55.549142" elapsed="1.261296"/>
 </suite>
-<status status="PASS" start="2025-12-06T13:26:51.195782" elapsed="61.853691"/>
+<status status="PASS" start="2026-01-31T12:33:29.581683" elapsed="27.228755"/>
 </suite>
-<status status="PASS" start="2025-12-06T13:26:43.561623" elapsed="69.489360"/>
+<status status="FAIL" start="2026-01-31T12:32:59.483803" elapsed="57.328650"/>
+</suite>
+<status status="FAIL" start="2026-01-31T12:32:59.467302" elapsed="57.345151"/>
 </suite>
 <statistics>
 <total>
-<stat pass="12" fail="0" skip="0">All Tests</stat>
+<stat pass="11" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="5" fail="0" skip="0">EN-21</stat>
+<stat pass="3" fail="0" skip="0">EN-21</stat>
 </tag>
 <suite>
-<stat name="Tests" id="s1" pass="12" fail="0" skip="0">Tests</stat>
-<stat name="Api" id="s1-s1" pass="1" fail="0" skip="0">Tests.Api</stat>
-<stat name="CreateCommande" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.Api.CreateCommande</stat>
-<stat name="Intermediaire" id="s1-s2" pass="2" fail="0" skip="0">Tests.Intermediaire</stat>
-<stat name="Exo" id="s1-s2-s1" pass="2" fail="0" skip="0">Tests.Intermediaire.Exo</stat>
-<stat name="Ui" id="s1-s3" pass="9" fail="0" skip="0">Tests.Ui</stat>
-<stat name="Data-Driven Testing" id="s1-s3-s1" pass="1" fail="0" skip="0">Tests.Ui.Data-Driven Testing</stat>
-<stat name="Excelmanipulation" id="s1-s3-s2" pass="1" fail="0" skip="0">Tests.Ui.Excelmanipulation</stat>
-<stat name="Forms" id="s1-s3-s3" pass="1" fail="0" skip="0">Tests.Ui.Forms</stat>
-<stat name="Login" id="s1-s3-s4" pass="1" fail="0" skip="0">Tests.Ui.Login</stat>
-<stat name="LoginExcel" id="s1-s3-s5" pass="1" fail="0" skip="0">Tests.Ui.LoginExcel</stat>
-<stat name="Product" id="s1-s3-s6" pass="1" fail="0" skip="0">Tests.Ui.Product</stat>
-<stat name="Tableau" id="s1-s3-s7" pass="1" fail="0" skip="0">Tests.Ui.Tableau</stat>
-<stat name="TodoMvc" id="s1-s3-s8" pass="1" fail="0" skip="0">Tests.Ui.TodoMvc</stat>
-<stat name="VerifyTableau" id="s1-s3-s9" pass="1" fail="0" skip="0">Tests.Ui.VerifyTableau</stat>
+<stat name="ExoRoboframework" id="s1" pass="11" fail="1" skip="0">ExoRoboframework</stat>
+<stat name="Tests" id="s1-s1" pass="11" fail="1" skip="0">ExoRoboframework.Tests</stat>
+<stat name="Api" id="s1-s1-s1" pass="2" fail="0" skip="0">ExoRoboframework.Tests.Api</stat>
+<stat name="CreateCommande" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Api.CreateCommande</stat>
+<stat name="Readfile" id="s1-s1-s1-s2" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Api.Readfile</stat>
+<stat name="Intermediaire" id="s1-s1-s2" pass="2" fail="1" skip="0">ExoRoboframework.Tests.Intermediaire</stat>
+<stat name="Exo" id="s1-s1-s2-s1" pass="2" fail="1" skip="0">ExoRoboframework.Tests.Intermediaire.Exo</stat>
+<stat name="Ui" id="s1-s1-s3" pass="7" fail="0" skip="0">ExoRoboframework.Tests.Ui</stat>
+<stat name="Data-Driven Testing" id="s1-s1-s3-s1" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Ui.Data-Driven Testing</stat>
+<stat name="Excelmanipulation" id="s1-s1-s3-s2" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Ui.Excelmanipulation</stat>
+<stat name="Forms" id="s1-s1-s3-s3" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Ui.Forms</stat>
+<stat name="Product" id="s1-s1-s3-s4" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Ui.Product</stat>
+<stat name="Tableau" id="s1-s1-s3-s5" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Ui.Tableau</stat>
+<stat name="TodoMvc" id="s1-s1-s3-s6" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Ui.TodoMvc</stat>
+<stat name="VerifyTableau" id="s1-s1-s3-s7" pass="1" fail="0" skip="0">ExoRoboframework.Tests.Ui.VerifyTableau</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-12-06T13:26:44.464935" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-12-06T13:26:51.126451" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-12-06T13:26:55.349097" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
+<msg time="2026-01-31T12:33:01.803662" level="WARN">Keyword 'RPA.HTTP.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2026-01-31T12:33:20.892876" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
+<msg time="2026-01-31T12:33:29.249917" level="ERROR">Error in file 'C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\Intermediaire\exo.robot' on line 8: Library 'index.py' does not exist.</msg>
+<msg time="2026-01-31T12:33:29.506479" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>
