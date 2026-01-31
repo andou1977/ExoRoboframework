@@ -5,7 +5,6 @@ Library    RequestsLibrary
 Library    Collections
 Library    RPA.Excel.Files
 Library    RPA.Tables
-Library    index.py
 
 
 *** Variables ***
