@@ -11,7 +11,7 @@ Library    RPA.Browser
 
 *** Test Cases ***
 logger avec ddt
-    Open Browser  https://www.saucedemo.com/
+    Open Browser  https://www.saucedemo.com/   chrome
     Open Workbook   C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/code.xlsx
     ${myvalue}=   Read Worksheet As Table
     FOR    ${element}    IN    @{myvalue}
