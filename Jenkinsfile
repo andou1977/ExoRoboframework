@@ -5,7 +5,7 @@ pipeline {
         stage('Installer dépendances') {
             steps {
                 powershell 'python --version'
-                powershell 'pip install --upgrade pip'
+                powershell 'python -m pip install --upgrade pip'
                 powershell 'pip install -r requirements.txt'
             }
         }
