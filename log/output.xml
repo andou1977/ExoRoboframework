@@ -1,136 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2026-01-31T13:21:21.677492" rpa="false" schemaversion="5">
-<suite id="s1" name="Readfile" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\api\readfile.robot">
-<test id="s1-t1" name="logger avec ddt" line="13">
-<kw name="Open Browser" owner="RPA.Browser">
-<msg time="2026-01-31T13:21:22.264416" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
-<arg>https://www.saucedemo.com/</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-01-31T13:21:22.264416" elapsed="1.474789"/>
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2026-02-15T10:32:04.898319" rpa="false" schemaversion="5">
+<suite id="s1" name="Token" source="C:\Users\GENIUS\IdeaProjects\ExoRoboframework\tests\Intermediaire\token.robot">
+<test id="s1-t1" name="Obtenir Et Utiliser Un Token" line="5">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-15T10:32:06.545043" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>reqres</arg>
+<arg>https://reqres.in</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-15T10:32:06.544039" elapsed="0.004003"/>
 </kw>
-<kw name="Open Workbook" owner="RPA.Excel.Files">
-<msg time="2026-01-31T13:21:23.746025" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000029D4A2F2490&gt;</msg>
-<arg>C:/Users/GENIUS/IdeaProjects/ExoRoboframework/File/code.xlsx</arg>
-<doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2026-01-31T13:21:23.739205" elapsed="0.007986"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-15T10:32:06.549038" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}</msg>
+<var>${body}</var>
+<arg>email=eve.holt@reqres.in</arg>
+<arg>password=cityslicka</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-15T10:32:06.548042" elapsed="0.000996"/>
 </kw>
-<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2026-01-31T13:21:23.747191" level="INFO">Created table: Table(columns=['A', 'B'], rows=2)</msg>
-<msg time="2026-01-31T13:21:23.747191" level="INFO">${myvalue} = Table(columns=['A', 'B'], rows=2)</msg>
-<var>${myvalue}</var>
-<doc>Read the contents of a worksheet into a Table container. Allows
-sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2026-01-31T13:21:23.747191" elapsed="0.000000"/>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2026-02-15T10:32:06.549547" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2026-02-15T10:32:06.673982" level="INFO">POST Request : url=https://reqres.in/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ body=b'{"email": "eve.holt@reqres.in", "password": "cityslicka"}' 
+ </msg>
+<msg time="2026-02-15T10:32:06.674995" level="INFO">POST Response : url=https://reqres.in/api/login 
+ status=403, reason=Forbidden 
+ headers={'Date': 'Sun, 15 Feb 2026 09:32:06 GMT', 'Content-Type': 'text/html; charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'close', 'accept-ch': 'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA', 'cf-mitigated': 'challenge', 'critical-ch': 'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA', 'cross-origin-embedder-policy': 'require-corp', 'cross-origin-opener-policy': 'same-origin', 'cross-origin-resource-policy': 'same-origin', 'origin-agent-cluster': '?1', 'permissions-policy': 'accelerometer=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()', 'referrer-policy': 'same-origin', 'server-timing': 'chlray;desc="9ce3cbc9b92cc84f"', 'x-content-type-options': 'nosniff', 'x-frame-options': 'SAMEORIGIN', 'Cache-Control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'Expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=%2BvUPR23TsI3ZGQ2fKylxL03MPZtw1vGshpQTt1QgPf9H%2FRha%2FjzBlUC733aWJF8QGy0N1jpMX7VfBDZqvbANa0KW07jcxhLvMN8E6V5wjpTkGkJBELbjF67fvA%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '9ce3cbc9b92cc84f-MRS', 'Content-Encoding': 'gzip'} 
+ body=&lt;!DOCTYPE html&gt;&lt;html lang="en-US"&gt;&lt;head&gt;&lt;title&gt;Just a moment...&lt;/title&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;&lt;meta name="robots" content="noindex,nofollow"&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;&lt;style&gt;*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width &lt;= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width &lt;= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+");background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}&lt;/style&gt;&lt;meta http-equiv="refresh" content="360"&gt;&lt;/head&gt;&lt;body&gt;&lt;div class="main-wrapper" role="main"&gt;&lt;div class="main-content"&gt;&lt;noscript&gt;&lt;div class="h2"&gt;&lt;span id="challenge-error-text"&gt;Enable JavaScript and cookies to continue&lt;/span&gt;&lt;/div&gt;&lt;/noscript&gt;&lt;/div&gt;&lt;/div&gt;&lt;script&gt;(function(){window._cf_chl_opt = {cvId: '3',cZone: 'reqres.in',cType: 'managed',cRay: '9ce3cbc9b92cc84f',cH: 'VHN3u48UrZ4LMzXH_NJFHHbqLXoP5PQ1umcC0o5q8zc-1771147926-1.2.1.1-ACcTa3tedForo7m9pbhEK48KZPNFc3.nE3XSvOtTZBFolLXh9aEtYePZ8XBQKTxf',cUPMDTk:"\/api\/login?__cf_chl_tk=CGGaGnYmFYddyxJPrZysN9S3R4LgiyRJnr_jGFxEuo8-1771147926-1.0.1.1-VPSCKFao_wx1fAfcQL8bY0_WgWwlIYLktvKxIKwYaAE",cFPWv: 'g',cITimeS: '1771147926',cTplC:0,cTplV:5,cTplB: '0',fa:"\/api\/login?__cf_chl_f_tk=CGGaGnYmFYddyxJPrZysN9S3R4LgiyRJnr_jGFxEuo8-1771147926-1.0.1.1-VPSCKFao_wx1fAfcQL8bY0_WgWwlIYLktvKxIKwYaAE",md: 'SlfjvAeCfc.eoG3H0v0mckGSohrTSx5x.wtzApRQbhM-1771147926-1.2.1.1-wJ5ehje4JVjH_pxgPKI6nzuIWRbdiC92TVU7hBjkkMm.5AnUXNyAOz_p5JGzurYrpvdTw9rSfE68_nn4OOM0S3iHHgMWnbeUCLzk7JbP5D10mYWy6VCJ6VQESeiAc2osqZwpPCZCS9ZD8xIdfw9RhoKS3PhVwcD4F51lMb75nUOETL8OmnzoIGbILKKR9LWo3GOK6c7pchkGbUM7.JifAia1NUge9OKt98mfI.7dZciGSGyjgs4Pk6LobptN2eGHyttdpZRUdfeFxRoAdtIGegVFWEPN3O4Cya_nL07C6UW.iucjwNIc.QeVbsa.oy3Eo2plqQw0FMw4__WoRuohJQ8ylkFq90x4g7y_7XHeYRVgoyAc6IBFPPOjFWY35ZJza_gipUuaFYZKcBLdLZQEAmKvQVqwVx13zumR7LJSMTN09yawjVtitcsKdng_ijmQcDo8NhZLHEFHQ0LxlCeV5GJVmsLNCkl48x2yKTEonWVSTvBGJAS1ZnP40GjLncacxUm2kwLxq5qreN10WVNxCq4SZ1oHOW6BJSWavkMa60d7zOg478lhD0A8uIv3XiBVzeoZ0FjOKDf0CTLuoudVg2Z1nBjKuHmxcL6DInFCSnxck49.mFmit_n1bHIr_LYC2XVfJhioTZB1PYoq69tIpdaLC6a0C4EA0TwLljFYGuhVRjBdeFMAV0uNRcUBHALzRxE7MKbDdoKZdk_DqNgjRhlRjxo1nBmEvRS.9BbU_3BNUi.gBYZhb7cJiw9OZjjTC9ys.97D9Ztxy6LqYsqUlwIVaneGK524eT8rU_dIOEwSdxC_EphC6fZCe9_07cLVBFkIF1fG.YBAGv31mD.AcuwXnbxS5uM95LV8p8oh.Uxs5cE6zI2mFuT0vp9mUlNq_2AnmhFYTYSzsmUzwJa2M0L1MwSZtZFnyyMQedo3T4E',mdrd: 'tXYT8fhvzOViL1JEASJSXKaL2WlLKU6CLBPKMgUY_fA-1771147926-1.2.1.1-a1Gasf024XvwPhzHT3ylq3BgX.eKuFyCo9w.O5k2oJoap4qlboOeJa1G_oJYRRTcT4_cBdQZQEoFEbQ2Mb6b7u3QAR239IEK9i28D2cCTXu1_wZhrm_IF0j1kblP0uQOOsYxnGWl6zEDD5ofptrURJmSwfBmAahHqiVC4U7S9tFBocIAFPIVbnpurOJ_JvQ_F_RtnPLiP6HovrsRccveHkKHKnkbO13TT1oXD09wE5TeWsj2uBE68CwVtwifbED04Xcdap6vH6D9nAh996dnoockk_Hg3E.tW8MfPMIl8wgjiZa2H1Yv1RtgNAOunr.qpg3keA6hMOank12JrvQ2BEVyJ3eOC.kr1Tvf.7PVSo3SW3HMl9MvTRCa6JcFx8blmfsRy3Z.0Kf1Tm_MCyG69d4s0PjZqDk9PY3OKizAjcdMz40iEAlaPvQ.hiMCirrlEhDz6r0PDWOXl6Ze4QXjNEf5h9zfRj0P.2swLzkYZDf5un5p_IB2JYbwPQzT2pKMvVENmRciLYwTjSUaC3kdLe.tT0FDjcG8UCUCnPDFLTtv8CGeiEbNAakaFMi83kuEWeRgE9Dri3wLNBOltSxg7VNL7NIgDJ7G7abmIe5ye1IrhSNrRGq0EmYzZBuSzw9_IaTF7BnVcqxVaR7UzuPXpL5kTDz2f7vBhJUfFRUGfxVzk5jxJqVYOJQ.UqnYI7JqTHij8re_cJg4IBAaTGsFXEpdkpuVWnY0u0NBcqFuor5bAGPxtIiRLKS1xeGk8ov4kKGB9rSPIt4lYY2ENWYy66vmAPBOlFom7WvI1cidKRRE9YWJ.K8WRYfMQJxmFueI2wBCsf9A9YrfS2JXkfqMFhO_AZwvDI9D8XOvWsVUe0IjzPzXJFzZ58KdyYsCnU6T0c4zSeHcqypk9sZAoimg_h.z1J83VzZotbFn0MzQbwW.JXb5ujj_xnUW0U8jggVCFjmsHZeEn2b6As3PftFyuirwdjEaFTzrGOtSqSDz5x41V6g5Iranp6EEMYyKMq_7lL7dKc4jizDt9irggL3ePbYibZjnznEsYZpxBsTCRKv.NhHwKRH.KKxvyMLK4IQKga62Gz60xsAeA2MNf6qcxYLDpa2ZnldFfAges0qaPZUBgHW__5K5YFeNHqvLGV_LLfVbDqE4s45.C2OwHuqiYO1bWfGh94PSolfP4SKw4jAVIsd6dd3G7LV.GKQ4opJ8eLWK.y0WWU_0zzhYBSWfiSSSuQTkmw24deJEsS7gCW27k_LAlN08NERB0uON8rkBqVFjQyv3oVHSGvUsBbDxG6i4GrlI10p8Wy_ypgjWfq4R1NabjhYdjcBayKeTQx.fB9gbi5pcHfnk8bbxP1WUqwXfwnG3kUbUHfI6SaeWkJmeqssX2p5MTiVhy0MljkKi4VuHFmUG4y3cI55WKaRFt4R1xQwWmVV5IVD.ZIbuv1rd3bGtwuKLc2ms9A.D3Z_B63Xo2JbBQWYw4MPrja66lk6kdVMtbGsf4fN0IwWeAbY3DMR0E0ykOJTzXiiW_s4BsCYjeiSh9.rR9SQ4HoOnxTIRIjByhAW3BsD6FGSrZcswwX.69nXxkb47k1HI3A3lMOZ0FKGSNr8V8O37OLTYSfGsaGtXsjj.Vsiu_PvehEmEypM0QSmwFWYdfOA6ZQBorN9CocvscGm8DzCnWhnwS8rLoydtoFt0e1Eg44fKyrd69EvX7NSccOvzlm4X7z85rIkCPXbxVxKjY5mTGUFWlcMZAj3d7b66pEMfVFgUbIsGiYJ2JVJu6xGukMk0wu4rtcG0PeB7VScON0NBLQQ4smar1OdzwurjhtkWYBGOl_Idx6WGi4RM55Uc1LutRHgUaROBR0HCreHhIc.eA5PfnUAz6JIOTD5V3zO5Wdl.MA7fNc.mUaBoxxPFHOAfpOaaBsOW_QRAK0ogRhHeBsbqtWjqvvwigfFp13Pck3Es_v0uxPQG9kAz4ahxJ_MHa5n20G5S4uQTFrcmuFwHavBSgibyYOWpqhIMJtSp3Lis1se12JpBtQXPEs44YvjyvQioXOtVJu8WApNdqgNqofbmKJXWv2_FkRSDkLj1RyuDiFMAfvusIfyoqx7U5g3TtfiivsoWfLaZQEKDeunNVXMt3ULpcZCAwgPWuDmSX0RDT9PZ.ty5AuF7cWuTnbHx3cBND_MfQXIDBPCSqK_ZtRAdZxqpjFD0kjeK91jGYi_niuFxN5ZUj4QALrUOw9fFJclsEmshtSuNvxLHw60hLA7aCShdoQ3IZoIwepGDJwDLMGTup5H0nzbIb3nVlW7Wd7mdY8bo4wb6vpH_zHYgcUIBpdr_4rJMoXMXHJWDkSVwTQ2UVLZSlotMZIhO5s6BdHY8PKixmw3.yKq0ChkUs1Jn0NrY_W_L7yC8RSTnbq7N1YlS08YZJ9OizqH0BBsNsy9usvKeGWXhzDKvRt2dzjAvUA',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=9ce3cbc9b92cc84f';window._cf_chl_opt.cOgUHash = location.hash === '' &amp;&amp; location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' &amp;&amp; location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history &amp;&amp; window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"\/api\/login?__cf_chl_rt_tk=CGGaGnYmFYddyxJPrZysN9S3R4LgiyRJnr_jGFxEuo8-1771147926-1.0.1.1-VPSCKFao_wx1fAfcQL8bY0_WgWwlIYLktvKxIKwYaAE"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());&lt;/script&gt;&lt;/body&gt;&lt;/html&gt; 
+ </msg>
+<msg time="2026-02-15T10:32:06.675955" level="INFO">C:\Users\GENIUS\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-15T10:32:06.675955" level="INFO">${response} = &lt;Response [403]&gt;</msg>
+<var>${response}</var>
+<arg>reqres</arg>
+<arg>/api/login</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2026-02-15T10:32:06.549547" elapsed="0.126408"/>
 </kw>
-<for flavor="IN">
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-31T13:21:23.748699" level="INFO">${myusername} = username</msg>
-<var>${myusername}</var>
-<arg>${element}[A]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-31T13:21:23.748699" elapsed="0.000000"/>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2026-02-15T10:32:06.676956" level="FAIL">Url: https://reqres.in/api/login Expected status: 403 != 200</msg>
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="FAIL" start="2026-02-15T10:32:06.675955" elapsed="0.048315">Url: https://reqres.in/api/login Expected status: 403 != 200</status>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-31T13:21:23.749712" level="INFO">${password} = password</msg>
-<var>${password}</var>
-<arg>${element}[B]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-31T13:21:23.749712" elapsed="0.000000"/>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${token}</var>
+<arg>${response.json()}['token']</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-02-15T10:32:06.724270" elapsed="0.001004"/>
 </kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2026-01-31T13:21:23.750707" level="INFO">Typing text 'username' into text field 'css=#user-name'.</msg>
-<arg>css=#user-name</arg>
-<arg>${myusername}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-31T13:21:23.749712" elapsed="0.112999"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Token: ${token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-02-15T10:32:06.725274" elapsed="0.000000"/>
 </kw>
-<kw name="Input Password" owner="RPA.Browser">
-<msg time="2026-01-31T13:21:23.862711" level="INFO">Typing password into text field 'css:#password'.</msg>
-<msg time="2026-01-31T13:21:23.892685" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>css:#password</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-31T13:21:23.862711" elapsed="0.066429"/>
-</kw>
-<kw name="Click Element" owner="RPA.Browser">
-<msg time="2026-01-31T13:21:23.929140" level="INFO">Clicking element 'css:#login-button'.</msg>
-<arg>css:#login-button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-31T13:21:23.929140" elapsed="0.061687"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="RPA.Browser">
-<arg>Swag Labs</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-31T13:21:23.990827" elapsed="0.011220"/>
-</kw>
-<var name="${element}">{'A': 'username', 'B': 'password'}</var>
-<status status="PASS" start="2026-01-31T13:21:23.748699" elapsed="0.253348"/>
-</iter>
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-31T13:21:24.002047" level="INFO">${myusername} = standard_user</msg>
-<var>${myusername}</var>
-<arg>${element}[A]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-31T13:21:24.002047" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-31T13:21:24.003050" level="INFO">${password} = secret_sauce</msg>
-<var>${password}</var>
-<arg>${element}[B]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-31T13:21:24.003050" elapsed="0.000000"/>
-</kw>
-<kw name="Input Text" owner="RPA.Browser">
-<msg time="2026-01-31T13:21:24.003050" level="INFO">Typing text 'standard_user' into text field 'css=#user-name'.</msg>
-<arg>css=#user-name</arg>
-<arg>${myusername}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-31T13:21:24.003050" elapsed="0.072043"/>
-</kw>
-<kw name="Input Password" owner="RPA.Browser">
-<msg time="2026-01-31T13:21:24.075093" level="INFO">Typing password into text field 'css:#password'.</msg>
-<msg time="2026-01-31T13:21:24.100119" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>css:#password</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-31T13:21:24.075093" elapsed="0.062533"/>
-</kw>
-<kw name="Click Element" owner="RPA.Browser">
-<msg time="2026-01-31T13:21:24.139144" level="INFO">Clicking element 'css:#login-button'.</msg>
-<arg>css:#login-button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-31T13:21:24.137626" elapsed="0.073620"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="RPA.Browser">
-<arg>Swag Labs</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-31T13:21:24.212752" elapsed="0.006075"/>
-</kw>
-<var name="${element}">{'A': 'standard_user', 'B': 'secret_sauce'}</var>
-<status status="PASS" start="2026-01-31T13:21:24.002047" elapsed="0.216780"/>
-</iter>
-<var>${element}</var>
-<value>@{myvalue}</value>
-<status status="PASS" start="2026-01-31T13:21:23.748699" elapsed="0.470128"/>
-</for>
-<status status="PASS" start="2026-01-31T13:21:22.264416" elapsed="1.954411"/>
+<status status="FAIL" start="2026-02-15T10:32:06.543040" elapsed="0.182234">Url: https://reqres.in/api/login Expected status: 403 != 200</status>
 </test>
-<status status="PASS" start="2026-01-31T13:21:21.677492" elapsed="2.541335"/>
+<status status="FAIL" start="2026-02-15T10:32:04.901540" elapsed="1.823734"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Readfile" id="s1" pass="1" fail="0" skip="0">Readfile</stat>
+<stat name="Token" id="s1" pass="0" fail="1" skip="0">Token</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2026-01-31T13:21:22.228722" level="WARN">This is a deprecated import that will be removed in favor of RPA.Browser.Selenium</msg>
+<msg time="2026-02-15T10:32:06.549547" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
 </errors>
 </robot>
