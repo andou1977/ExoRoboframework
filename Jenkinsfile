@@ -19,11 +19,10 @@ pipeline {
 
     post {
         always {
-            // Archive les fichiers (optionnel mais utile)
             archiveArtifacts artifacts: 'results/**', fingerprint: true
 
-            // Active le rapport Robot Framework dans Jenkins
-            robot outputPath: 'results/output.xml',
+            // IMPORTANT : on donne le dossier, pas le fichier
+            robot outputPath: 'results',
                   reportFileName: 'report.html',
                   logFileName: 'log.html'
         }
