@@ -31,8 +31,16 @@ Créer le command
     ${verify}=   To Json    ${thecommande2.content}
     Should Be Equal    ${verify['name']}    Hp victus 15
 
-    Open Browser   https://api.restful-api.dev/objects   chrome
-    Page Should Contain    ${verifyvariable}
+
+    Create Session   myjsonok   ${navigateur2}
+
+    ${the}=   GET On Session   myjsonok   ${id}
+    Status Should Be    200
+    ${verify2}=   To Json    ${the.content}
+    Should Be Equal    ${verify2['name']}    ${verifyvariableid}
+
+
+
 
 
 

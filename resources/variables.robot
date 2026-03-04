@@ -9,6 +9,10 @@ ${navigateur}    https://api.restful-api.dev
 
 ${verifyvariable}   Apple AirPods
 
+${navigateur2}   https://api.restful-api.dev
+${id}   /objects/5
+${verifyvariableid}   Samsung Galaxy Z Fold2
+
 
 
 

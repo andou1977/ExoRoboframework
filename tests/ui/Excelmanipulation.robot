@@ -5,7 +5,7 @@ Library    Collections
 
 
 *** Variables ***
-${FICHIER}    C://Users//GENIUS//IdeaProjects//ExoRoboframework//users.xlsx
+${FICHIER}    C://Users//GENIUS//IdeaProjects//ExoRoboframework//File//login.xlsx
 
 *** Test Cases ***
 Lire Mot De Passe Seulement
@@ -13,9 +13,9 @@ Lire Mot De Passe Seulement
     Open Workbook    ${FICHIER}
     ${lire}=  Read Worksheet As Table  header=true
     FOR    ${element}    IN    @{lire}
-     IF    '${element}[username]' == 'standard_user' and '${element}[MOTDEPASSE]' == 'secret_sauce'
-                ${USERNAME}=    Set Variable    ${element}[username]
-                ${PASSWORD}=    Set Variable    ${element}[MOTDEPASSE]
+     IF    '${element}[Username]' == 'standard_user' and '${element}[Password]' == 'secret_sauce'
+                ${USERNAME}=    Set Variable    ${element}[Username]
+                ${PASSWORD}=    Set Variable    ${element}[Password]
             END
 
        END
