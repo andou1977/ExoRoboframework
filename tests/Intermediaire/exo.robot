@@ -16,7 +16,7 @@ Manipuler Les Api request
     ${myrequest}=   GET On Session   manipuler    /objects
     Status Should Be    200
     ${nametest}=   To Json    ${myrequest.content}
-    ${first}=  Get From List   ${nametest}    0
+    ${first}=  Get From List   ${ nametest}    0
     Should Be Equal      ${first['name']}    Google Pixel 6 Pro
 
 Manipuler Fichier csv
